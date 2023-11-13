@@ -41,10 +41,19 @@ window.onload = () => {
       console.log(album.data[randomIndex]);
       const thisone = album.data[randomIndex];
       const img = document.querySelector(".album-img");
+      const player = document.querySelector(".player-img");
+      player.src = thisone.album.cover_small;
       img.src = thisone.album.cover_medium;
 
       const artistname = document.createElement("p");
       artistname.innerText = thisone.artist.name;
+      const playerText = document.getElementById("playerText");
+      const playerTitle = document.createElement("h6");
+      const playerArtist = document.createElement("p");
+      playerArtist.innerText = thisone.artist.name;
+      playerArtist.className = "myColor myFontP myColor";
+      playerTitle.innerText = thisone.title;
+      playerTitle.className = "text-white pt-2 myFontH6";
 
       const launchPhrase = document.createElement("p");
       launchPhrase.innerHTML = `Ascolta il nuovo singolo di ${thisone.artist.name}!`;
@@ -54,7 +63,11 @@ window.onload = () => {
       h2.innerText = thisone.title;
 
       const albumDetails = document.getElementById("albumDetails");
+      const playerDiv = document.querySelector(".myDivSize");
 
+      playerDiv.appendChild(player);
+      playerText.appendChild(playerTitle);
+      playerText.appendChild(playerArtist);
       albumDetails.appendChild(h6);
       albumDetails.appendChild(h2);
       albumDetails.appendChild(artistname);
