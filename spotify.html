@@ -13,13 +13,56 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Homepage</title>
   </head>
+
   <body>
-    <div class="row">
-      <div class="col-3 sidebar">
+    <div class="row text-bg-dark">
+      <div class="col-auto sidebar">
         <div class="navigation-menu p-3">
-          <p class="fw-bold"><i class="bi bi-house-door-fill me-1"></i> Home</p>
-          <p class="fw-bold"><i class="bi bi-search me-1"></i> Cerca</p>
-          <p class="fw-bold"><i class="bi bi-collection me-1"></i> La tua libreria</p>
+          <div class="home d-flex align-items-center">
+            <svg
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              class="Svg-sc-ytk21e-0 iYxpxA home-icon"
+              viewBox="0 0 24 24"
+            >
+              <path
+                class="home-icon"
+                d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
+              ></path>
+            </svg>
+            <p class="fw-bold m-1">Home</p>
+          </div>
+          <div class="search d-flex align-items-center">
+            <svg
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              class="Svg-sc-ytk21e-0 iYxpxA search-icon"
+              viewBox="0 0 24 24"
+            >
+              <path
+                class="search-icon"
+                d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"
+              ></path>
+            </svg>
+            <p class="fw-bold m-1">Cerca</p>
+          </div>
+          <div class="library d-flex align-items-center">
+            <svg
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              class="Svg-sc-ytk21e-0 iYxpxA library-icon"
+            >
+              <path
+                class="library-icon"
+                d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
+              ></path>
+            </svg>
+            <p class="fw-bold m-1">La tua libreria</p>
+          </div>
         </div>
         <div class="music-menu p-3 border-bottom border-secondary">
           <p class="fw-bold"><i class="bi bi-plus-square-fill me-1"></i> Crea playlist</p>
@@ -29,210 +72,90 @@
         <div class="playlist-list pt-2">
           <ul id="playlistList"></ul>
         </div>
+      </div>
+      <div class="col main">
+        <div class="navbar">
+          <div class="d-flex">
+            <div class="arrow-left">
+              <span class="text-light"><i class="bi bi-chevron-left"></i></span>
+            </div>
+            <div class="arrow-right">
+              <span class="text-light"><i class="bi bi-chevron-right"></i></span>
+            </div>
+          </div>
         </div>
-        <div class="col-8">
-          <div class="navbar">
-            <div class="d-flex">
-              <div class="bgarrow">
-                <span><i class="fas fa-chevron-left"></i></span>
-              </div>
-              <div class="bgarrow">
-                <span><i class="fas fa-chevron-right"></i></span>
-              </div>
-            </div>
-          </div>
-          <div class="mycont d-flex">
-            <div>
-              <img
-                src="./BW2-Spotify-assets/assets/imgs/main/image-1.jpg"
-                alt=""
-                class="myimg w-75"
-              />
-            </div>
-            <div>
-              <h6>ALBUM</h6>
-              <h1>VIOLA (feat.Salmo)</h1>
-              <p>Fedez, Salmo</p>
-              <p>Ascolta il nuovo singolo di Fedez e Salmo!</p>
-            </div>
-          </div>
-          <h3 class="my-3">Buonasera</h3>
-          <div class="container">
-            <div class="row g-2 mysecondrow">
-              <div class="col-4 mysecondcol">
-                <div class="d-flex">
-                  <div class="imgsecond">
-                    <img
-                      src="./BW2-Spotify-assets/assets/imgs/main/image-10.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div>
-                    <p>
-                      early stage emily syndrome
-                      <br />
-                      (sett-ott 2022)
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4 mysecondcol">
-                <div class="d-flex">
-                  <div class="imgsecond">
-                    <img
-                      src="./BW2-Spotify-assets/assets/imgs/main/image-10.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div>
-                    <p>
-                      early stage emily syndrome
-                      <br />
-                      (sett-ott 2022)
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4 mysecondcol">
-                <div class="d-flex">
-                  <div class="imgsecond">
-                    <img
-                      src="./BW2-Spotify-assets/assets/imgs/main/image-10.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div>
-                    <p>
-                      early stage emily syndrome
-                      <br />
-                      (sett-ott 2022)
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4 mysecondcol">
-                <div class="d-flex">
-                  <div class="imgsecond">
-                    <img
-                      src="./BW2-Spotify-assets/assets/imgs/main/image-10.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div>
-                    <p>
-                      early stage emily syndrome
-                      <br />
-                      (sett-ott 2022)
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4 mysecondcol">
-                <div class="d-flex">
-                  <div class="imgsecond">
-                    <img
-                      src="./BW2-Spotify-assets/assets/imgs/main/image-10.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div>
-                    <p>
-                      early stage emily syndrome
-                      <br />
-                      (sett-ott 2022)
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4 mysecondcol">
-                <div class="d-flex">
-                  <div class="imgsecond">
-                    <img
-                      src="./BW2-Spotify-assets/assets/imgs/main/image-10.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div>
-                    <p>
-                      early stage emily syndrome
-                      <br />
-                      (sett-ott 2022)
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="album d-flex">
           <div>
-            <h3 class="my-3">Altro di ciò che ti piace</h3>
-            <div class="row">
-              <div class="col-3">
-                <div class="card" style="background-color: #2c2c2c">
-                  <img
-                    src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  <div class="card-body text-white">
-                    <h5 class="card-title">Hot Hits Italia</h5>
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Maiores harum ratione accusamus
-                    </p>
-                  </div>
+            <img src="" alt="cover album" class="album-img w-75" />
+          </div>
+          <div id="albumDetails" class="mt-4"></div>
+        </div>
+        <h3 class="my-3">Buonasera</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-4 bg-secondary p-0 m-1 card-container">
+              <div class="random d-flex align-items-center">
+                <div class="playlist-img">
+                  <img src="./assets/imgs/main/image-10.jpg" alt="" class="card-img-left" />
                 </div>
-              </div>
-              <div class="col-3">
-                <div class="card" style="background-color: #2c2c2c">
-                  <img
-                    src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  <div class="card-body text-white">
-                    <h5 class="card-title">Hot Hits Italia</h5>
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Maiores harum ratione accusamus
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card" style="background-color: #2c2c2c">
-                  <img
-                    src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  <div class="card-body text-white">
-                    <h5 class="card-title">Hot Hits Italia</h5>
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Maiores harum ratione accusamus
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card" style="background-color: #2c2c2c">
-                  <img
-                    src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  <div class="card-body text-white">
-                    <h5 class="card-title">Hot Hits Italia</h5>
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Maiores harum ratione accusamus
-                    </p>
-                  </div>
+                <div class="playlist-txt ms-2">
+                  <p>early stage emily syndrome</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div>
+          <h3 class="my-3">Altro di ciò che ti piace</h3>
+          <div class="row">
+            <div class="col-3">
+              <div class="card" style="background-color: #2c2c2c">
+                <img src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg" class="card-img-top" alt="..." />
+                <div class="card-body text-white">
+                  <h5 class="card-title">Hot Hits Italia</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores harum ratione accusamus
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="card" style="background-color: #2c2c2c">
+                <img src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg" class="card-img-top" alt="..." />
+                <div class="card-body text-white">
+                  <h5 class="card-title">Hot Hits Italia</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores harum ratione accusamus
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="card" style="background-color: #2c2c2c">
+                <img src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg" class="card-img-top" alt="..." />
+                <div class="card-body text-white">
+                  <h5 class="card-title">Hot Hits Italia</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores harum ratione accusamus
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="card" style="background-color: #2c2c2c">
+                <img src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg" class="card-img-top" alt="..." />
+                <div class="card-body text-white">
+                  <h5 class="card-title">Hot Hits Italia</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores harum ratione accusamus
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

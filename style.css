@@ -11,6 +11,14 @@
     color: white;
     cursor: pointer;
 }
+svg{
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+.home:hover, .home-icon:hover, .search:hover, .search-icon:hover, .library:hover, .library-icon:hover {
+ color: white;
+}
 
 .playlist-list{
     height: 380px;
@@ -32,4 +40,36 @@
 }
 ::-webkit-scrollbar-thumb {
     background: grey;
+}
+
+.main{
+    overflow-y: auto;
+}
+.album{
+    background: rgb(38, 35, 35);
+  background: linear-gradient(17deg, #000000 30%, #54505000 72%);
+}
+.arrow-left, .arrow-right{
+    background-color: #212121;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-container{
+    border-radius: 3px;
+}
+.random{
+    overflow: hidden;
+    border-radius: 3px;
+    height: 4.2rem;
+}
+.playlist-img{
+    width: 30%;
+    height: 4.2rem;
+}
+.playlist-img img{
+    width: 100%;
 }
