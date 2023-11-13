@@ -1,0 +1,21 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+.sidebar{
+    background-color: black;
+}
+.navigation-menu p, .music-menu p{
+    color: grey;
+}
+.navigation-menu p:hover, .music-menu p:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.playlist-list{
+    height: 50%;
+    overflow: auto;
+}
+.playlist-list li{
+    list-style-type: none;
+    color: grey;
+}
