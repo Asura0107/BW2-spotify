@@ -51,7 +51,7 @@ window.onload = () => {
       const playerTitle = document.createElement("h6");
       const playerArtist = document.createElement("p");
       playerArtist.innerText = thisone.artist.name;
-      playerArtist.className = "myColor myFontP myColor";
+      playerArtist.className = "text-white player-text";
       playerTitle.innerText = thisone.title;
       playerTitle.className = "text-white pt-2 myFontH6";
 
@@ -63,7 +63,7 @@ window.onload = () => {
       h2.innerText = thisone.title;
 
       const albumDetails = document.getElementById("albumDetails");
-      const playerDiv = document.querySelector(".myDivSize");
+      const playerDiv = document.querySelector(".img-container");
 
       playerDiv.appendChild(player);
       playerText.appendChild(playerTitle);

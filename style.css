@@ -4,8 +4,14 @@ body{
     overflow-x: hidden;
 }
 
+/*SIDEBAR*/
 .sidebar{
     background-color: black;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block; */
 }
 .navigation-menu p, .music-menu p{
     color: grey;
@@ -23,7 +29,6 @@ svg{
 .home:hover, .home-icon:hover, .search:hover, .search-icon:hover, .library:hover, .library-icon:hover {
  color: white;
 }
-
 .playlist-list{
     height: 380px;
     overflow: auto;
@@ -35,7 +40,7 @@ svg{
     margin-left: -1em;
 }
 
-
+/*SCROLLBAR*/
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -46,8 +51,10 @@ svg{
     background: grey;
 }
 
+/*MAIN*/
 .main{
     overflow-y: auto;
+    background-color: #171717;
 }
 .album{
     background: rgb(38, 35, 35);
@@ -61,62 +68,63 @@ svg{
     text-align: center;
     cursor: pointer;
 }
-
-.card-container{
+.playlist-container{
     border-radius: 3px;
+    background-color: #2A2A2A;
 }
-.random{
+.random-playlists{
     overflow: hidden;
     border-radius: 3px;
     height: 4.2rem;
 }
 .playlist-img{
-    width: 30%;
     height: 4.2rem;
 }
 .playlist-img img{
-    width: 100%;
+    height: 4.5rem;
 }
 
-#myBg {
-    background-color: #202020;
-  }
-  
-  .myDiv {
+/*CARDS SECTION*/
+.card{
+    background-color: #2c2c2c;
+}
+
+/*PLAYER*/
+#bottomPlayer {
+    background-color: #181818;
+}
+.img-container {
+    width: 15%;
+}
+.img-container img{
     width: 100%;
-    height: 60px;
-  }
-  
-  .myDivSize {
-    width: 12%;
-  }
-  
-  .myButton {
+}
+.player-btn {
     background-color: transparent;
     border: none;
-  }
-  
-  .myFix {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-  }
-  
-  .myFontH6 {
-    font-size: 14px;
-  }
-  .myFontP {
-    font-size: 11px;
-  }
-  
-  .myColor {
+}
+.player-btn i{
     color: #bebcbc;
-  }
-  
-  .myFontI {
+}
+.player-text{
+    font-size: 11px;
+    color: #bebcbc
+}
+.player-bar{
+    width: 600px;
+    height: 3px;
+}
+.player-icons {
     font-size: 13px;
-  }
-  
-  .myFontI1 {
+}
+.player-volume {
     font-size: 16px;
-  }
+}
+.volume-bar{
+    width: 70px;
+    height: 3px;
+}
+  
+  
+  
+  
