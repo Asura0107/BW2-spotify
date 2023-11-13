@@ -53,7 +53,7 @@ window.onload = () => {
       playerArtist.innerText = thisone.artist.name;
       playerArtist.className = "text-white player-text";
       playerTitle.innerText = thisone.title;
-      playerTitle.className = "text-white pt-2 myFontH6";
+      playerTitle.className = "text-white pt-2";
 
       const launchPhrase = document.createElement("p");
       launchPhrase.innerHTML = `Ascolta il nuovo singolo di ${thisone.artist.name}!`;

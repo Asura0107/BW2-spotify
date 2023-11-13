@@ -16,6 +16,7 @@
 
   <body>
     <div class="row text-bg-dark">
+      <!--SIDEBAR-->
       <div class="col-auto sidebar">
         <div class="navigation-menu p-3">
           <div class="home d-flex align-items-center">
@@ -73,6 +74,7 @@
           <ul id="playlistList"></ul>
         </div>
       </div>
+      <!--MAIN-->
       <div class="col main">
         <div class="icons-bar m-2">
           <div class="d-flex">
@@ -84,6 +86,7 @@
             </div>
           </div>
         </div>
+        <!--MAIN ALBUM-->
         <div class="album d-flex">
           <div>
             <img src="" alt="cover album" class="album-img w-75" />
@@ -91,12 +94,13 @@
           <div id="albumDetails" class="mt-4"></div>
         </div>
         <h3 class="my-3">Buonasera</h3>
+        <!--PLAYLISTS RANDOM-->
         <div class="container">
-          <div class="row">
+          <div class="row" id="cardContainer">
             <div class="col-4 p-0 m-1 playlist-container">
               <div class="random-playlists d-flex align-items-center">
                 <div class="playlist-img">
-                  <img src="./assets/imgs/main/image-10.jpg" alt="" class="card-img-left" />
+                  <img src="./assets/imgs/main/image-10.jpg" alt="" />
                 </div>
                 <div class="playlist-txt ms-2">
                   <p>early stage emily syndrome</p>
@@ -107,10 +111,11 @@
         </div>
         <div>
           <h3 class="my-3">Altro di ciò che ti piace</h3>
+          <!--PLAYLISTS CARDS-->
           <div class="row">
             <div class="col-3">
               <div class="card">
-                <img src="./BW2-Spotify-assets/assets/imgs/main/image-13.jpg" class="card-img-top" alt="..." />
+                <img src="./assets/imgs/main/image-13.jpg" class="card-img-top p-3" alt="playlist cover" />
                 <div class="card-body text-white">
                   <h5 class="card-title">Hot Hits Italia</h5>
                   <p class="card-text">
@@ -123,6 +128,7 @@
         </div>
       </div>
     </div>
+    <!--PLAYER-->
     <section class="container">
       <div class="row fixed-bottom pe-2 pt-2" id="bottomPlayer">
         <div class="col d-flex">

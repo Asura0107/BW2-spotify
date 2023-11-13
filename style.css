@@ -54,7 +54,7 @@ svg{
 /*MAIN*/
 .main{
     overflow-y: auto;
-    background-color: #171717;
+    background-color: #121212;
 }
 .album{
     background: rgb(38, 35, 35);
@@ -86,7 +86,7 @@ svg{
 
 /*CARDS SECTION*/
 .card{
-    background-color: #2c2c2c;
+    background-color: #171717;
 }
 
 /*PLAYER*/
