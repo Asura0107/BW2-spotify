@@ -5,6 +5,7 @@
 }
 .navigation-menu p, .music-menu p{
     color: grey;
+    font-size: 0.9em;
 }
 .navigation-menu p:hover, .music-menu p:hover{
     color: white;
@@ -12,10 +13,22 @@
 }
 
 .playlist-list{
-    height: 50%;
+    height: 380px;
     overflow: auto;
 }
 .playlist-list li{
     list-style-type: none;
     color: grey;
+    font-size: 0.9em;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: black;
+}
+::-webkit-scrollbar-thumb {
+    background: grey;
 }
