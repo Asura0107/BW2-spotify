@@ -64,8 +64,6 @@ window.onload = () => {
 
       const albumContainer = document.getElementById("albumContainer");
       const hideDiv = document.createElement("div");
-      // hideDiv.className = "d-flex align-items-start justify-content-end";
-      hideDiv.className = "hide-div";
       const hideBtn = document.createElement("button");
       hideBtn.innerText = "NASCONDI ANNUNCI";
       hideBtn.className = "btn btn-dark";
@@ -116,4 +114,14 @@ window.onload = () => {
     document.getElementById("greetingTxt").innerHTML = text;
   }
   greetings();
+
+  //HIDE-CONTENT
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const hideButton = document.getElementById("hideBtn");
+  //   const content = document.getElementById("albumContainer");
+
+  //   hideButton.addEventListener("click", function () {
+  //     content.style.display = "none";
+  //   });
+  // });
 };

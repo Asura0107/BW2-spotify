@@ -80,9 +80,6 @@ svg{
 .album{
   background: linear-gradient(17deg, #000000 30%, #54505000 72%);
 }
-.hide-div{
-    float: right;
-}
 .arrow-left, .arrow-right{
     background-color: #212121;
     border-radius: 50%;
