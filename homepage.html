@@ -17,8 +17,9 @@
   <body>
     <div class="row text-bg-dark">
       <!--SIDEBAR-->
-      <div class="col-auto sidebar">
+      <div class="col-auto sidebar sticky-top">
         <div class="navigation-menu p-3">
+          <p>. . .</p>
           <div class="home d-flex align-items-center">
             <svg
               data-encore-id="icon"
@@ -76,8 +77,8 @@
       </div>
       <!--MAIN-->
       <div class="col main">
-        <div class="icons-bar m-2">
-          <div class="d-flex">
+        <div class="m-2 d-none d-lg-flex justify-content-between icons-bar">
+          <div class="nav-arrows d-flex">
             <div class="arrow-left me-2">
               <span class="text-light"><i class="bi bi-chevron-left"></i></span>
             </div>
@@ -85,9 +86,13 @@
               <span class="text-light"><i class="bi bi-chevron-right"></i></span>
             </div>
           </div>
+          <div class="user rounded-5 p-1 justify-content-center d-flex">
+            <img src="./assets/imgs/search/image-37.jpeg" alt="user image" class="rounded-circle pe-1" />
+            <p class="ms-2">Nome Utente <i class="bi bi-caret-down-fill"></i></p>
+          </div>
         </div>
         <!--MAIN ALBUM-->
-        <div class="album d-flex" id="albumContainer">
+        <div class="album d-none d-lg-flex" id="albumContainer">
           <div>
             <img src="" alt="cover album" class="album-img p-3" />
           </div>
@@ -96,43 +101,32 @@
             <button class="btn btn-dark hide-btn" id="hideBtn">NASCONDI ANNUNCI</button>
           </div>
         </div>
-        <h3 class="my-3" id="greetingTxt">Buonasera</h3>
+        <div class="greetings d-flex align-items-baseline justify-content-between">
+          <h3 class="my-3 me-3" id="greetingTxt">Buonasera</h3>
+          <div class="svg-greetings d-sm-block d-md-block d-lg-none">
+            <svg
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              class="Svg-sc-ytk21e-0 kPpCsU t93PZphItuM19kPhX7tC mb-1"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 1.5a4 4 0 0 0-4 4v3.27a.75.75 0 0 1-.1.373L2.255 12h11.49L12.1 9.142a.75.75 0 0 1-.1-.374V5.5a4 4 0 0 0-4-4zm-5.5 4a5.5 5.5 0 0 1 11 0v3.067l2.193 3.809a.75.75 0 0 1-.65 1.124H10.5a2.5 2.5 0 0 1-5 0H.957a.75.75 0 0 1-.65-1.124L2.5 8.569V5.5zm4.5 8a1 1 0 1 0 2 0H7z"
+              ></path>
+            </svg>
+            <i class="bi bi-clock-history"></i>
+            <i class="bi bi-gear"></i>
+          </div>
+        </div>
         <!--PLAYLISTS RANDOM-->
         <div class="container">
-          <div class="row" id="cardContainer">
-            <!-- <div class="col-4 p-0 m-1 playlist-container">
-              <div class="random-playlists d-flex align-items-center">
-                <div class="playlist-img">
-                  <img src="./assets/imgs/main/image-10.jpg" alt="" />
-                </div>
-                <div class="playlist-txt ms-2">
-                  <p>early stage emily syndrome</p>
-                </div>
-              </div>
-            </div> -->
-          </div>
+          <div class="row" id="cardContainer"></div>
         </div>
         <div>
           <h3 class="my-3">Altro di ciò che ti piace</h3>
           <!--PLAYLISTS CARDS-->
-          <div class="row row-card">
-            <!-- <div class="col-3">
-              <div class="card">
-                <img
-                  src="./assets/imgs/main/image-13.jpg"
-                  class="card-img-top p-3"
-                  alt="playlist cover"
-                />
-                <div class="card-body text-white">
-                  <h5 class="card-title">Hot Hits Italia</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Maiores harum ratione accusamus
-                  </p>
-                </div>
-              </div>
-            </div> -->
-          </div>
+          <div class="row row-card"></div>
         </div>
       </div>
     </div>

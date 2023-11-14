@@ -7,11 +7,8 @@ body{
 /*SIDEBAR*/
 .sidebar{
     background-color: black;
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: block; */
+    overflow: auto;
+    height: 100vh;
 }
 .navigation-menu p, .music-menu p{
     color: grey;
@@ -44,6 +41,7 @@ svg{
         display: none;
     }
     .sidebar{
+        height: 10vh;
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -91,6 +89,17 @@ svg{
     height: 25px;
     text-align: center;
     cursor: pointer;
+}
+.user{
+    background-color: black;
+    height: 1.8em;
+}
+.user p{
+    font-size: 0.8em;
+}
+.user:hover{
+    cursor: pointer;
+    background-color: #2A2A2A;
 }
 .play-album-btn{
     width: 5em;
