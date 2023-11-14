@@ -61,7 +61,7 @@ svg{
 
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
 }
 ::-webkit-scrollbar-track {
     background: black;
@@ -132,6 +132,31 @@ svg{
 /*CARDS SECTION*/
 .card{
     background-color: #171717;
+}
+
+/*FRIENDS ACTIVITIES*/
+.friends-section{
+    background-color: black;
+    overflow: auto;
+    height: 100vh;
+}
+.friends-section p{
+    font-size: 0.8em;
+}
+.friends-info{
+    width: 200px;
+    height: 60px;
+}
+.friends-info img{
+    width: 40px;
+    height: 40px;
+    margin-top: 0.5em;
+}
+.friends-info h6{
+    font-size: 0.8em;
+}
+.friends-info p{
+    color: #606060;
 }
 
 /*PLAYER*/
