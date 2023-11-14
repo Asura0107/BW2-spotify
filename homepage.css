@@ -116,6 +116,12 @@ svg{
 .playlist-container{
     border-radius: 3px;
     background-color: #2A2A2A;
+    width: 32%;
+}
+@media screen and (max-width: 992px){
+    .playlist-container{
+        background-color: #131313;
+    }
 }
 .random-playlists{
     overflow: hidden;
@@ -128,10 +134,21 @@ svg{
 .playlist-img img{
     height: 4.5rem;
 }
+.playlist-txt h6{
+    font-size: 0.8em;
+    text-overflow: ellipsis;
+}
 
 /*CARDS SECTION*/
 .card{
     background-color: #171717;
+}
+@media screen and (max-width:992px){
+    .card{
+        margin-inline: 5em;
+        margin-bottom: 2em;
+        padding: 2em
+    }
 }
 
 /*FRIENDS ACTIVITIES*/

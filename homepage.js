@@ -64,10 +64,10 @@ window.onload = () => {
 
       const playBtn = document.createElement("button");
       playBtn.innerText = "Play";
-      playBtn.className = "btn btn-success text-dark me-4 mb-3 rounded-5 play-album-btn fw-bold";
+      playBtn.className = "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
-      saveBtn.className = "btn btn-outline-light me-2 mb-3 rounded-5 save-album-btn fw-bold";
+      saveBtn.className = "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
       const moreBtn = document.createElement("button");
       moreBtn.innerText = ". . .";
       moreBtn.className = "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
@@ -136,7 +136,7 @@ window.onload = () => {
         const row = document.getElementById("cardContainer");
 
         const col = document.createElement("div");
-        col.className = "col-4 p-0 m-1 playlist-container ";
+        col.className = "col-lg-6 col-xl-3 p-0 m-1 playlist-container";
         row.appendChild(col);
 
         const divcard = document.createElement("div");
@@ -162,7 +162,7 @@ window.onload = () => {
       }
     });
 
-  //card
+  //CARD
   const selectedcard = ["jazz", "pop", "rock", "afro", "metal", "blues", "classic"];
 
   const randomcard = selectedcard[Math.floor(Math.random() * selectedcard.length)];
@@ -179,12 +179,12 @@ window.onload = () => {
 
       console.log(play);
       console.log(play.data[randomIndex]);
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 20; i++) {
         const song = play.data[randomIndex + i];
         const row = document.querySelector(".row-card");
 
         const col = document.createElement("div");
-        col.className = "col-3 text-truncate";
+        col.className = "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
         row.appendChild(col);
 
         const divcard = document.createElement("div");
