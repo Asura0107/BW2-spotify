@@ -4,8 +4,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((album) => {
@@ -71,13 +71,16 @@ window.onload = () => {
 
       const playBtn = document.createElement("button");
       playBtn.innerText = "Play";
-      playBtn.className = "btn btn-success text-dark me-4 mb-3 rounded-5 play-album-btn fw-bold";
+      playBtn.className =
+        "btn btn-success text-dark me-4 mb-3 rounded-5 play-album-btn fw-bold";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
-      saveBtn.className = "btn btn-outline-light me-2 mb-3 rounded-5 save-album-btn fw-bold";
+      saveBtn.className =
+        "btn btn-outline-light me-2 mb-3 rounded-5 save-album-btn fw-bold";
       const moreBtn = document.createElement("button");
       moreBtn.innerText = ". . .";
-      moreBtn.className = "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
+      moreBtn.className =
+        "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
 
       const albumDetails = document.getElementById("albumDetails");
       const playerDiv = document.querySelector(".img-container");
@@ -124,4 +127,111 @@ window.onload = () => {
   //     content.style.display = "none";
   //   });
   // });
+  //playlist
+  // const URL = "https://deezerdevs-deezer.p.rapidapi.com/playlist";
+  const selectedplay = ["workout", "eminem", "pink", "happy", "sad", "chill"];
+
+  const random = selectedplay[Math.floor(Math.random() * selectedplay.length)];
+  fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${random}`, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
+  })
+    .then((response) => response.json())
+    .then((play) => {
+      const randomIndex = Math.floor(Math.random() * play.data.length);
+
+      console.log(play);
+      console.log(play.data[randomIndex]);
+      for (let i = 0; i < 6; i++) {
+        const song = play.data[randomIndex + i];
+        const row = document.getElementById("cardContainer");
+
+        const col = document.createElement("div");
+        col.className = "col-4 p-0 m-1 playlist-container ";
+        row.appendChild(col);
+
+        const divcard = document.createElement("div");
+        divcard.className = "random-playlists d-flex align-items-center";
+        col.appendChild(divcard);
+
+        const divimg = document.createElement("div");
+        divimg.className = "playlist-img";
+        const img = document.createElement("img");
+        img.src = song.album.cover_small;
+        img.className = "card-img-left";
+        divimg.appendChild(img);
+        divcard.appendChild(divimg);
+
+        const cardbody = document.createElement("div");
+        cardbody.className = "playlist-txt ms-2";
+        divcard.appendChild(cardbody);
+
+        const title = document.createElement("h5");
+        title.innerText = song.album.title;
+
+        cardbody.appendChild(title);
+      }
+    });
+
+  //card
+  const selectedcard = [
+    "jazz",
+    "pop",
+    "rock",
+    "afro",
+    "metal",
+    "blues",
+    "classic"
+  ];
+
+  const randomcard =
+    selectedcard[Math.floor(Math.random() * selectedcard.length)];
+  fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${randomcard}`, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
+  })
+    .then((response) => response.json())
+    .then((play) => {
+      const randomIndex = Math.floor(Math.random() * play.data.length);
+
+      console.log(play);
+      console.log(play.data[randomIndex]);
+      for (let i = 0; i < 5; i++) {
+        const song = play.data[randomIndex + i];
+        const row = document.querySelector(".row-card");
+
+        const col = document.createElement("div");
+        col.className = "col-3 text-truncate";
+        row.appendChild(col);
+
+        const divcard = document.createElement("div");
+        divcard.className = "card";
+        col.appendChild(divcard);
+
+        const img = document.createElement("img");
+        img.src = song.album.cover_medium;
+        img.className = "card-img-top";
+        divcard.appendChild(img);
+
+        const cardbody = document.createElement("div");
+        cardbody.className = "card-body text-white";
+        divcard.appendChild(cardbody);
+
+        const title = document.createElement("h5");
+        title.className = " card-title ";
+        title.innerText = song.album.title;
+
+        cardbody.appendChild(title);
+
+        const text = document.createElement("p");
+        text.className = "card-text";
+        cardbody.appendChild(text);
+      }
+    });
 };
