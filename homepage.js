@@ -24,7 +24,7 @@ window.onload = () => {
       console.log(error);
     });
 
-  //ALBUM
+  //ALBUM & PLAYER
   const arr = ["eminem", "acdc"];
   const randomQuery = arr[Math.floor(Math.random() * arr.length)];
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${randomQuery}`, {
@@ -62,16 +62,41 @@ window.onload = () => {
       const h2 = document.createElement("h2");
       h2.innerText = thisone.title;
 
+      const albumContainer = document.getElementById("albumContainer");
+      const hideDiv = document.createElement("div");
+      // hideDiv.className = "d-flex align-items-start justify-content-end";
+      hideDiv.className = "hide-div";
+      const hideBtn = document.createElement("button");
+      hideBtn.innerText = "NASCONDI ANNUNCI";
+      hideBtn.className = "btn btn-dark";
+      hideBtn.id = "hideBtn";
+
+      const playBtn = document.createElement("button");
+      playBtn.innerText = "Play";
+      playBtn.className = "btn btn-success text-dark me-4 mb-3 rounded-5 play-album-btn fw-bold";
+      const saveBtn = document.createElement("button");
+      saveBtn.innerText = "Salva";
+      saveBtn.className = "btn btn-outline-light me-2 mb-3 rounded-5 save-album-btn fw-bold";
+      const moreBtn = document.createElement("button");
+      moreBtn.innerText = ". . .";
+      moreBtn.className = "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
+
       const albumDetails = document.getElementById("albumDetails");
       const playerDiv = document.querySelector(".img-container");
 
       playerDiv.appendChild(player);
       playerText.appendChild(playerTitle);
       playerText.appendChild(playerArtist);
+
+      hideDiv.appendChild(hideBtn);
+      albumContainer.appendChild(hideDiv);
       albumDetails.appendChild(h6);
       albumDetails.appendChild(h2);
       albumDetails.appendChild(artistname);
       albumDetails.appendChild(launchPhrase);
+      albumDetails.appendChild(playBtn);
+      albumDetails.appendChild(saveBtn);
+      albumDetails.appendChild(moreBtn);
     })
     .catch((error) => {
       console.log(error);

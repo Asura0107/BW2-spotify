@@ -78,8 +78,10 @@ svg{
     background-color: #121212;
 }
 .album{
-    background: rgb(38, 35, 35);
   background: linear-gradient(17deg, #000000 30%, #54505000 72%);
+}
+.hide-div{
+    float: right;
 }
 .arrow-left, .arrow-right{
     background-color: #212121;
@@ -88,6 +90,18 @@ svg{
     height: 25px;
     text-align: center;
     cursor: pointer;
+}
+.play-album-btn{
+    width: 5em;
+    background-color: #1ED760;
+}
+.save-album-btn{
+    width: 5em;
+}
+.more-album-btn{
+    width: 5em;
+    background: transparent;
+    border: none
 }
 .playlist-container{
     border-radius: 3px;
