@@ -4,8 +4,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((album) => {
@@ -187,8 +187,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
@@ -220,8 +220,10 @@ window.onload = () => {
         cardbody.className = "playlist-txt ms-2";
         divcard.appendChild(cardbody);
 
-        const title = document.createElement("h6");
+        const title = document.createElement("a");
         title.innerText = song.album.title;
+        title.href = `./album.html?song=${song.album.id}`;
+        title.className = "text-decoration-none text-white";
 
         cardbody.appendChild(title);
       }
@@ -235,7 +237,7 @@ window.onload = () => {
     "afro",
     "metal",
     "blues",
-    "classic",
+    "classic"
   ];
 
   const randomcard =
@@ -244,8 +246,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
