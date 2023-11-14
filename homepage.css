@@ -1,0 +1,172 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+body {
+  overflow-x: hidden;
+}
+
+/*SIDEBAR*/
+.sidebar {
+  background-color: black;
+  /* position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block; */
+}
+.navigation-menu p,
+.music-menu p {
+  color: grey;
+  font-size: 0.9em;
+}
+.navigation-menu p:hover,
+.music-menu p:hover {
+  color: white;
+  cursor: pointer;
+}
+svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+.home:hover,
+.home-icon:hover,
+.search:hover,
+.search-icon:hover,
+.library:hover,
+.library-icon:hover {
+  color: white;
+}
+.playlist-list {
+  height: 380px;
+  overflow: auto;
+}
+.playlist-list li {
+  list-style-type: none;
+  color: grey;
+  font-size: 0.9em;
+  margin-left: -1em;
+}
+@media screen and (max-width: 991px) {
+  .music-menu,
+  .playlist-list {
+    display: none;
+  }
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(0deg, #000000 30%, #54505000 72%);
+  }
+  .navigation-menu {
+    display: flex;
+    justify-content: center;
+  }
+  .home,
+  .search,
+  .library {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+}
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: black;
+}
+::-webkit-scrollbar-thumb {
+  background: grey;
+}
+
+/*MAIN*/
+.main {
+  overflow-y: auto;
+  background-color: #121212;
+}
+.album {
+  background: linear-gradient(17deg, #000000 30%, #54505000 72%);
+}
+.hide-div {
+  float: right;
+}
+.arrow-left,
+.arrow-right {
+  background-color: #212121;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.play-album-btn {
+  width: 5em;
+  background-color: #1ed760;
+}
+.save-album-btn {
+  width: 5em;
+}
+.more-album-btn {
+  width: 5em;
+  background: transparent;
+  border: none;
+}
+.playlist-container {
+  border-radius: 3px;
+  background-color: #2a2a2a;
+}
+.random-playlists {
+  overflow: hidden;
+  border-radius: 3px;
+  height: 4.2rem;
+}
+.playlist-img {
+  height: 4.2rem;
+}
+.playlist-img img {
+  height: 4.5rem;
+}
+
+/*CARDS SECTION*/
+.card {
+  background-color: #171717;
+}
+
+/*PLAYER*/
+#bottomPlayer {
+  background-color: #181818;
+}
+.img-container {
+  width: 15%;
+}
+.img-container img {
+  width: 100%;
+}
+.player-btn {
+  background-color: transparent;
+  border: none;
+}
+.player-btn i {
+  color: #bebcbc;
+}
+.player-text {
+  font-size: 11px;
+  color: #bebcbc;
+}
+.player-bar {
+  width: 600px;
+  height: 3px;
+}
+.player-icons {
+  font-size: 13px;
+}
+.player-volume {
+  font-size: 16px;
+}
+.volume-bar {
+  width: 70px;
+  height: 3px;
+}
