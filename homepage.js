@@ -51,7 +51,7 @@ window.onload = () => {
       const playerTitle = document.createElement("h6");
       const playerArtist = document.createElement("p");
       playerArtist.innerText = thisone.artist.name;
-      playerArtist.className = "text-white player-text";
+      playerArtist.className = "text-white player-text player-artist";
       playerTitle.innerText = thisone.title;
       playerTitle.className = "text-white pt-2";
 
@@ -64,13 +64,16 @@ window.onload = () => {
 
       const playBtn = document.createElement("button");
       playBtn.innerText = "Play";
-      playBtn.className = "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
+      playBtn.className =
+        "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
-      saveBtn.className = "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
+      saveBtn.className =
+        "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
       const moreBtn = document.createElement("button");
       moreBtn.innerText = ". . .";
-      moreBtn.className = "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
+      moreBtn.className =
+        "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
 
       const albumDetails = document.getElementById("albumDetails");
       const playerDiv = document.querySelector(".img-container");
@@ -86,6 +89,68 @@ window.onload = () => {
       albumDetails.appendChild(playBtn);
       albumDetails.appendChild(saveBtn);
       albumDetails.appendChild(moreBtn);
+
+      // PLAYER
+
+      const music = new Audio(thisone.preview);
+      //heart
+      const heartBtn = document.getElementById("heartBtn");
+
+      heartBtn.addEventListener("click", function () {
+        if (heartBtn.className === "bi bi-heart") {
+          heartBtn.className = "bi bi-heart-fill text-success";
+        } else {
+          heartBtn.className = "bi bi-heart";
+        }
+      });
+
+      // shuffle
+      const shuffleBtn = document.getElementById("shuffleBtn");
+
+      shuffleBtn.addEventListener("click", function () {
+        if (shuffleBtn.className === "bi bi-shuffle") {
+          shuffleBtn.className = "bi bi-shuffle text-success";
+        } else {
+          shuffleBtn.className = "bi bi-shuffle";
+        }
+      });
+
+      //back
+      const backBtn = document.getElementById("backBtn");
+
+      backBtn.addEventListener("click", function () {});
+
+      // play-pause
+      const playPauseBtn = document.getElementById("playPauseBtn");
+      const icon = document.getElementById("iconPlay");
+
+      playPauseBtn.addEventListener("click", function () {
+        if (icon.className === "bi-play-circle-fill text-white fs-3") {
+          icon.className = "bi-pause-circle-fill text-white fs-3";
+          music.play();
+        } else {
+          icon.className = "bi-play-circle-fill text-white fs-3";
+          music.pause();
+        }
+      });
+
+      //skip
+      const skipBtn = document.getElementById("skipBtn");
+
+      skipBtn.addEventListener("click", function () {});
+
+      //repeat
+      const repeatBtn = document.getElementById("repeatBtn");
+
+      repeatBtn.addEventListener("click", function () {
+        if (repeatBtn.className === "bi bi-repeat") {
+          repeatBtn.className = "bi bi-repeat text-success";
+          music.loop = true;
+        } else {
+          repeatBtn.className = "bi bi-repeat";
+          music.loop = false;
+        }
+      });
     })
     .catch((error) => {
       console.log(error);
@@ -163,9 +228,18 @@ window.onload = () => {
     });
 
   //CARD
-  const selectedcard = ["jazz", "pop", "rock", "afro", "metal", "blues", "classic"];
+  const selectedcard = [
+    "jazz",
+    "pop",
+    "rock",
+    "afro",
+    "metal",
+    "blues",
+    "classic",
+  ];
 
-  const randomcard = selectedcard[Math.floor(Math.random() * selectedcard.length)];
+  const randomcard =
+    selectedcard[Math.floor(Math.random() * selectedcard.length)];
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${randomcard}`, {
     method: "GET",
     headers: {
@@ -184,7 +258,8 @@ window.onload = () => {
         const row = document.querySelector(".row-card");
 
         const col = document.createElement("div");
-        col.className = "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
+        col.className =
+          "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
         row.appendChild(col);
 
         const divcard = document.createElement("div");
