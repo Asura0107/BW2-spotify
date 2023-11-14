@@ -16,7 +16,9 @@ body {
   font-size: 0.9em;
 }
 .navigation-menu p:hover,
-.music-menu p:hover {
+.music-menu p:hover, .home:hover,
+.search:hover,
+.library:hover  {
   color: white;
   cursor: pointer;
 }
@@ -24,14 +26,6 @@ svg {
   width: 1em;
   height: 1em;
   fill: currentColor;
-}
-.home:hover,
-.home-icon:hover,
-.search:hover,
-.search-icon:hover,
-.library:hover,
-.library-icon:hover {
-  color: white;
 }
 .playlist-list {
   height: 380px;
@@ -52,6 +46,7 @@ svg {
     height: 10vh;
     position: fixed;
     bottom: 0;
+    top: unset;
     width: 100%;
     z-index: 1;
     background: linear-gradient(0deg, #000000 30%, #54505000 72%);
