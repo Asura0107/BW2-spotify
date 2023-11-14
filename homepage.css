@@ -39,6 +39,27 @@ svg{
     font-size: 0.9em;
     margin-left: -1em;
 }
+@media screen and (max-width: 991px){
+    .music-menu, .playlist-list {
+        display: none;
+    }
+    .sidebar{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+        background: linear-gradient(0deg, #000000 30%, #54505000 72%);
+    }
+    .navigation-menu{
+        display: flex;
+        justify-content: center;
+    }
+    .home, .search, .library{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+}
 
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
