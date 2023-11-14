@@ -4,8 +4,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((album) => {
@@ -62,25 +62,15 @@ window.onload = () => {
       const h2 = document.createElement("h2");
       h2.innerText = thisone.title;
 
-      const albumContainer = document.getElementById("albumContainer");
-      const hideDiv = document.createElement("div");
-      const hideBtn = document.createElement("button");
-      hideBtn.innerText = "NASCONDI ANNUNCI";
-      hideBtn.className = "btn btn-dark";
-      hideBtn.id = "hideBtn";
-
       const playBtn = document.createElement("button");
       playBtn.innerText = "Play";
-      playBtn.className =
-        "btn btn-success text-dark me-4 mb-3 rounded-5 play-album-btn fw-bold";
+      playBtn.className = "btn btn-success text-dark me-4 mb-3 rounded-5 play-album-btn fw-bold";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
-      saveBtn.className =
-        "btn btn-outline-light me-2 mb-3 rounded-5 save-album-btn fw-bold";
+      saveBtn.className = "btn btn-outline-light me-2 mb-3 rounded-5 save-album-btn fw-bold";
       const moreBtn = document.createElement("button");
       moreBtn.innerText = ". . .";
-      moreBtn.className =
-        "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
+      moreBtn.className = "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
 
       const albumDetails = document.getElementById("albumDetails");
       const playerDiv = document.querySelector(".img-container");
@@ -89,8 +79,6 @@ window.onload = () => {
       playerText.appendChild(playerTitle);
       playerText.appendChild(playerArtist);
 
-      hideDiv.appendChild(hideBtn);
-      albumContainer.appendChild(hideDiv);
       albumDetails.appendChild(h6);
       albumDetails.appendChild(h2);
       albumDetails.appendChild(artistname);
@@ -119,16 +107,14 @@ window.onload = () => {
   greetings();
 
   //HIDE-CONTENT
-  // document.addEventListener("DOMContentLoaded", function () {
-  //   const hideButton = document.getElementById("hideBtn");
-  //   const content = document.getElementById("albumContainer");
+  const hideButton = document.getElementById("hideBtn");
+  const content = document.getElementById("albumContainer");
 
-  //   hideButton.addEventListener("click", function () {
-  //     content.style.display = "none";
-  //   });
-  // });
-  //playlist
-  // const URL = "https://deezerdevs-deezer.p.rapidapi.com/playlist";
+  hideButton.addEventListener("click", function () {
+    content.classList.add("d-none");
+  });
+
+  //PLAYLIST
   const selectedplay = ["workout", "eminem", "pink", "happy", "sad", "chill"];
 
   const random = selectedplay[Math.floor(Math.random() * selectedplay.length)];
@@ -136,8 +122,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((play) => {
@@ -169,7 +155,7 @@ window.onload = () => {
         cardbody.className = "playlist-txt ms-2";
         divcard.appendChild(cardbody);
 
-        const title = document.createElement("h5");
+        const title = document.createElement("h6");
         title.innerText = song.album.title;
 
         cardbody.appendChild(title);
@@ -177,24 +163,15 @@ window.onload = () => {
     });
 
   //card
-  const selectedcard = [
-    "jazz",
-    "pop",
-    "rock",
-    "afro",
-    "metal",
-    "blues",
-    "classic"
-  ];
+  const selectedcard = ["jazz", "pop", "rock", "afro", "metal", "blues", "classic"];
 
-  const randomcard =
-    selectedcard[Math.floor(Math.random() * selectedcard.length)];
+  const randomcard = selectedcard[Math.floor(Math.random() * selectedcard.length)];
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${randomcard}`, {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((play) => {

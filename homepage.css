@@ -80,6 +80,10 @@ svg{
 .album{
   background: linear-gradient(17deg, #000000 30%, #54505000 72%);
 }
+.hide-btn{
+    font-size: 0.6em;
+    opacity: 0.6;
+}
 .arrow-left, .arrow-right{
     background-color: #212121;
     border-radius: 50%;
