@@ -10,8 +10,8 @@ body {
   overflow: auto;
   height: 100vh;
 }
-.navigation-menu p,
-.music-menu p {
+.navigation-menu,
+.music-menu {
   color: grey;
   font-size: 0.9em;
 }
