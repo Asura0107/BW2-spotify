@@ -76,4 +76,19 @@ window.onload = () => {
     .catch((error) => {
       console.log(error);
     });
+
+  //GREETINGS
+  function greetings() {
+    let time = new Date().getHours();
+    let text = "";
+    if (time >= 0 && time < 12) {
+      text = "Buongiorno";
+    } else if (time >= 12 && time < 18) {
+      text = "Buon pomeriggio";
+    } else {
+      text = "Buonasera";
+    }
+    document.getElementById("greetingTxt").innerHTML = text;
+  }
+  greetings();
 };
