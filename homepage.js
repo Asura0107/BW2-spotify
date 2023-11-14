@@ -51,7 +51,7 @@ window.onload = () => {
       const playerTitle = document.createElement("h6");
       const playerArtist = document.createElement("p");
       playerArtist.innerText = thisone.artist.name;
-      playerArtist.className = "text-white player-text";
+      playerArtist.className = "text-white player-text player-artist";
       playerTitle.innerText = thisone.title;
       playerTitle.className = "text-white pt-2";
 
@@ -100,6 +100,68 @@ window.onload = () => {
       albumDetails.appendChild(playBtn);
       albumDetails.appendChild(saveBtn);
       albumDetails.appendChild(moreBtn);
+
+      // PLAYER
+
+      const music = new Audio(thisone.preview);
+      //heart
+      const heartBtn = document.getElementById("heartBtn");
+
+      heartBtn.addEventListener("click", function () {
+        if (heartBtn.className === "bi bi-heart") {
+          heartBtn.className = "bi bi-heart-fill text-success";
+        } else {
+          heartBtn.className = "bi bi-heart";
+        }
+      });
+
+      // shuffle
+      const shuffleBtn = document.getElementById("shuffleBtn");
+
+      shuffleBtn.addEventListener("click", function () {
+        if (shuffleBtn.className === "bi bi-shuffle") {
+          shuffleBtn.className = "bi bi-shuffle text-success";
+        } else {
+          shuffleBtn.className = "bi bi-shuffle";
+        }
+      });
+
+      //back
+      const backBtn = document.getElementById("backBtn");
+
+      backBtn.addEventListener("click", function () {});
+
+      // play-pause
+      const playPauseBtn = document.getElementById("playPauseBtn");
+      const icon = document.getElementById("iconPlay");
+
+      playPauseBtn.addEventListener("click", function () {
+        if (icon.className === "bi-play-circle-fill text-white fs-3") {
+          icon.className = "bi-pause-circle-fill text-white fs-3";
+          music.play();
+        } else {
+          icon.className = "bi-play-circle-fill text-white fs-3";
+          music.pause();
+        }
+      });
+
+      //skip
+      const skipBtn = document.getElementById("skipBtn");
+
+      skipBtn.addEventListener("click", function () {});
+
+      //repeat
+      const repeatBtn = document.getElementById("repeatBtn");
+
+      repeatBtn.addEventListener("click", function () {
+        if (repeatBtn.className === "bi bi-repeat") {
+          repeatBtn.className = "bi bi-repeat text-success";
+          music.loop = true;
+        } else {
+          repeatBtn.className = "bi bi-repeat";
+          music.loop = false;
+        }
+      });
     })
     .catch((error) => {
       console.log(error);
@@ -120,11 +182,3 @@ window.onload = () => {
   }
   greetings();
 };
-
-// PLAYER
-const playPauseBtn = document.getElementById("playPauseBtn");
-const icon = document.getElementById("iconPlay");
-
-playPauseBtn.addEventListener("click", function () {
-  icon.className = "bi-pause-circle-fill text-white fs-3";
-});

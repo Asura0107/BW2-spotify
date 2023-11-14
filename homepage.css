@@ -170,3 +170,53 @@ svg {
   width: 70px;
   height: 3px;
 }
+
+@media screen and (max-width: 768px) {
+  .row {
+    height: 60px;
+    position: fixed;
+    bottom: 10vh;
+  }
+  .img-container {
+    width: 50px;
+  }
+  .player-img {
+    border-radius: 50%;
+  }
+  .player-artist {
+    display: none;
+  }
+  .bi-shuffle {
+    display: none;
+  }
+  .bi-skip-backward-fill {
+    display: none;
+  }
+  .bi-skip-forward-fill {
+    display: none;
+  }
+  .bi-repeat {
+    display: none;
+  }
+  .player-text {
+    display: none;
+  }
+  .player-bar {
+    display: none;
+  }
+  .bi-pen {
+    display: none;
+  }
+  .bi-menu-button-wide-fill {
+    display: none;
+  }
+  .bi-volume-down {
+    display: none;
+  }
+  .volume-bar {
+    display: none;
+  }
+  .bi-arrows-fullscreen {
+    display: none;
+  }
+}
