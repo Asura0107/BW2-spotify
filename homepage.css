@@ -244,6 +244,9 @@ svg {
 .mic-icon {
   fill: currentColor;
 }
+.hide {
+  display: none;
+}
 
 @media screen and (max-width: 991px) {
   .music-player {
