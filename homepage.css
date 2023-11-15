@@ -28,7 +28,7 @@ svg {
   fill: currentColor;
 }
 .playlist-list {
-  height: 380px;
+  height: 350px;
   overflow: auto;
 }
 .playlist-list li {
@@ -82,7 +82,8 @@ svg {
 }
 .album {
   background: linear-gradient(17deg, #000000 30%, #54505000 72%);
-  position: relative;}
+  position: relative;
+}
 .hide-btn {
   font-size: 0.6em;
   opacity: 0.6;
