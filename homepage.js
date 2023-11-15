@@ -62,23 +62,14 @@ window.onload = () => {
       const h2 = document.createElement("h2");
       h2.innerText = thisone.title;
 
-      const albumContainer = document.getElementById("albumContainer");
-      const hideDiv = document.createElement("div");
-      // hideDiv.className = "d-flex align-items-start justify-content-end";
-      hideDiv.className = "hide-div";
-      const hideBtn = document.createElement("button");
-      hideBtn.innerText = "NASCONDI ANNUNCI";
-      hideBtn.className = "btn btn-dark";
-      hideBtn.id = "hideBtn";
-
       const playBtn = document.createElement("button");
       playBtn.innerText = "Play";
       playBtn.className =
-        "btn btn-success text-dark me-4 mb-3 rounded-5 play-album-btn fw-bold";
+        "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
       saveBtn.className =
-        "btn btn-outline-light me-2 mb-3 rounded-5 save-album-btn fw-bold";
+        "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
       const moreBtn = document.createElement("button");
       moreBtn.innerText = ". . .";
       moreBtn.className =
@@ -91,8 +82,6 @@ window.onload = () => {
       playerText.appendChild(playerTitle);
       playerText.appendChild(playerArtist);
 
-      hideDiv.appendChild(hideBtn);
-      albumContainer.appendChild(hideDiv);
       albumDetails.appendChild(h6);
       albumDetails.appendChild(h2);
       albumDetails.appendChild(artistname);
@@ -121,10 +110,8 @@ window.onload = () => {
       shuffleBtn.addEventListener("click", function () {
         if (shuffleBtn.className === "bi bi-shuffle") {
           shuffleBtn.className = "bi bi-shuffle text-success";
-          music.random = true;
         } else {
           shuffleBtn.className = "bi bi-shuffle";
-          music.random = false;
         }
       });
 
@@ -183,4 +170,120 @@ window.onload = () => {
     document.getElementById("greetingTxt").innerHTML = text;
   }
   greetings();
+
+  //HIDE-CONTENT
+  const hideButton = document.getElementById("hideBtn");
+  const content = document.getElementById("albumContainer");
+
+  hideButton.addEventListener("click", function () {
+    content.classList.add("d-lg-none");
+  });
+
+  //PLAYLIST
+  const selectedplay = ["workout", "eminem", "pink", "happy", "sad", "chill"];
+
+  const random = selectedplay[Math.floor(Math.random() * selectedplay.length)];
+  fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${random}`, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
+    .then((play) => {
+      console.log(play);
+      for (let i = 0; i < 6; i++) {
+        const randomIndex = Math.floor(Math.random() * play.data.length);
+        console.log(play.data[randomIndex]);
+        const song = play.data[randomIndex];
+        const row = document.getElementById("cardContainer");
+
+        const col = document.createElement("div");
+        col.className = "col-lg-6 col-xl-3 p-0 m-1 playlist-container";
+        row.appendChild(col);
+
+        const divcard = document.createElement("div");
+        divcard.className = "random-playlists d-flex align-items-center";
+        col.appendChild(divcard);
+
+        const divimg = document.createElement("div");
+        divimg.className = "playlist-img";
+        const img = document.createElement("img");
+        img.src = song.album.cover_small;
+        img.className = "card-img-left";
+        divimg.appendChild(img);
+        divcard.appendChild(divimg);
+
+        const cardbody = document.createElement("div");
+        cardbody.className = "playlist-txt ms-2";
+        divcard.appendChild(cardbody);
+
+        const title = document.createElement("a");
+        title.innerText = song.album.title;
+        title.href = `./album.html?song=${song.album.id}`;
+        title.className = "text-decoration-none text-white";
+
+        cardbody.appendChild(title);
+      }
+    });
+
+  //CARD
+  const selectedcard = [
+    "jazz",
+    "pop",
+    "rock",
+    "afro",
+    "metal",
+    "blues",
+    "classic",
+  ];
+
+  const randomcard =
+    selectedcard[Math.floor(Math.random() * selectedcard.length)];
+  fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${randomcard}`, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
+    .then((play) => {
+      console.log(play);
+      for (let i = 0; i < 20; i++) {
+        const randomIndex = Math.floor(Math.random() * play.data.length);
+        console.log(play.data[randomIndex]);
+        const song = play.data[randomIndex];
+        const row = document.querySelector(".row-card");
+
+        const col = document.createElement("div");
+        col.className =
+          "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
+        row.appendChild(col);
+
+        const divcard = document.createElement("div");
+        divcard.className = "card";
+        col.appendChild(divcard);
+
+        const img = document.createElement("img");
+        img.src = song.album.cover_medium;
+        img.className = "card-img-top";
+        divcard.appendChild(img);
+
+        const cardbody = document.createElement("div");
+        cardbody.className = "card-body text-white";
+        divcard.appendChild(cardbody);
+
+        const title = document.createElement("h5");
+        title.className = " card-title ";
+        title.innerText = song.album.title;
+
+        cardbody.appendChild(title);
+
+        const text = document.createElement("p");
+        text.className = "card-text";
+        cardbody.appendChild(text);
+      }
+    });
 };

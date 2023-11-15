@@ -67,7 +67,7 @@ svg {
 
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 ::-webkit-scrollbar-track {
   background: black;
@@ -75,21 +75,10 @@ svg {
 ::-webkit-scrollbar-thumb {
   background: grey;
 }
-
 /*MAIN*/
 .main {
   overflow-y: auto;
-  background-color: #121212;
-}
-.album {
-  background: linear-gradient(17deg, #000000 30%, #54505000 72%);
-  position: relative;
-}
-.hide-btn {
-  font-size: 0.6em;
-  opacity: 0.6;
-  position: absolute;
-  right: 0;
+  background-color: #171717;
 }
 .arrow-left,
 .arrow-right {
@@ -111,27 +100,9 @@ svg {
   cursor: pointer;
   background-color: #2a2a2a;
 }
-.play-album-btn {
-  width: 5em;
-  background-color: #1ed760;
-}
-.save-album-btn {
-  width: 5em;
-}
-.more-album-btn {
-  width: 5em;
-  background: transparent;
-  border: none;
-}
 .playlist-container {
   border-radius: 3px;
   background-color: #2a2a2a;
-  width: 32%;
-}
-@media screen and (max-width: 992px) {
-  .playlist-container {
-    background-color: #131313;
-  }
 }
 .random-playlists {
   overflow: hidden;
@@ -144,21 +115,8 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.playlist-txt h6 {
-  font-size: 0.8em;
-  text-overflow: ellipsis;
-}
-
-/*CARDS SECTION*/
-.card {
-  background-color: #171717;
-}
-@media screen and (max-width: 992px) {
-  .card {
-    margin-inline: 5em;
-    margin-bottom: 2em;
-    padding: 2em;
-  }
+.mydiv:hover {
+  background-color: #2a2a2a;
 }
 
 /*FRIENDS ACTIVITIES*/
@@ -220,54 +178,4 @@ svg {
 .volume-bar {
   width: 70px;
   height: 3px;
-}
-
-@media screen and (max-width: 768px) {
-  .row {
-    height: 60px;
-    position: fixed;
-    bottom: 10vh;
-  }
-  .img-container {
-    width: 50px;
-  }
-  .player-img {
-    border-radius: 50%;
-  }
-  .player-artist {
-    display: none;
-  }
-  .bi-shuffle {
-    display: none;
-  }
-  .bi-skip-backward-fill {
-    display: none;
-  }
-  .bi-skip-forward-fill {
-    display: none;
-  }
-  .bi-repeat {
-    display: none;
-  }
-  .player-text {
-    display: none;
-  }
-  .player-bar {
-    display: none;
-  }
-  .bi-pen {
-    display: none;
-  }
-  .bi-menu-button-wide-fill {
-    display: none;
-  }
-  .bi-volume-down {
-    display: none;
-  }
-  .volume-bar {
-    display: none;
-  }
-  .bi-arrows-fullscreen {
-    display: none;
-  }
 }
