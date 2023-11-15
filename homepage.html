@@ -148,10 +148,10 @@
     </div>
 
     <!--PLAYER-->
-    <section class="container">
-      <div class="row fixed-bottom pe-2 pt-2" id="bottomPlayer">
+    <section class="container containerPlayer">
+      <div class="row playerRow fixed-bottom pe-2 pt-2" id="bottomPlayer">
         <div class="col d-flex">
-          <div class="img-container p-2">
+          <div class="img-container img-container-player p-2">
             <img src="" alt="" class="rounded-1 player-img" />
           </div>
           <div id="playerText"></div>
@@ -161,8 +161,19 @@
             </button>
           </div>
         </div>
-
-        <div class="col d-flex flex-column justify-content-center">
+        <!-- div responsive -->
+        <div class="col divRes">
+          <button class="player-btn">
+            <i class="bi bi-pc-display player-icons displayResp"></i>
+          </button>
+          <button class="player-btn">
+            <i class="bi bi-heart heartRes"></i>
+          </button>
+          <button class="player-btn">
+            <i class="bi bi-play-fill playResp"></i>
+          </button>
+        </div>
+        <div class="col d-flex flex-column justify-content-center divPlayer">
           <div class="d-flex justify-content-center">
             <button class="player-btn">
               <i class="bi bi-shuffle" id="shuffleBtn"></i>
@@ -194,7 +205,9 @@
           </div>
         </div>
 
-        <div class="col d-flex align-items-center justify-content-end">
+        <div
+          class="col d-flex align-items-center justify-content-end divPlayer"
+        >
           <div class="d-flex align-self-center">
             <button class="player-btn">
               <i class="bi bi-pen player-icons"></i>
@@ -203,7 +216,7 @@
               <i class="bi bi-menu-button-wide-fill player-icons"></i>
             </button>
             <button class="player-btn">
-              <i class="bi bi-pc-display player-icons"></i>
+              <i class="bi bi-pc-display player-icons classDisplay"></i>
             </button>
 
             <button class="player-btn">

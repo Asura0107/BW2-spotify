@@ -121,8 +121,10 @@ window.onload = () => {
       shuffleBtn.addEventListener("click", function () {
         if (shuffleBtn.className === "bi bi-shuffle") {
           shuffleBtn.className = "bi bi-shuffle text-success";
+          music.random = true;
         } else {
           shuffleBtn.className = "bi bi-shuffle";
+          music.random = false;
         }
       });
 

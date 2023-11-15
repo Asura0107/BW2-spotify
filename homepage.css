@@ -7,16 +7,11 @@ body {
 /*SIDEBAR*/
 .sidebar {
   background-color: black;
-  /* position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: block; */
-}
-.navigation-menu p,
-.music-menu p {
-  color: grey;
-  font-size: 0.9em;
+  .navigation-menu p,
+  .music-menu p {
+    color: grey;
+    font-size: 0.9em;
+  }
 }
 .navigation-menu p:hover,
 .music-menu p:hover {
@@ -73,7 +68,6 @@ svg {
 
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
-  width: 12px;
 }
 ::-webkit-scrollbar-track {
   background: black;
@@ -90,8 +84,9 @@ svg {
 .album {
   background: linear-gradient(17deg, #000000 30%, #54505000 72%);
 }
-.hide-div {
-  float: right;
+.hide-btn {
+  font-size: 0.6em;
+  opacity: 0.6;
 }
 .arrow-left,
 .arrow-right {
@@ -101,6 +96,17 @@ svg {
   height: 25px;
   text-align: center;
   cursor: pointer;
+}
+.user {
+  background-color: black;
+  height: 1.8em;
+}
+.user p {
+  font-size: 0.8em;
+}
+.user:hover {
+  cursor: pointer;
+  background-color: #2a2a2a;
 }
 .play-album-btn {
   width: 5em;
@@ -117,6 +123,12 @@ svg {
 .playlist-container {
   border-radius: 3px;
   background-color: #2a2a2a;
+  width: 32%;
+}
+@media screen and (max-width: 992px) {
+  .playlist-container {
+    background-color: #131313;
+  }
 }
 .random-playlists {
   overflow: hidden;
@@ -129,10 +141,46 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
+.playlist-txt h6 {
+  font-size: 0.8em;
+  text-overflow: ellipsis;
+}
 
 /*CARDS SECTION*/
 .card {
   background-color: #171717;
+}
+@media screen and (max-width: 992px) {
+  .card {
+    margin-inline: 5em;
+    margin-bottom: 2em;
+    padding: 2em;
+  }
+}
+
+/*FRIENDS ACTIVITIES*/
+.friends-section {
+  background-color: black;
+  overflow: auto;
+  height: 100vh;
+}
+.friends-section p {
+  font-size: 0.8em;
+}
+.friends-info {
+  width: 200px;
+  height: 60px;
+}
+.friends-info img {
+  width: 40px;
+  height: 40px;
+  margin-top: 0.5em;
+}
+.friends-info h6 {
+  font-size: 0.8em;
+}
+.friends-info p {
+  color: #606060;
 }
 
 /*PLAYER*/
@@ -171,14 +219,62 @@ svg {
   height: 3px;
 }
 
+.displayResp {
+  display: none;
+}
+
+.heartRes {
+  display: none;
+}
+
+.playResp {
+  display: none;
+}
+
+.divRes {
+  display: none;
+}
 @media screen and (max-width: 768px) {
-  .row {
+  .displayResp {
+    display: flex;
+    color: white;
+    font-size: 20px;
+  }
+
+  .heartRes {
+    display: flex;
+    color: white;
+    font-size: 20px;
+  }
+  .divRes {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .playResp {
+    display: flex;
+    color: white;
+    font-size: 30px;
+  }
+
+  .divPlayer {
+    display: none;
+  }
+
+  #iconPlay {
+    display: none;
+  }
+  .playerRow {
     height: 60px;
     position: fixed;
-    bottom: 10vh;
+    bottom: 13vh;
   }
-  .img-container {
+
+  .img-container-player {
     width: 50px;
+  }
+  #heartBtn {
+    display: none;
   }
   .player-img {
     border-radius: 50%;
@@ -186,6 +282,7 @@ svg {
   .player-artist {
     display: none;
   }
+
   .bi-shuffle {
     display: none;
   }
@@ -217,6 +314,10 @@ svg {
     display: none;
   }
   .bi-arrows-fullscreen {
+    display: none;
+  }
+
+  .classDisplay {
     display: none;
   }
 }
