@@ -86,6 +86,47 @@ window.onload = () => {
         div.appendChild(time);
 
         container.appendChild(div);
+        //player
+
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const icon = document.getElementById("iconPlay");
+        const playerText = document.getElementById("playerText");
+        count.addEventListener("click", function () {
+          // clearPreviousTrackInfo();
+          const img = document.querySelector(".player-img");
+          img.src = single.album.cover_medium;
+
+          const playerTitle = document.createElement("h6");
+          const playerArtist = document.createElement("p");
+          playerArtist.innerText = single.artist.name;
+          playerArtist.className = "text-white player-text";
+          playerTitle.innerText = single.title;
+          playerTitle.className = "text-white pt-2 myFontH6";
+          playerText.appendChild(playerTitle);
+          playerText.appendChild(playerArtist);
+          fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + single.id, {
+            method: "GET",
+            headers: {
+              "X-RapidAPI-Key":
+                "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+            }
+          })
+            .then((response) => response.json())
+            .then((song) => {
+              console.log(song);
+              const music = new Audio(single.preview);
+              playPauseBtn.addEventListener("click", function () {
+                if (icon.className === "bi-play-circle-fill text-white fs-3") {
+                  icon.className = "bi-pause-circle-fill text-white fs-3";
+                  music.play();
+                } else {
+                  icon.className = "bi-play-circle-fill text-white fs-3";
+                  music.pause();
+                }
+              });
+            });
+        });
       }
     });
 };
