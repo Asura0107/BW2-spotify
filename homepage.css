@@ -82,10 +82,12 @@ svg {
 }
 .album {
   background: linear-gradient(17deg, #000000 30%, #54505000 72%);
-}
+  position: relative;}
 .hide-btn {
   font-size: 0.6em;
   opacity: 0.6;
+  position: absolute;
+  right: 0;
 }
 .arrow-left,
 .arrow-right {
