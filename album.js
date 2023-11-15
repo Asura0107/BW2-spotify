@@ -92,6 +92,7 @@ window.onload = () => {
         const icon = document.getElementById("iconPlay");
         const playerText = document.getElementById("playerText");
         count.addEventListener("click", function () {
+          playerText.innerHTML = "";
           // clearPreviousTrackInfo();
           const img = document.querySelector(".player-img");
           img.src = single.album.cover_medium;
