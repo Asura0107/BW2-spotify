@@ -141,8 +141,17 @@ svg {
 .track-txt p, .rank, .time{
   color: #818181;
 }
+.header{
+  background-color: grey;
+}
 .container-md{
-  background: linear-gradient(0deg, rgba(24,24,24,1) 77%, rgba(33,37,41,0) 100%);
+  background: linear-gradient(0deg, #181818 77%, #808080 100%);
+}
+.cover-container{
+  padding: 2em;
+}
+.coverimg{
+  box-shadow: 7px 4px 20px 4px rgba(0, 0, 0, 0.541);
 }
 
 /*FRIENDS ACTIVITIES*/
