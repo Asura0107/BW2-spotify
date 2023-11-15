@@ -143,8 +143,24 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.playlist-txt h6 {
+.playlist-txt{
   font-size: 0.8em;
+  white-space: nowrap; 
+  overflow: hidden; 
+  padding-right: 1em;
+  text-overflow: ellipsis;
+}
+.player-title, .player-artist{
+  width: 200px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+.card-title{
+  font-size: 1em;
+  white-space: nowrap; 
+  overflow: hidden; 
+  padding-right: 1em;
   text-overflow: ellipsis;
 }
 
@@ -190,7 +206,8 @@ svg {
   background-color: #181818;
 }
 .img-container {
-  width: 15%;
+  width: 60px;
+  height: 60px;
 }
 .img-container img {
   width: 100%;
@@ -205,7 +222,8 @@ svg {
   color: #bebcbc;
 }
 .player-bar {
-  width: 600px;
+  width: 100%; 
+  max-width: 600px; 
   height: 3px;
 }
 .player-icons {
@@ -232,7 +250,7 @@ svg {
     border-radius: 10px;
   }
   .img-container {
-    width: 50px;
+    width: 80px;
   }
   .player-img {
     border-radius: 50%;

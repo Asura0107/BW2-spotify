@@ -51,9 +51,9 @@ window.onload = () => {
       const playerTitle = document.createElement("h6");
       const playerArtist = document.createElement("p");
       playerArtist.innerText = thisone.artist.name;
-      playerArtist.className = "text-white player-artist";
+      playerArtist.className = "text-white p-0 m-0 player-artist";
       playerTitle.innerText = thisone.title;
-      playerTitle.className = "text-white pt-2";
+      playerTitle.className = "text-white p-0 m-0 player-title";
 
       const launchPhrase = document.createElement("p");
       launchPhrase.innerHTML = `Ascolta il nuovo singolo di ${thisone.artist.name}!`;
