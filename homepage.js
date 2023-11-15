@@ -45,7 +45,8 @@ window.onload = () => {
       player.src = thisone.album.cover_small;
       img.src = thisone.album.cover_medium;
 
-      const artistname = document.createElement("p");
+      const artistname = document.createElement("a");
+      artistname.href = `./artist.html?singer=${thisone.artist.id}.`;
       artistname.innerText = thisone.artist.name;
       const playerText = document.getElementById("playerText");
       const playerTitle = document.createElement("h6");

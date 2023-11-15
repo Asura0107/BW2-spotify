@@ -65,6 +65,11 @@ svg {
   }
 }
 
+.home {
+  text-decoration: none;
+  color: grey;
+}
+
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
   width: 12px;

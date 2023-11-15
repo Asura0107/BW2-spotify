@@ -14,7 +14,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="./artist.css" />
-    <title>Homepage</title>
+    <title>Artist</title>
   </head>
 
   <body>
@@ -78,30 +78,39 @@
             <i class="bi bi-bookmark me-1"></i> I tuoi episodi
           </p>
         </div>
+
         <div class="playlist-list pt-2">
           <ul id="playlistList"></ul>
         </div>
       </div>
+
+      <!-- MAIN -->
       <div class="col main">
-        <div class="icons-bar m-2">
-          <div class="d-flex">
-            <div class="arrow-left me-2">
-              <span class="text-light"><i class="bi bi-chevron-left"></i></span>
-            </div>
-            <div class="arrow-right me-2">
-              <span class="text-light"
-                ><i class="bi bi-chevron-right"></i
-              ></span>
+        <div class="divImgArtist">
+          <img src="" alt="" class="ImgArtistBig" />
+          <div class="icons-bar m-2">
+            <div class="d-flex">
+              <div class="arrow-left me-2">
+                <span class="text-light"
+                  ><i class="bi bi-chevron-left"></i
+                ></span>
+              </div>
+              <div class="arrow-right me-2">
+                <span class="text-light"
+                  ><i class="bi bi-chevron-right"></i
+                ></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="coverdiv d-flex align-items-end">
-          <div>
-            <img src="" alt="" class="coverimg" />
-          </div>
-          <div>
-            <h1 class="covertitle mb-5"></h1>
-            <h6 class="coverband"></h6>
+          <div class="coverdiv d-flex align-items-end">
+            <div>
+              <img src="" alt="" class="coverimg" />
+            </div>
+
+            <div class="divTextArtist">
+              <h1 class="covertitle mb-5"></h1>
+              <p class="coverFan"></p>
+            </div>
           </div>
         </div>
         <div class="container-md">
@@ -118,6 +127,7 @@
           </div>
         </div>
       </div>
+      <!-- FINE MAIN -->
     </div>
     <section class="container">
       <div class="row fixed-bottom pe-2 pt-2" id="bottomPlayer">
