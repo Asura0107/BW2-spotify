@@ -16,9 +16,10 @@ body {
   font-size: 0.9em;
 }
 .navigation-menu p:hover,
-.music-menu p:hover, .home:hover,
+.music-menu p:hover,
+.home:hover,
 .search:hover,
-.library:hover  {
+.library:hover {
   color: white;
   cursor: pointer;
 }
@@ -143,24 +144,28 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.playlist-txt{
+.playlist-txt {
   font-size: 0.8em;
-  white-space: nowrap; 
-  overflow: hidden; 
+  white-space: nowrap;
+  overflow: hidden;
   padding-right: 1em;
   text-overflow: ellipsis;
 }
-.player-title, .player-artist{
+.player-title,
+.player-artist {
   width: 200px;
-  white-space: nowrap; 
-  overflow: hidden; 
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
-.card-title{
+.card-title {
   font-size: 1em;
-  white-space: nowrap; 
-  overflow: hidden; 
+  white-space: nowrap;
+  overflow: hidden;
   padding-right: 1em;
+}
+.playlist-txt h6 {
+  font-size: 0.8em;
   text-overflow: ellipsis;
 }
 
@@ -222,8 +227,8 @@ svg {
   color: #bebcbc;
 }
 .player-bar {
-  width: 100%; 
-  max-width: 600px; 
+  width: 100%;
+  max-width: 600px;
   height: 3px;
 }
 .player-icons {
@@ -236,8 +241,8 @@ svg {
   width: 70px;
   height: 3px;
 }
-.mic-icon{
-  fill: currentColor
+.mic-icon {
+  fill: currentColor;
 }
 
 @media screen and (max-width: 991px) {

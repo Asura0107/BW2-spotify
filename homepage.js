@@ -45,7 +45,8 @@ window.onload = () => {
       player.src = thisone.album.cover_small;
       img.src = thisone.album.cover_medium;
 
-      const artistname = document.createElement("p");
+      const artistname = document.createElement("a");
+      artistname.href = `./artist.html?singer=${thisone.artist.id}.`;
       artistname.innerText = thisone.artist.name;
       const playerText = document.getElementById("playerText");
       const playerTitle = document.createElement("h6");
@@ -64,13 +65,16 @@ window.onload = () => {
 
       const playBtn = document.createElement("button");
       playBtn.innerText = "Play";
-      playBtn.className = "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
+      playBtn.className =
+        "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
-      saveBtn.className = "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
+      saveBtn.className =
+        "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
       const moreBtn = document.createElement("button");
       moreBtn.innerText = ". . .";
-      moreBtn.className = "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
+      moreBtn.className =
+        "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
 
       const albumDetails = document.getElementById("albumDetails");
       const playerDiv = document.querySelector(".img-container");
@@ -223,9 +227,18 @@ window.onload = () => {
     });
 
   //CARD
-  const selectedcard = ["jazz", "pop", "rock", "afro", "metal", "blues", "classic"];
+  const selectedcard = [
+    "jazz",
+    "pop",
+    "rock",
+    "afro",
+    "metal",
+    "blues",
+    "classic",
+  ];
 
-  const randomcard = selectedcard[Math.floor(Math.random() * selectedcard.length)];
+  const randomcard =
+    selectedcard[Math.floor(Math.random() * selectedcard.length)];
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${randomcard}`, {
     method: "GET",
     headers: {
@@ -243,7 +256,8 @@ window.onload = () => {
         const row = document.querySelector(".row-card");
 
         const col = document.createElement("div");
-        col.className = "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
+        col.className =
+          "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
         row.appendChild(col);
 
         const divcard = document.createElement("div");
