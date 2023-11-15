@@ -4,8 +4,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -48,20 +48,20 @@ window.onload = () => {
       h6.innerHTML = `${playlist.artist.name} · ${playlist.release_date} · ${start.length}`;
       console.log(start);
 
-      const container = document.querySelector(".myrow");
+      const container = document.querySelector(".row-container");
       for (let i = 0; i < start.length; i++) {
         const div = document.createElement("div");
-        div.classList.add("row", "align-items-center", "mydiv");
+        div.classList.add("row", "align-items-center", "track-div");
 
         const count = document.createElement("div");
         count.classList.add("col-auto", "count");
         count.innerText = i + 1;
         const single = start[i];
         const title = document.createElement("div");
-        title.classList.add("col-7", "title");
+        title.classList.add("col-7", "title", "mb-3");
         title.innerHTML = `
           <div class="d-flex">
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column track-txt">
               <h6>${single.title_short}</h6> 
               <p>${single.artist.name}</p>
             </div>
@@ -108,10 +108,9 @@ window.onload = () => {
           fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + single.id, {
             method: "GET",
             headers: {
-              "X-RapidAPI-Key":
-                "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-            }
+              "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+            },
           })
             .then((response) => response.json())
             .then((song) => {
