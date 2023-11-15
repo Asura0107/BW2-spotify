@@ -144,9 +144,6 @@ svg {
 .container-md{
   background: linear-gradient(0deg, rgba(24,24,24,1) 77%, rgba(33,37,41,0) 100%);
 }
-.header{
-  background-color: red;
-}
 
 /*FRIENDS ACTIVITIES*/
 .friends-section {
