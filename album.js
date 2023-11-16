@@ -117,14 +117,15 @@ window.onload = () => {
         const playPauseBtn = document.getElementById("playPauseBtn");
         const icon = document.getElementById("iconPlay");
         const playerText = document.getElementById("playerText");
+        const playerTitle = document.createElement("h6");
+        const playerArtist = document.createElement("p");
+
         count.addEventListener("click", function () {
           playerText.innerHTML = "";
           // clearPreviousTrackInfo();
           const img = document.querySelector(".player-img");
           img.src = single.album.cover_medium;
 
-          const playerTitle = document.createElement("h6");
-          const playerArtist = document.createElement("p");
           playerArtist.innerText = single.artist.name;
           playerArtist.className = "text-white player-text";
           playerTitle.innerText = single.title;
