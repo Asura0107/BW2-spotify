@@ -163,6 +163,7 @@ svg {
   width: 100%;
   height: 300px;
   background: no-repeat;
+  background-size: cover;
   object-fit: cover;
 
   box-shadow: inset -1px -36px 100px -23px #000000;
