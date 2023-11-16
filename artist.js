@@ -1,11 +1,13 @@
+const music = new Audio();
+
 window.onload = () => {
   //PLAYLIST-LIST
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=podcasts", {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +33,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -64,8 +66,8 @@ window.onload = () => {
           headers: {
             "X-RapidAPI-Key":
               "9f2e653d6emsh429ab7e0a4b2267p1e793fjsnef3468047633",
-            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-          },
+            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+          }
         }
       )
         .then((response) => response.json())
@@ -166,14 +168,14 @@ window.onload = () => {
                   headers: {
                     "X-RapidAPI-Key":
                       "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-                  },
+                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+                  }
                 }
               )
                 .then((response) => response.json())
                 .then((song) => {
                   console.log(song);
-                  const music = new Audio(start[i].preview);
+                  music.src = start[i].preview;
                   playPauseBtn.addEventListener("click", function () {
                     if (
                       icon.className === "bi-play-circle-fill text-white fs-3"
@@ -191,3 +193,125 @@ window.onload = () => {
         });
     });
 };
+//CERCA
+const formdiv = document.querySelector(".formdiv");
+
+const btnsearch = document.querySelector(".searchbtn");
+const searchinput = document.querySelector(".searchinput");
+const search = function () {
+  const resultcard = document.querySelector(".resultcard");
+  const pagefirst = document.querySelector(".pagefirst");
+  const headpage = document.querySelector(".headpage");
+  // const head = document.querySelector(".header");
+  const div = document.querySelector(".divImgArtist");
+  if (formdiv.classList.contains("hide")) {
+    formdiv.classList.remove("hide");
+    div.style.backgroundImage = "";
+    // head.classList.add("headerbrother");
+    pagefirst.classList.add("hide");
+    // div.classList.add("hide");
+    headpage.classList.add("hide");
+    resultcard.classList.remove("hide");
+  } else {
+    formdiv.classList.add("hide");
+    headpage.classList.remove("hide");
+    // div.classList.remove("hide");
+    // head.classList.remove("headerbrother");
+
+    pagefirst.classList.remove("hide");
+    resultcard.classList.add("hide");
+  }
+};
+// const resultcard = document.querySelector(".resulcard");
+// const row = document.querySelector(".rowcard");
+
+const searchform = document.querySelector(".searchform");
+searchform.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const param = searchinput.value;
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + param, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
+  })
+    .then((response) => response.json())
+    .then((play) => {
+      const row = document.querySelector(".rowcard");
+      row.innerHTML = "";
+      searchinput.value = "";
+      for (let i = 0; i < play.data.length; i++) {
+        console.log(play.data[i]);
+
+        const song = play.data[i];
+
+        const col = document.createElement("div");
+        col.className = "col-3 text-truncate gy-3";
+        row.appendChild(col);
+
+        const divcard = document.createElement("div");
+        divcard.className = "card";
+        divcard.classList.add("headerbrother");
+
+        col.appendChild(divcard);
+
+        const img = document.createElement("img");
+        img.src = song.album.cover_medium;
+        img.className = "card-img-top";
+        divcard.appendChild(img);
+
+        const cardbody = document.createElement("div");
+        cardbody.className = "card-body text-white";
+        divcard.appendChild(cardbody);
+
+        const title = document.createElement("h5");
+        title.className = "card-title titlecardsearch";
+        title.innerText = song.title;
+        cardbody.appendChild(title);
+
+        const text = document.createElement("a");
+        text.className = "card-text";
+        text.innerText = song.album.title;
+        text.href = `./album.html?song=${song.album.id}`;
+
+        cardbody.appendChild(text);
+        //player
+
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const icon = document.getElementById("iconPlay");
+        const playerText = document.getElementById("playerText");
+        const playerTitle = document.createElement("h6");
+        const playerArtist = document.createElement("p");
+        title.addEventListener("click", function () {
+          playerText.innerHTML = "";
+          music.src = song.preview;
+          // const music2 = new Audio(song.preview);
+
+          // clearPreviousTrackInfo();
+          const img = document.querySelector(".player-img");
+          img.src = song.album.cover_medium;
+
+          playerArtist.innerText = song.artist.name;
+          playerArtist.className = "text-white player-text";
+          playerTitle.innerText = song.title;
+          playerTitle.className = "text-white pt-2 track-txt";
+          playerText.appendChild(playerTitle);
+          playerText.appendChild(playerArtist);
+
+          let isPlaying = false;
+          playPauseBtn.addEventListener("click", function () {
+            if (!isPlaying) {
+              icon.className = "bi-pause-circle-fill text-white fs-3";
+              music.play();
+              isPlaying = true;
+            } else {
+              icon.className = "bi-play-circle-fill text-white fs-3";
+              music.pause();
+              isPlaying = false;
+            }
+          });
+        });
+      }
+    });
+});
