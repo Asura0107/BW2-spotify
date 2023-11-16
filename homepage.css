@@ -152,13 +152,14 @@ svg {
   text-overflow: ellipsis;
 }
 .player-title,
-.player-artist{
+.player-artist {
   width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.card-title, .card-body {
+.card-title,
+.card-body {
   font-size: 1em;
   white-space: nowrap;
   overflow: hidden;
@@ -252,6 +253,9 @@ input[type="range"] {
 a {
   text-decoration: none;
   color: white;
+}
+.titlecardsearch {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 991px) {

@@ -1,11 +1,12 @@
+const music = new Audio();
 window.onload = () => {
   //PLAYLIST-LIST
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=podcasts", {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +32,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((album) => {
@@ -66,14 +67,17 @@ window.onload = () => {
 
       const playBtn = document.createElement("button");
       playBtn.innerText = "Play";
-      playBtn.className = "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
+      playBtn.className =
+        "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
       playBtn.id = "playHeader";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
-      saveBtn.className = "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
+      saveBtn.className =
+        "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
       const moreBtn = document.createElement("button");
       moreBtn.innerText = ". . .";
-      moreBtn.className = "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
+      moreBtn.className =
+        "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
 
       const albumDetails = document.getElementById("albumDetails");
       const playerDiv = document.querySelector(".img-container");
@@ -91,7 +95,8 @@ window.onload = () => {
       albumDetails.appendChild(moreBtn);
 
       // PLAYER
-      const music = new Audio(thisone.preview);
+      music.src = thisone.preview;
+
       //heart
       const heartBtn = document.getElementById("heartBtn");
       heartBtn.addEventListener("click", function () {
@@ -195,8 +200,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
@@ -237,15 +242,24 @@ window.onload = () => {
     });
 
   //CARD
-  const selectedcard = ["jazz", "pop", "rock", "afro", "metal", "blues", "classic"];
+  const selectedcard = [
+    "jazz",
+    "pop",
+    "rock",
+    "afro",
+    "metal",
+    "blues",
+    "classic"
+  ];
 
-  const randomcard = selectedcard[Math.floor(Math.random() * selectedcard.length)];
+  const randomcard =
+    selectedcard[Math.floor(Math.random() * selectedcard.length)];
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + randomcard, {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
@@ -257,7 +271,8 @@ window.onload = () => {
         const row = document.querySelector(".row-card");
 
         const col = document.createElement("div");
-        col.className = "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
+        col.className =
+          "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
         row.appendChild(col);
 
         const divcard = document.createElement("div");
@@ -325,8 +340,8 @@ searchform.addEventListener("submit", (event) => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
@@ -356,7 +371,7 @@ searchform.addEventListener("submit", (event) => {
         divcard.appendChild(cardbody);
 
         const title = document.createElement("h5");
-        title.className = "card-title";
+        title.className = "card-title titlecardsearch";
         title.innerText = song.title;
         cardbody.appendChild(title);
 
@@ -366,6 +381,43 @@ searchform.addEventListener("submit", (event) => {
         text.href = `./album.html?song=${song.album.id}`;
 
         cardbody.appendChild(text);
+        //player
+
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const icon = document.getElementById("iconPlay");
+        const playerText = document.getElementById("playerText");
+        const playerTitle = document.createElement("h6");
+        const playerArtist = document.createElement("p");
+        title.addEventListener("click", function () {
+          playerText.innerHTML = "";
+          music.src = song.preview;
+          // const music2 = new Audio(song.preview);
+
+          // clearPreviousTrackInfo();
+          const img = document.querySelector(".player-img");
+          img.src = song.album.cover_medium;
+
+          playerArtist.innerText = song.artist.name;
+          playerArtist.className = "text-white player-text";
+          playerTitle.innerText = song.title;
+          playerTitle.className = "text-white pt-2 track-txt";
+          playerText.appendChild(playerTitle);
+          playerText.appendChild(playerArtist);
+
+          let isPlaying = false;
+          playPauseBtn.addEventListener("click", function () {
+            if (!isPlaying) {
+              icon.className = "bi-pause-circle-fill text-white fs-3";
+              music.play();
+              isPlaying = true;
+            } else {
+              icon.className = "bi-play-circle-fill text-white fs-3";
+              music.pause();
+              isPlaying = false;
+            }
+            current.preview = "";
+          });
+        });
       }
     });
 });
