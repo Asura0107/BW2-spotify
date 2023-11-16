@@ -53,89 +53,132 @@ window.onload = () => {
       p.className = "ms-2";
       console.log(p);
 
-      const container = document.querySelector(".myrow");
-      for (let i = 0; i < start.length; i++) {}
-      //   const div = document.createElement("div");
-      //   div.classList.add("row", "align-items-center", "mydiv");
+      // const title = document.querySelector(".covertitle");
+      // title.innerText = playlist.title;
+      // const start = playlist.id;
 
-      //   const count = document.createElement("div");
-      //   count.classList.add("col-auto", "count");
-      //   count.innerText = i + 1;
-      //   const single = start[i];
-      //   const title = document.createElement("div");
-      //   title.classList.add("col-7", "title");
-      //   title.innerHTML = `
-      //       <div class="d-flex">
-      //         <div class="d-flex flex-column">
-      //           <h6>${single.title_short}</h6>
-      //           <p>${single.artist.name}</p>
-      //         </div>
-      //       </div>`;
+      fetch(
+        `https://striveschool-api.herokuapp.com/api/deezer/artist/${playlist.id}/top?limit=10`,
+        {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "9f2e653d6emsh429ab7e0a4b2267p1e793fjsnef3468047633",
+            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((playlist) => {
+          console.log(playlist);
+          const start = playlist.data;
+          console.log(start);
+          for (let i = 0; i < start.length; i++) {
+            console.log(start);
 
-      //   const rank = document.createElement("div");
-      //   rank.classList.add("col-3", "rank");
-      //   rank.innerText = single.rank;
+            // row della sezione in basso
+            const divRow = document.createElement("div");
+            divRow.className = "row, rowDiv, d-flex";
 
-      //   const time = document.createElement("div");
-      //   time.classList.add("col-auto", "time");
-      //   const minutes = Math.floor(single.duration / 60);
-      //   const seconds = single.duration % 60;
-      //   if (seconds < 9) {
-      //     time.innerHTML = `${minutes}:0${seconds}`;
-      //   } else {
-      //     time.innerHTML = `${minutes}:${seconds}`;
-      //   }
-      //   div.appendChild(count);
-      //   div.appendChild(title);
-      //   div.appendChild(rank);
-      //   div.appendChild(time);
+            // col della canzone
+            const count = document.createElement("div");
+            count.className = "col-auto, colRow";
+            count.innerText = i + 1;
+            // const single = start[i];
 
-      //   container.appendChild(div);
-      //   //player
+            // titolo della canzone
+            const title = document.createElement("div");
+            title.className = "col-auto, title";
+            title.innerHTML = `
+        <div class="d-flex">
+          <div class="d-flex flex-column">
+            <h6>${start[i].title_short}</h6>
+          </div>
+        </div>`;
 
-      //   const playPauseBtn = document.getElementById("playPauseBtn");
-      //   const icon = document.getElementById("iconPlay");
-      //   const playerText = document.getElementById("playerText");
-      //   count.addEventListener("click", function () {
-      //     playerText.innerHTML = "";
-      //     // clearPreviousTrackInfo();
-      //     const divBg = document.querySelector(".divBg");
-      //     img.src = single.album.cover_medium;
+            // rank
+            const rank = document.createElement("div");
+            rank.classList.add("col-auto", "rank");
+            rank.innerText = start[i].rank;
 
-      //     const divSinger = document.createElement("div");
-      //     divSinger.className = "bdf";
+            // durata canzone
+            const time = document.createElement("div");
+            time.classList.add("col-auto", "time");
+            const minutes = Math.floor(start[i].duration / 60);
+            const seconds = start[i].duration % 60;
+            if (seconds < 9) {
+              time.innerHTML = `${minutes}:0${seconds}`;
+            } else {
+              time.innerHTML = `${minutes}:${seconds}`;
+            }
 
-      //     const playerTitle = document.createElement("h6");
-      //     const playerArtist = document.createElement("p");
-      //     playerArtist.innerText = single.artist.name;
-      //     playerArtist.className = "text-white player-text";
-      //     playerTitle.innerText = single.title;
-      //     playerTitle.className = "text-white pt-2 myFontH6";
-      //     playerText.appendChild(playerTitle);
-      //     playerText.appendChild(playerArtist);
-      //     fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + single.id, {
-      //       method: "GET",
-      //       headers: {
-      //         "X-RapidAPI-Key":
-      //           "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      //         "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-      //       },
-      //     })
-      //       .then((response) => response.json())
-      //       .then((song) => {
-      //         console.log(song);
-      //         const music = new Audio(single.preview);
-      //         playPauseBtn.addEventListener("click", function () {
-      //           if (icon.className === "bi-play-circle-fill text-white fs-3") {
-      //             icon.className = "bi-pause-circle-fill text-white fs-3";
-      //             music.play();
-      //           } else {
-      //             icon.className = "bi-play-circle-fill text-white fs-3";
-      //             music.pause();
-      //           }
-      // });
-      // });
-      // });
-      // }
+            const divF = document.querySelector(".divF");
+
+            // Tutti gli append
+            divRow.appendChild(count);
+            divRow.appendChild(title);
+            divRow.appendChild(rank);
+            divRow.appendChild(time);
+            divF.appendChild(divRow);
+
+            // div.appendChild(count);
+            // div.appendChild(title);
+            // div.appendChild(rank);
+            // div.appendChild(time);
+
+            // container.appendChild(div);
+
+            //player
+
+            const playPauseBtn = document.getElementById("playPauseBtn");
+            const icon = document.getElementById("iconPlay");
+            const playerText = document.getElementById("playerText");
+            count.addEventListener("click", function () {
+              playerText.innerHTML = "";
+              // clearPreviousTrackInfo();
+              const img = document.querySelector(".player-img");
+              img.src = start[i].album.cover_medium;
+
+              const divSinger = document.createElement("div");
+              divSinger.className = "bdf";
+
+              const playerTitle = document.createElement("h6");
+              const playerArtist = document.createElement("p");
+              playerArtist.innerText = start[i].artist.name;
+              playerArtist.className = "text-white player-text";
+              playerTitle.innerText = start[i].title;
+              playerTitle.className = "text-white pt-2 myFontH6";
+              playerText.appendChild(playerTitle);
+              playerText.appendChild(playerArtist);
+              fetch(
+                "https://deezerdevs-deezer.p.rapidapi.com/track/" + start[i].id,
+                {
+                  method: "GET",
+                  headers: {
+                    "X-RapidAPI-Key":
+                      "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+                  },
+                }
+              )
+                .then((response) => response.json())
+                .then((song) => {
+                  console.log(song);
+                  const music = new Audio(start[i].preview);
+                  playPauseBtn.addEventListener("click", function () {
+                    if (
+                      icon.className === "bi-play-circle-fill text-white fs-3"
+                    ) {
+                      icon.className = "bi-pause-circle-fill text-white fs-3";
+                      music.play();
+                    } else {
+                      icon.className = "bi-play-circle-fill text-white fs-3";
+                      music.pause();
+                    }
+                  });
+                });
+            });
+          }
+        });
     });
 };
