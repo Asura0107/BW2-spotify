@@ -210,9 +210,10 @@ svg {
 .player-volume {
   font-size: 16px;
 }
-.volume-bar {
-  width: 70px;
+input[type="range"] {
+  accent-color: white;
   height: 3px;
+  width: 80px;
 }
 .mic-icon{
   fill: currentColor
