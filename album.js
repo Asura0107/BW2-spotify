@@ -4,8 +4,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -44,8 +44,34 @@ window.onload = () => {
       title.innerText = playlist.title;
       const start = playlist.tracks.data;
 
-      const h6 = document.querySelector(".coverband");
-      h6.innerHTML = `${playlist.artist.name} · ${playlist.release_date} · ${start.length}`;
+      const link = document.createElement("a");
+      link.href = `./artist.html?singer=${playlist.artist.id}.`;
+      link.innerText = playlist.artist.name;
+      link.className = "text-decoration-none text-white me-1";
+
+      const date = document.createElement("p");
+      date.innerText = playlist.release_date;
+      date.className = "me-1";
+
+      const length = document.createElement("p");
+      length.innerText = start.length + " brani";
+      length.className = "me-1";
+
+      const dot = document.createElement("p");
+      dot.innerText = "·";
+      dot.className = "me-1";
+
+      const seconddot = document.createElement("p");
+      seconddot.innerText = "·";
+      seconddot.className = "me-1";
+
+      const divband = document.querySelector(".coverband");
+      divband.appendChild(link);
+      divband.appendChild(seconddot);
+      divband.appendChild(date);
+      divband.appendChild(dot);
+      divband.appendChild(length);
+
       console.log(start);
 
       const container = document.querySelector(".row-container");
@@ -108,9 +134,10 @@ window.onload = () => {
           fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + single.id, {
             method: "GET",
             headers: {
-              "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-            },
+              "X-RapidAPI-Key":
+                "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+            }
           })
             .then((response) => response.json())
             .then((song) => {
