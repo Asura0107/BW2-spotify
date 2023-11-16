@@ -146,13 +146,19 @@ svg {
   color: #818181;
 }
 .header {
-  background-color: #666666;
+  background-color: #3b3b3b;
 }
 .container-md {
-  background: linear-gradient(0deg, #181818 77%, #666666 100%);
+  max-width: 100%;
+  padding-inline: 1em;
+  background: linear-gradient(0deg, #181818 77%, #3b3b3b 100%);
 }
 .cover-container {
   padding: 2em;
+  max-width: 300px;
+}
+.cover-container img{
+  width: 100%;
 }
 .coverimg {
   box-shadow: 7px 4px 20px 4px rgba(0, 0, 0, 0.541);
@@ -166,6 +172,11 @@ a {
 }
 .headerbrother {
   background-color: #171717;
+}
+@media screen and (max-width: 991px){
+  .coverband{
+    flex-direction: column;
+  }
 }
 
 /*FRIENDS ACTIVITIES*/
@@ -206,6 +217,11 @@ a {
 }
 .player-btn {
   background-color: transparent;
+  border: none;
+  color: #bebcbc;
+}
+.player-btn-mobile{
+  font-size: 2em;background-color: transparent;
   border: none;
   color: #bebcbc;
 }

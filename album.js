@@ -59,11 +59,11 @@ window.onload = () => {
 
       const dot = document.createElement("p");
       dot.innerText = "·";
-      dot.className = "me-1";
+      dot.className = "me-1 d-none d-lg-flex";
 
       const seconddot = document.createElement("p");
       seconddot.innerText = "·";
-      seconddot.className = "me-1";
+      seconddot.className = "me-1 d-none d-lg-flex";
 
       const divband = document.querySelector(".coverband");
       divband.appendChild(link);
@@ -80,11 +80,11 @@ window.onload = () => {
         div.classList.add("row", "align-items-center", "track-div");
 
         const count = document.createElement("div");
-        count.classList.add("col-auto", "count");
+        count.classList.add("col-auto", "count", "d-none", "d-lg-flex");
         count.innerText = i + 1;
         const single = start[i];
         const title = document.createElement("div");
-        title.classList.add("col-7", "title", "mb-3");
+        title.classList.add("col-7", "title", "mb-3", "ms-3");
         title.innerHTML = `
           <div class="d-flex">
             <div class="d-flex flex-column track-txt">
@@ -94,11 +94,11 @@ window.onload = () => {
           </div>`;
 
         const rank = document.createElement("div");
-        rank.classList.add("col-3", "rank");
+        rank.classList.add("col-3", "rank", "d-none", "d-lg-flex");
         rank.innerText = single.rank;
 
         const time = document.createElement("div");
-        time.classList.add("col-auto", "time");
+        time.classList.add("col-auto", "time", "d-none", "d-lg-flex");
         const minutes = Math.floor(single.duration / 60);
         const seconds = single.duration % 60;
         if (seconds < 9) {
@@ -180,6 +180,7 @@ window.onload = () => {
       const playerArtist = document.createElement("p");
 
       randomPlay.addEventListener("click", function () {
+        playerText.innerHTML = "";
         if (!isPlaying) {
           icon.className = "bi-pause-circle-fill text-white fs-3";
           playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
