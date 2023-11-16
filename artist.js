@@ -80,15 +80,20 @@ window.onload = () => {
             const divRow = document.createElement("div");
             divRow.className = "row, rowDiv, d-flex";
 
-            // col della canzone
+            // numerino della canzone
             const count = document.createElement("div");
-            count.className = "col-auto, colRow";
+            count.className = "col-2, colRow";
             count.innerText = i + 1;
-            // const single = start[i];
+
+            //div immagine dell'album della canzone
+            const divImgAlbum = document.createElement("div");
+            divImgAlbum.className = "col-3 divSize";
+            divImgAlbum.style.backgroundImage = `url("${start[i].album.cover_small}")`;
+            console.log(divImgAlbum);
 
             // titolo della canzone
             const title = document.createElement("div");
-            title.className = "col-auto, title";
+            title.className = "col-3, title";
             title.innerHTML = `
         <div class="d-flex">
           <div class="d-flex flex-column">
@@ -98,12 +103,12 @@ window.onload = () => {
 
             // rank
             const rank = document.createElement("div");
-            rank.classList.add("col-auto", "rank");
+            rank.classList.add("col-3", "rank");
             rank.innerText = start[i].rank;
 
             // durata canzone
             const time = document.createElement("div");
-            time.classList.add("col-auto", "time");
+            time.classList.add("col-3", "time");
             const minutes = Math.floor(start[i].duration / 60);
             const seconds = start[i].duration % 60;
             if (seconds < 9) {
@@ -116,6 +121,7 @@ window.onload = () => {
 
             // Tutti gli append
             divRow.appendChild(count);
+            divRow.appendChild(divImgAlbum);
             divRow.appendChild(title);
             divRow.appendChild(rank);
             divRow.appendChild(time);
