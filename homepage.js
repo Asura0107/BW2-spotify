@@ -4,8 +4,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((album) => {
@@ -66,13 +66,16 @@ window.onload = () => {
 
       const playBtn = document.createElement("button");
       playBtn.innerText = "Play";
-      playBtn.className = "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
+      playBtn.className =
+        "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
-      saveBtn.className = "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
+      saveBtn.className =
+        "btn btn-outline-light me-3 mb-3 rounded-5 save-album-btn fw-bold";
       const moreBtn = document.createElement("button");
       moreBtn.innerText = ". . .";
-      moreBtn.className = "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
+      moreBtn.className =
+        "btn btn-secondary mb-3 rounded-5 more-album-btn fw-bold";
 
       const albumDetails = document.getElementById("albumDetails");
       const playerDiv = document.querySelector(".img-container");
@@ -183,8 +186,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
@@ -225,27 +228,37 @@ window.onload = () => {
     });
 
   //CARD
-  const selectedcard = ["jazz", "pop", "rock", "afro", "metal", "blues", "classic"];
+  const selectedcard = [
+    "jazz",
+    "pop",
+    "rock",
+    "afro",
+    "metal",
+    "blues",
+    "classic"
+  ];
 
-  const randomcard = selectedcard[Math.floor(Math.random() * selectedcard.length)];
+  const randomcard =
+    selectedcard[Math.floor(Math.random() * selectedcard.length)];
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + randomcard, {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
       console.log(play);
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 12; i++) {
         const randomIndex = Math.floor(Math.random() * play.data.length);
         console.log(play.data[randomIndex]);
         const song = play.data[randomIndex];
         const row = document.querySelector(".row-card");
 
         const col = document.createElement("div");
-        col.className = "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
+        col.className =
+          "col-sm-12 col-md-12 col-lg-3 g-1 justify-content-center";
         row.appendChild(col);
 
         const divcard = document.createElement("div");
@@ -261,15 +274,16 @@ window.onload = () => {
         cardbody.className = "card-body text-white";
         divcard.appendChild(cardbody);
 
-        const title = document.createElement("h5");
+        const title = document.createElement("a");
         title.className = " card-title ";
         title.innerText = song.album.title;
+        title.href = `./album.html?song=${song.album.id}`;
 
         cardbody.appendChild(title);
 
-        const text = document.createElement("p");
-        text.className = "card-text";
-        cardbody.appendChild(text);
+        // const text = document.createElement("p");
+        // text.className = "card-text";
+        // cardbody.appendChild(text);
       }
     });
 };
@@ -278,7 +292,7 @@ const formdiv = document.querySelector(".formdiv");
 
 const btnsearch = document.querySelector(".searchbtn");
 const searchinput = document.querySelector(".searchinput");
-btnsearch.addEventListener("click", function () {
+const search = function () {
   const resultcard = document.querySelector(".resultcard");
   const pagefirst = document.querySelector(".pagefirst");
   if (formdiv.classList.contains("hide")) {
@@ -292,18 +306,18 @@ btnsearch.addEventListener("click", function () {
     pagefirst.classList.remove("hide");
     resultcard.classList.add("hide");
   }
-});
-const resultcard = document.querySelector(".resulcard");
-const reset = () => {
-  const btnreset = document.querySelector(".btnreset");
-  const row = document.querySelector(".rowcard");
-
-  btnreset.addEventListener("click", function () {
-    row.innerHTML = "";
-    searchinput.value = "";
-  });
 };
-reset();
+const resultcard = document.querySelector(".resulcard");
+// const reset = () => {
+//   const btnreset = document.querySelector(".btnreset");
+//   const row = document.querySelector(".rowcard");
+
+//   btnreset.addEventListener("click", function () {
+//     row.innerHTML = "";
+//     searchinput.value = "";
+//   });
+// };
+// reset();
 const searchform = document.querySelector(".searchform");
 searchform.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -312,20 +326,21 @@ searchform.addEventListener("submit", (event) => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
+      const row = document.querySelector(".rowcard");
+      row.innerHTML = "";
+      searchinput.value = "";
       for (let i = 0; i < play.data.length; i++) {
         console.log(play.data[i]);
 
         const song = play.data[i];
 
-        const row = document.querySelector(".rowcard");
-
         const col = document.createElement("div");
-        col.className = "col-3 text-truncate";
+        col.className = "col-3 text-truncate gy-3";
         row.appendChild(col);
 
         const divcard = document.createElement("div");
@@ -342,7 +357,7 @@ searchform.addEventListener("submit", (event) => {
         divcard.appendChild(cardbody);
 
         const title = document.createElement("h5");
-        title.className = "card-title ms-2";
+        title.className = "card-title";
         title.innerText = song.title;
         cardbody.appendChild(title);
 

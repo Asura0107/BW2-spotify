@@ -247,6 +247,10 @@ svg {
 .hide {
   display: none;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
 
 @media screen and (max-width: 991px) {
   .music-player {
