@@ -16,13 +16,14 @@ body {
   font-size: 0.9em;
 }
 .navigation-menu p:hover,
-.music-menu p:hover, .home:hover,
+.music-menu p:hover,
+.home:hover,
 .search:hover,
-.library:hover  {
+.library:hover {
   color: white;
   cursor: pointer;
 }
-.home{
+.home {
   text-decoration: none;
   color: grey;
 }
@@ -118,40 +119,53 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.green-play{
+.green-play {
   color: #1ed760;
 }
-.table-titles{
+.table-titles {
   color: #818181;
   font-size: 0.8em;
 }
-.count{
+.count {
   color: #818181;
 }
 .track-div:hover {
   background-color: #2a2a2a;
 }
-.track-txt h6, .track-txt p{
+.track-txt h6,
+.track-txt p {
   margin: 0;
   padding: 0;
 }
 .track-txt h6 {
   margin-top: 1em;
 }
-.track-txt p, .rank, .time{
+.track-txt p,
+.rank,
+.time {
   color: #818181;
 }
-.header{
-  background-color:#666666;
+.header {
+  background-color: #666666;
 }
-.container-md{
+.container-md {
   background: linear-gradient(0deg, #181818 77%, #666666 100%);
 }
-.cover-container{
+.cover-container {
   padding: 2em;
 }
-.coverimg{
+.coverimg {
   box-shadow: 7px 4px 20px 4px rgba(0, 0, 0, 0.541);
+}
+.hide {
+  display: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.headerbrother {
+  background-color: #171717;
 }
 
 /*FRIENDS ACTIVITIES*/
@@ -200,8 +214,8 @@ svg {
   color: #bebcbc;
 }
 .player-bar {
-  width: 100%; 
-  max-width: 600px; 
+  width: 100%;
+  max-width: 600px;
   height: 3px;
 }
 .player-icons {
@@ -215,8 +229,8 @@ input[type="range"] {
   height: 3px;
   width: 80px;
 }
-.mic-icon{
-  fill: currentColor
+.mic-icon {
+  fill: currentColor;
 }
 
 @media screen and (max-width: 991px) {
