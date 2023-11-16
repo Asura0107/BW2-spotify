@@ -157,7 +157,7 @@ svg {
   padding: 2em;
   max-width: 300px;
 }
-.cover-container img{
+.cover-container img {
   width: 100%;
 }
 .coverimg {
@@ -173,8 +173,11 @@ a {
 .headerbrother {
   background-color: #171717;
 }
-@media screen and (max-width: 991px){
-  .coverband{
+.titlecardsearch {
+  cursor: pointer;
+}
+@media screen and (max-width: 991px) {
+  .coverband {
     flex-direction: column;
   }
 }
@@ -220,8 +223,9 @@ a {
   border: none;
   color: #bebcbc;
 }
-.player-btn-mobile{
-  font-size: 2em;background-color: transparent;
+.player-btn-mobile {
+  font-size: 2em;
+  background-color: transparent;
   border: none;
   color: #bebcbc;
 }
