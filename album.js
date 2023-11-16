@@ -9,8 +9,6 @@ window.onload = () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
       const list = document.getElementById("playlistList");
       for (let i = 0; i < data.data.length; i++) {
         const randomIndex = Math.floor(Math.random() * data.data.length);
@@ -88,7 +86,7 @@ window.onload = () => {
         title.innerHTML = `
           <div class="d-flex">
             <div class="d-flex flex-column track-txt">
-              <h6>${single.title_short}</h6> 
+            <h6 id="${single.title_short}">${single.title_short}</h6> 
               <p>${single.artist.name}</p>
             </div>
           </div>`;
@@ -119,10 +117,10 @@ window.onload = () => {
         const playerText = document.getElementById("playerText");
         const playerTitle = document.createElement("h6");
         const playerArtist = document.createElement("p");
+        const trackTime = document.getElementById("trackTime");
 
-        count.addEventListener("click", function () {
+        title.addEventListener("click", function () {
           playerText.innerHTML = "";
-          // clearPreviousTrackInfo();
           const img = document.querySelector(".player-img");
           img.src = single.album.cover_medium;
 
@@ -132,6 +130,7 @@ window.onload = () => {
           playerTitle.className = "text-white pt-2 track-txt";
           playerText.appendChild(playerTitle);
           playerText.appendChild(playerArtist);
+          trackTime.innerText = `${minutes}:${seconds}`;
           fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + single.id, {
             method: "GET",
             headers: {
@@ -143,13 +142,16 @@ window.onload = () => {
             .then((song) => {
               console.log(song);
               const music = new Audio(single.preview);
+              // let titleh6 = document.getElementById(`${single.title_short}`);
               playPauseBtn.addEventListener("click", function () {
                 if (icon.className === "bi-play-circle-fill text-white fs-3") {
                   icon.className = "bi-pause-circle-fill text-white fs-3";
                   music.play();
+                  // titleh6.classList.add("selected");
                 } else {
                   icon.className = "bi-play-circle-fill text-white fs-3";
                   music.pause();
+                  // titleh6.classList.remove("selected");
                 }
               });
             });
@@ -180,8 +182,8 @@ window.onload = () => {
       const playerArtist = document.createElement("p");
 
       randomPlay.addEventListener("click", function () {
-        playerText.innerHTML = "";
         if (!isPlaying) {
+          playerText.innerHTML = "";
           icon.className = "bi-pause-circle-fill text-white fs-3";
           playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
           music.play();
