@@ -4,8 +4,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -112,8 +112,8 @@ window.onload = () => {
         div.appendChild(time);
 
         container.appendChild(div);
-        //player
 
+        //player
         const playPauseBtn = document.getElementById("playPauseBtn");
         const icon = document.getElementById("iconPlay");
         const playerText = document.getElementById("playerText");
@@ -128,16 +128,15 @@ window.onload = () => {
           playerArtist.innerText = single.artist.name;
           playerArtist.className = "text-white player-text";
           playerTitle.innerText = single.title;
-          playerTitle.className = "text-white pt-2 myFontH6";
+          playerTitle.className = "text-white pt-2 track-txt";
           playerText.appendChild(playerTitle);
           playerText.appendChild(playerArtist);
           fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + single.id, {
             method: "GET",
             headers: {
-              "X-RapidAPI-Key":
-                "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-            }
+              "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+            },
           })
             .then((response) => response.json())
             .then((song) => {
@@ -156,13 +155,13 @@ window.onload = () => {
         });
       }
     });
-  //PLAY RANDOM SONG
+  //PLAY RANDOM SONG - VERDE
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -175,12 +174,25 @@ window.onload = () => {
       const icon = document.getElementById("iconPlay");
       const playPauseGreen = document.getElementById("playPauseGreen");
 
+      const img = document.querySelector(".player-img");
+      const playerTitle = document.createElement("h6");
+      const playerArtist = document.createElement("p");
+
       randomPlay.addEventListener("click", function () {
         if (!isPlaying) {
           icon.className = "bi-pause-circle-fill text-white fs-3";
           playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
           music.play();
           isPlaying = true;
+          //Player
+          img.src = tracks[randomIndex].album.cover_medium;
+          img.alt = "cover album";
+          playerArtist.innerText = tracks[randomIndex].artist.name;
+          playerArtist.className = "text-white player-text";
+          playerTitle.innerText = tracks[randomIndex].title;
+          playerTitle.className = "text-white pt-2 track-txt";
+          playerText.appendChild(playerTitle);
+          playerText.appendChild(playerArtist);
         } else {
           icon.className = "bi-play-circle-fill text-white fs-3";
           playPauseGreen.className = "bi bi-play-circle-fill fs-2 green-play";
@@ -190,8 +202,7 @@ window.onload = () => {
         playPauseBtn.addEventListener("click", function () {
           if (icon.className === "bi-play-circle-fill text-white fs-3") {
             icon.className = "bi-pause-circle-fill text-white fs-3";
-            playPauseGreen.className =
-              "bi bi-pause-circle-fill fs-2 green-play";
+            playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
             music.play();
           } else {
             icon.className = "bi-play-circle-fill text-white fs-3";
@@ -247,95 +258,3 @@ window.onload = () => {
     }
   });
 };
-
-//CERCA
-const formdiv = document.querySelector(".formdiv");
-
-const btnsearch = document.querySelector(".searchbtn");
-const searchinput = document.querySelector(".searchinput");
-const search = function () {
-  const resultcard = document.querySelector(".resultcard");
-  const pagefirst = document.querySelector(".pagefirst");
-  const headpage = document.querySelector(".headpage");
-  const head = document.querySelector(".header");
-  if (formdiv.classList.contains("hide")) {
-    formdiv.classList.remove("hide");
-    head.classList.add("headerbrother");
-    pagefirst.classList.add("hide");
-    headpage.classList.add("hide");
-    resultcard.classList.remove("hide");
-  } else {
-    formdiv.classList.add("hide");
-    headpage.classList.remove("hide");
-    head.classList.remove("headerbrother");
-
-    pagefirst.classList.remove("hide");
-    resultcard.classList.add("hide");
-  }
-};
-const resultcard = document.querySelector(".resulcard");
-const row = document.querySelector(".rowcard");
-// const reset = () => {
-//   const btnreset = document.querySelector(".btnreset");
-
-//   btnreset.addEventListener("click", function () {
-//     row.innerHTML = "";
-//     searchinput.value = "";
-//   });
-// };
-// reset();
-const searchform = document.querySelector(".searchform");
-searchform.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const param = searchinput.value;
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + param, {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
-  })
-    .then((response) => response.json())
-    .then((play) => {
-      const row = document.querySelector(".rowcard");
-      row.innerHTML = "";
-      searchinput.value = "";
-      const containerpagefirst = document.querySelector(".containerpagefirst");
-      containerpagefirst.className = "headerbrother";
-      for (let i = 0; i < play.data.length; i++) {
-        console.log(play.data[i]);
-
-        const song = play.data[i];
-
-        const col = document.createElement("div");
-        col.className = "col-3 text-truncate gy-3";
-        row.appendChild(col);
-
-        const divcard = document.createElement("div");
-        divcard.className = "card";
-        divcard.classList.add("headerbrother");
-        col.appendChild(divcard);
-
-        const img = document.createElement("img");
-        img.src = song.album.cover_medium;
-        img.className = "card-img-top";
-        divcard.appendChild(img);
-
-        const cardbody = document.createElement("div");
-        cardbody.className = "card-body text-white";
-        divcard.appendChild(cardbody);
-
-        const title = document.createElement("h5");
-        title.className = "card-title ";
-        title.innerText = song.title;
-        cardbody.appendChild(title);
-
-        const text = document.createElement("a");
-        text.className = "card-text";
-        text.innerText = song.album.title;
-        text.href = `./album.html?song=${song.album.id}`;
-
-        cardbody.appendChild(text);
-      }
-    });
-});
