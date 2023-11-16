@@ -76,24 +76,27 @@ window.onload = () => {
           for (let i = 0; i < start.length; i++) {
             console.log(start);
 
-            // row della sezione in basso
+            // row della sezione playlist
             const divRow = document.createElement("div");
-            divRow.className = "row, rowDiv, d-flex";
+            (divRow.className = "row"),
+              "rowDiv",
+              "d-flex",
+              "align-items-center";
 
             // numerino della canzone
             const count = document.createElement("div");
-            count.className = "col-2, colRow";
+            (count.className = "col-auto"), "colRow", "me-3";
             count.innerText = i + 1;
 
             //div immagine dell'album della canzone
             const divImgAlbum = document.createElement("div");
-            divImgAlbum.className = "col-3 divSize";
+            (divImgAlbum.className = "col-auto"), "divSize";
             divImgAlbum.style.backgroundImage = `url("${start[i].album.cover_small}")`;
             console.log(divImgAlbum);
 
             // titolo della canzone
             const title = document.createElement("div");
-            title.className = "col-3, title";
+            (title.className = "col-5"), "title";
             title.innerHTML = `
         <div class="d-flex">
           <div class="d-flex flex-column">
@@ -103,12 +106,12 @@ window.onload = () => {
 
             // rank
             const rank = document.createElement("div");
-            rank.classList.add("col-3", "rank");
+            rank.classList.add("col-auto", "rank");
             rank.innerText = start[i].rank;
 
             // durata canzone
             const time = document.createElement("div");
-            time.classList.add("col-3", "time");
+            time.classList.add("col-auto", "time");
             const minutes = Math.floor(start[i].duration / 60);
             const seconds = start[i].duration % 60;
             if (seconds < 9) {
