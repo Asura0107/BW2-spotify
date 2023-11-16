@@ -4,8 +4,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -134,10 +134,9 @@ window.onload = () => {
           fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + single.id, {
             method: "GET",
             headers: {
-              "X-RapidAPI-Key":
-                "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-            }
+              "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+            },
           })
             .then((response) => response.json())
             .then((song) => {
@@ -156,4 +155,84 @@ window.onload = () => {
         });
       }
     });
+  //PLAY RANDOM SONG
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
+    .then((playlist) => {
+      const randomPlay = document.getElementById("randomPlay");
+      let isPlaying = false;
+      const tracks = playlist.tracks.data;
+      const randomIndex = Math.floor(Math.random() * tracks.length);
+      const music = new Audio(tracks[randomIndex].preview);
+      const playPauseBtn = document.getElementById("playPauseBtn");
+      const icon = document.getElementById("iconPlay");
+      const playPauseGreen = document.getElementById("playPauseGreen");
+
+      randomPlay.addEventListener("click", function () {
+        if (!isPlaying) {
+          icon.className = "bi-pause-circle-fill text-white fs-3";
+          playPauseGreen.className = "bi bi-pause-fill fs-2 green-play";
+          music.play();
+          isPlaying = true;
+        } else {
+          icon.className = "bi-play-circle-fill text-white fs-3";
+          playPauseGreen.className = "bi bi-play-circle-fill fs-2 green-play";
+          music.pause();
+          isPlaying = false;
+        }
+        playPauseBtn.addEventListener("click", function () {
+          if (icon.className === "bi-play-circle-fill text-white fs-3") {
+            icon.className = "bi-pause-circle-fill text-white fs-3";
+            playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
+            music.play();
+          } else {
+            icon.className = "bi-play-circle-fill text-white fs-3";
+            playPauseGreen.className = "bi bi-play-circle-fill fs-2 green-play";
+            music.pause();
+          }
+        });
+      });
+    });
+  //PLAYER
+  //heart
+  const heartBtn = document.getElementById("heartBtn");
+  heartBtn.addEventListener("click", function () {
+    if (heartBtn.className === "bi bi-heart") {
+      heartBtn.className = "bi bi-heart-fill text-success";
+    } else {
+      heartBtn.className = "bi bi-heart";
+    }
+  });
+  // shuffle
+  const shuffleBtn = document.getElementById("shuffleBtn");
+  shuffleBtn.addEventListener("click", function () {
+    if (shuffleBtn.className === "bi bi-shuffle") {
+      shuffleBtn.className = "bi bi-shuffle text-success";
+    } else {
+      shuffleBtn.className = "bi bi-shuffle";
+    }
+  });
+  //back
+  const backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", function () {});
+  //skip
+  const skipBtn = document.getElementById("skipBtn");
+  skipBtn.addEventListener("click", function () {});
+  //repeat
+  const repeatBtn = document.getElementById("repeatBtn");
+  repeatBtn.addEventListener("click", function () {
+    if (repeatBtn.className === "bi bi-repeat") {
+      repeatBtn.className = "bi bi-repeat text-success";
+      music.loop = true;
+    } else {
+      repeatBtn.className = "bi bi-repeat";
+      music.loop = false;
+    }
+  });
 };

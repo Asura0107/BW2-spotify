@@ -142,10 +142,10 @@ svg {
   color: #818181;
 }
 .header{
-  background-color: grey;
+  background-color:#666666;
 }
 .container-md{
-  background: linear-gradient(0deg, #181818 77%, #808080 100%);
+  background: linear-gradient(0deg, #181818 77%, #666666 100%);
 }
 .cover-container{
   padding: 2em;

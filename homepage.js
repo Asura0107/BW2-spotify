@@ -94,7 +94,6 @@ window.onload = () => {
       const music = new Audio(thisone.preview);
       //heart
       const heartBtn = document.getElementById("heartBtn");
-
       heartBtn.addEventListener("click", function () {
         if (heartBtn.className === "bi bi-heart") {
           heartBtn.className = "bi bi-heart-fill text-success";
@@ -105,7 +104,6 @@ window.onload = () => {
 
       // shuffle
       const shuffleBtn = document.getElementById("shuffleBtn");
-
       shuffleBtn.addEventListener("click", function () {
         if (shuffleBtn.className === "bi bi-shuffle") {
           shuffleBtn.className = "bi bi-shuffle text-success";
@@ -152,7 +150,6 @@ window.onload = () => {
 
       //repeat
       const repeatBtn = document.getElementById("repeatBtn");
-
       repeatBtn.addEventListener("click", function () {
         if (repeatBtn.className === "bi bi-repeat") {
           repeatBtn.className = "bi bi-repeat text-success";

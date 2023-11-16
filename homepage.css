@@ -152,17 +152,18 @@ svg {
   text-overflow: ellipsis;
 }
 .player-title,
-.player-artist {
+.player-artist{
   width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.card-title {
+.card-title, .card-body {
   font-size: 1em;
   white-space: nowrap;
   overflow: hidden;
   padding-right: 1em;
+  text-overflow: ellipsis;
 }
 .playlist-txt h6 {
   font-size: 0.8em;
