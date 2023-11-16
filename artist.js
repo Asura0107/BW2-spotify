@@ -98,11 +98,11 @@ window.onload = () => {
             const title = document.createElement("div");
             (title.className = "col-5"), "title";
             title.innerHTML = `
-        <div class="d-flex">
-          <div class="d-flex flex-column">
-            <h6>${start[i].title_short}</h6>
-          </div>
-        </div>`;
+          <div class="d-flex">
+            <div class="d-flex flex-column">
+              <h6>${start[i].title_short}</h6>
+            </div>
+          </div>`;
 
             // rank
             const rank = document.createElement("div");

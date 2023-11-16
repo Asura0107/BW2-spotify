@@ -144,6 +144,28 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
+.playlist-txt {
+  font-size: 0.8em;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 1em;
+  text-overflow: ellipsis;
+}
+.player-title,
+.player-artist {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-title,
+.card-body {
+  font-size: 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 1em;
+  text-overflow: ellipsis;
+}
 .playlist-txt h6 {
   font-size: 0.8em;
   text-overflow: ellipsis;
@@ -191,7 +213,8 @@ svg {
   background-color: #181818;
 }
 .img-container {
-  width: 15%;
+  width: 60px;
+  height: 60px;
 }
 .img-container img {
   width: 100%;
@@ -199,8 +222,6 @@ svg {
 .player-btn {
   background-color: transparent;
   border: none;
-}
-.player-btn i {
   color: #bebcbc;
 }
 .player-text {
@@ -208,7 +229,8 @@ svg {
   color: #bebcbc;
 }
 .player-bar {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 3px;
 }
 .player-icons {
@@ -217,57 +239,35 @@ svg {
 .player-volume {
   font-size: 16px;
 }
-.volume-bar {
-  width: 70px;
+input[type="range"] {
+  accent-color: white;
   height: 3px;
+  width: 80px;
+}
+.mic-icon {
+  fill: currentColor;
+}
+.hide {
+  display: none;
+}
+a {
+  text-decoration: none;
+  color: white;
 }
 
-@media screen and (max-width: 768px) {
-  .row {
+@media screen and (max-width: 991px) {
+  .music-player {
     height: 60px;
     position: fixed;
     bottom: 10vh;
+    width: 95%;
+    margin-inline: auto;
+    border-radius: 10px;
   }
   .img-container {
-    width: 50px;
+    width: 80px;
   }
   .player-img {
     border-radius: 50%;
-  }
-  .player-artist {
-    display: none;
-  }
-  .bi-shuffle {
-    display: none;
-  }
-  .bi-skip-backward-fill {
-    display: none;
-  }
-  .bi-skip-forward-fill {
-    display: none;
-  }
-  .bi-repeat {
-    display: none;
-  }
-  .player-text {
-    display: none;
-  }
-  .player-bar {
-    display: none;
-  }
-  .bi-pen {
-    display: none;
-  }
-  .bi-menu-button-wide-fill {
-    display: none;
-  }
-  .bi-volume-down {
-    display: none;
-  }
-  .volume-bar {
-    display: none;
-  }
-  .bi-arrows-fullscreen {
-    display: none;
   }
 }

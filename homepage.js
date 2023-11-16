@@ -48,13 +48,14 @@ window.onload = () => {
       const artistname = document.createElement("a");
       artistname.href = `./artist.html?singer=${thisone.artist.id}.`;
       artistname.innerText = thisone.artist.name;
+      artistname.className = "text-decoration-none text-white";
       const playerText = document.getElementById("playerText");
       const playerTitle = document.createElement("h6");
       const playerArtist = document.createElement("p");
       playerArtist.innerText = thisone.artist.name;
-      playerArtist.className = "text-white player-text player-artist";
+      playerArtist.className = "text-white p-0 m-0 player-artist";
       playerTitle.innerText = thisone.title;
-      playerTitle.className = "text-white pt-2";
+      playerTitle.className = "text-white p-0 m-0 player-title";
 
       const launchPhrase = document.createElement("p");
       launchPhrase.innerHTML = `Ascolta il nuovo singolo di ${thisone.artist.name}!`;
@@ -67,6 +68,7 @@ window.onload = () => {
       playBtn.innerText = "Play";
       playBtn.className =
         "btn btn-success text-dark me-3 mb-3 rounded-5 play-album-btn fw-bold";
+      playBtn.id = "playHeader";
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Salva";
       saveBtn.className =
@@ -92,11 +94,9 @@ window.onload = () => {
       albumDetails.appendChild(moreBtn);
 
       // PLAYER
-
       const music = new Audio(thisone.preview);
       //heart
       const heartBtn = document.getElementById("heartBtn");
-
       heartBtn.addEventListener("click", function () {
         if (heartBtn.className === "bi bi-heart") {
           heartBtn.className = "bi bi-heart-fill text-success";
@@ -107,7 +107,6 @@ window.onload = () => {
 
       // shuffle
       const shuffleBtn = document.getElementById("shuffleBtn");
-
       shuffleBtn.addEventListener("click", function () {
         if (shuffleBtn.className === "bi bi-shuffle") {
           shuffleBtn.className = "bi bi-shuffle text-success";
@@ -118,12 +117,12 @@ window.onload = () => {
 
       //back
       const backBtn = document.getElementById("backBtn");
-
       backBtn.addEventListener("click", function () {});
 
       // play-pause
       const playPauseBtn = document.getElementById("playPauseBtn");
       const icon = document.getElementById("iconPlay");
+      const playHeader = document.getElementById("playHeader");
 
       playPauseBtn.addEventListener("click", function () {
         if (icon.className === "bi-play-circle-fill text-white fs-3") {
@@ -131,18 +130,29 @@ window.onload = () => {
           music.play();
         } else {
           icon.className = "bi-play-circle-fill text-white fs-3";
+          playHeader.innerText = "Play";
+          music.pause();
+        }
+      });
+      playHeader.addEventListener("click", function () {
+        const icon = document.getElementById("iconPlay");
+        if (icon.className === "bi-play-circle-fill text-white fs-3") {
+          icon.className = "bi-pause-circle-fill text-white fs-3";
+          playHeader.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+          music.play();
+        } else {
+          icon.className = "bi-play-circle-fill text-white fs-3";
+          playHeader.innerText = "Play";
           music.pause();
         }
       });
 
       //skip
       const skipBtn = document.getElementById("skipBtn");
-
       skipBtn.addEventListener("click", function () {});
 
       //repeat
       const repeatBtn = document.getElementById("repeatBtn");
-
       repeatBtn.addEventListener("click", function () {
         if (repeatBtn.className === "bi bi-repeat") {
           repeatBtn.className = "bi bi-repeat text-success";
@@ -184,7 +194,7 @@ window.onload = () => {
   const selectedplay = ["workout", "eminem", "pink", "happy", "sad", "chill"];
 
   const random = selectedplay[Math.floor(Math.random() * selectedplay.length)];
-  fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${random}`, {
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + random, {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
@@ -242,7 +252,7 @@ window.onload = () => {
 
   const randomcard =
     selectedcard[Math.floor(Math.random() * selectedcard.length)];
-  fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${randomcard}`, {
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + randomcard, {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
@@ -252,7 +262,7 @@ window.onload = () => {
     .then((response) => response.json())
     .then((play) => {
       console.log(play);
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 12; i++) {
         const randomIndex = Math.floor(Math.random() * play.data.length);
         console.log(play.data[randomIndex]);
         const song = play.data[randomIndex];
@@ -276,15 +286,99 @@ window.onload = () => {
         cardbody.className = "card-body text-white";
         divcard.appendChild(cardbody);
 
-        const title = document.createElement("h5");
+        const title = document.createElement("a");
         title.className = " card-title ";
         title.innerText = song.album.title;
+        title.href = `./album.html?song=${song.album.id}`;
 
         cardbody.appendChild(title);
 
-        const text = document.createElement("p");
-        text.className = "card-text";
-        cardbody.appendChild(text);
+        // const text = document.createElement("p");
+        // text.className = "card-text";
+        // cardbody.appendChild(text);
       }
     });
 };
+//CERCA
+const formdiv = document.querySelector(".formdiv");
+
+const btnsearch = document.querySelector(".searchbtn");
+const searchinput = document.querySelector(".searchinput");
+const search = function () {
+  const resultcard = document.querySelector(".resultcard");
+  const pagefirst = document.querySelector(".pagefirst");
+  if (formdiv.classList.contains("hide")) {
+    formdiv.classList.remove("hide");
+
+    pagefirst.classList.add("hide");
+    resultcard.classList.remove("hide");
+  } else {
+    formdiv.classList.add("hide");
+
+    pagefirst.classList.remove("hide");
+    resultcard.classList.add("hide");
+  }
+};
+const resultcard = document.querySelector(".resulcard");
+// const reset = () => {
+//   const btnreset = document.querySelector(".btnreset");
+//   const row = document.querySelector(".rowcard");
+
+//   btnreset.addEventListener("click", function () {
+//     row.innerHTML = "";
+//     searchinput.value = "";
+//   });
+// };
+// reset();
+const searchform = document.querySelector(".searchform");
+searchform.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const param = searchinput.value;
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + param, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
+    .then((play) => {
+      const row = document.querySelector(".rowcard");
+      row.innerHTML = "";
+      searchinput.value = "";
+      for (let i = 0; i < play.data.length; i++) {
+        console.log(play.data[i]);
+
+        const song = play.data[i];
+
+        const col = document.createElement("div");
+        col.className = "col-3 text-truncate gy-3";
+        row.appendChild(col);
+
+        const divcard = document.createElement("div");
+        divcard.className = "card";
+        col.appendChild(divcard);
+
+        const img = document.createElement("img");
+        img.src = song.album.cover_medium;
+        img.className = "card-img-top";
+        divcard.appendChild(img);
+
+        const cardbody = document.createElement("div");
+        cardbody.className = "card-body text-white";
+        divcard.appendChild(cardbody);
+
+        const title = document.createElement("h5");
+        title.className = "card-title";
+        title.innerText = song.title;
+        cardbody.appendChild(title);
+
+        const text = document.createElement("a");
+        text.className = "card-text";
+        text.innerText = song.album.title;
+        text.href = `./album.html?song=${song.album.id}`;
+
+        cardbody.appendChild(text);
+      }
+    });
+});

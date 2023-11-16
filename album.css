@@ -23,6 +23,10 @@ body {
   color: white;
   cursor: pointer;
 }
+.home {
+  text-decoration: none;
+  color: grey;
+}
 svg {
   width: 1em;
   height: 1em;
@@ -65,14 +69,9 @@ svg {
   }
 }
 
-.home {
-  text-decoration: none;
-  color: grey;
-}
-
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: black;
@@ -120,8 +119,53 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.mydiv:hover {
+.green-play {
+  color: #1ed760;
+}
+.table-titles {
+  color: #818181;
+  font-size: 0.8em;
+}
+.count {
+  color: #818181;
+}
+.track-div:hover {
   background-color: #2a2a2a;
+}
+.track-txt h6,
+.track-txt p {
+  margin: 0;
+  padding: 0;
+}
+.track-txt h6 {
+  margin-top: 1em;
+}
+.track-txt p,
+.rank,
+.time {
+  color: #818181;
+}
+.header {
+  background-color: #666666;
+}
+.container-md {
+  background: linear-gradient(0deg, #181818 77%, #666666 100%);
+}
+.cover-container {
+  padding: 2em;
+}
+.coverimg {
+  box-shadow: 7px 4px 20px 4px rgba(0, 0, 0, 0.541);
+}
+.hide {
+  display: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.headerbrother {
+  background-color: #171717;
 }
 
 /*FRIENDS ACTIVITIES*/
@@ -154,7 +198,8 @@ svg {
   background-color: #181818;
 }
 .img-container {
-  width: 15%;
+  width: 60px;
+  height: 60px;
 }
 .img-container img {
   width: 100%;
@@ -162,8 +207,6 @@ svg {
 .player-btn {
   background-color: transparent;
   border: none;
-}
-.player-btn i {
   color: #bebcbc;
 }
 .player-text {
@@ -171,7 +214,8 @@ svg {
   color: #bebcbc;
 }
 .player-bar {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 3px;
 }
 .player-icons {
@@ -180,7 +224,28 @@ svg {
 .player-volume {
   font-size: 16px;
 }
-.volume-bar {
-  width: 70px;
+input[type="range"] {
+  accent-color: white;
   height: 3px;
+  width: 80px;
+}
+.mic-icon {
+  fill: currentColor;
+}
+
+@media screen and (max-width: 991px) {
+  .music-player {
+    height: 60px;
+    position: fixed;
+    bottom: 10vh;
+    width: 95%;
+    margin-inline: auto;
+    border-radius: 10px;
+  }
+  .img-container {
+    width: 80px;
+  }
+  .player-img {
+    border-radius: 50%;
+  }
 }

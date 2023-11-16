@@ -20,11 +20,11 @@
   <body>
     <div class="row text-bg-dark">
       <!--SIDEBAR-->
-      <div class="col-auto sidebar sticky-top">
+      <div class="col-auto sidebar sticky-top pe-0">
         <div class="navigation-menu p-3">
-          <p>. . .</p>
+          <i class="bi bi-three-dots d-none d-lg-flex"></i>
           <div class="home">
-            <a href="homepage.html" class="home d-flex align-items-center"
+            <a href="homepage.html" class="home d-flex align-items-center m-0"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
@@ -54,7 +54,7 @@
                 d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"
               ></path>
             </svg>
-            <p class="fw-bold m-1">Cerca</p>
+            <p class="fw-bold m-1" onclick="search()">Cerca</p>
           </div>
           <div class="library d-flex align-items-center">
             <svg
@@ -91,52 +91,104 @@
         </div>
       </div>
       <!--MAIN-->
-      <div class="col main">
-        <div class="m-2 d-none d-lg-flex justify-content-between icons-bar">
-          <div class="nav-arrows d-flex">
-            <div class="arrow-left me-2">
-              <span class="text-light"><i class="bi bi-chevron-left"></i></span>
+      <div class="col main p-0">
+        <div class="header">
+          <div class="p-2 d-none d-lg-flex justify-content-between icons-bar">
+            <div class="nav-arrows d-flex">
+              <div class="arrow-left me-2">
+                <span class="text-light"
+                  ><i class="bi bi-chevron-left"></i
+                ></span>
+              </div>
+              <div class="arrow-right me-2">
+                <span class="text-light"
+                  ><i class="bi bi-chevron-right"></i
+                ></span>
+              </div>
             </div>
-            <div class="arrow-right me-2">
-              <span class="text-light"
-                ><i class="bi bi-chevron-right"></i
-              ></span>
-            </div>
-          </div>
-          <div class="user rounded-5 p-1 justify-content-center d-flex">
-            <img
-              src="./assets/imgs/search/image-37.jpeg"
-              alt="user image"
-              class="rounded-circle pe-1"
-            />
-            <p class="ms-2">
-              Nome Utente <i class="bi bi-caret-down-fill"></i>
-            </p>
-          </div>
-        </div>
-        <div class="coverdiv d-flex align-items-end">
-          <div>
-            <img src="" alt="" class="coverimg" />
-          </div>
-          <div>
-            <h1 class="covertitle mb-5"></h1>
-            <h6 class="coverband"></h6>
-          </div>
-        </div>
-        <div class="container-md">
-          <div class="row myrow">
-            <div class="row my-4">
-              <div class="col-auto">#</div>
-              <div class="col-7">TITOLO</div>
+            <div class="formdiv hide">
+              <form class="searchform">
+                <!-- <label for="input"></label><br /> -->
 
-              <div class="col-3">RIPRODUZIONI</div>
-              <div class="col-auto">
-                <i class="bi bi-clock number"></i>
+                <div class="input-group mb-3 div-input">
+                  <button class="btn btn-outline-secondary send-button">
+                    <i class="bi bi-search"></i>
+                  </button>
+                  <input
+                    type="text"
+                    placeholder="Search for your favorite music"
+                    class="form-control searchinput"
+                    required
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="user rounded-5 p-1 justify-content-center d-flex">
+              <img
+                src="./assets/imgs/search/image-37.jpeg"
+                alt="user image"
+                class="rounded-circle pe-1"
+              />
+              <p class="ms-2">
+                Nome Utente <i class="bi bi-caret-down-fill"></i>
+              </p>
+            </div>
+          </div>
+          <div class="headpage">
+            <div class="coverdiv d-flex align-items-end">
+              <div class="cover-container">
+                <img src="" alt="" class="coverimg" />
+              </div>
+              <div class="header-txt pb-4">
+                <h1 class="covertitle"></h1>
+                <div class="coverband d-flex"></div>
               </div>
             </div>
           </div>
         </div>
+        <div class="container-md containerpagefirst">
+          <div class="pagefirst">
+            <div class="row row-container d-flex align-items-center">
+              <div class="col buttons-icons mt-3 mb-3">
+                <button class="player-btn play-random" id="randomPlay">
+                  <i
+                    class="bi bi-play-circle-fill fs-2 green-play"
+                    id="playPauseGreen"
+                  ></i>
+                </button>
+                <button class="player-btn">
+                  <i class="bi bi-heart" id="heartHeader"></i>
+                </button>
+                <button class="player-btn">
+                  <i class="bi bi-arrow-down-circle"></i>
+                </button>
+                <button class="player-btn">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+              </div>
+              <div class="row table-titles">
+                <div class="col-auto table-titles">
+                  <p>#</p>
+                </div>
+                <div class="col-7">
+                  <p>TITOLO</p>
+                </div>
+                <div class="col-3">
+                  <p>RIPRODUZIONI</p>
+                </div>
+                <div class="col-auto table-titles">
+                  <i class="bi bi-clock number"></i>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+          <div class="hide resultcard">
+            <div class="row rowcard"></div>
+          </div>
+        </div>
       </div>
+      <!--FRIENDS-->
       <div class="col-auto friends-section sticky-top d-none d-lg-block">
         <div class="friends-user d-flex justify-content-between mt-2">
           <p class="fw-bold me-5">Attività amici</p>
@@ -191,27 +243,69 @@
 
     <!--PLAYER-->
     <section class="container">
-      <div class="row fixed-bottom pe-2 pt-2" id="bottomPlayer">
-        <div class="col d-flex">
+      <div
+        class="row fixed-bottom pt-sm-0 pt-md-0 pe-lg-2 pt-lg-2 music-player"
+        id="bottomPlayer"
+      >
+        <div class="col d-flex align-items-center">
           <div class="img-container p-2">
             <img src="" alt="" class="rounded-1 player-img" />
           </div>
           <div id="playerText"></div>
           <div class="align-self-center">
-            <button class="player-btn mx-2 mt-1 fs-6">
+            <button class="player-btn mx-2 mt-1 fs-6 d-none d-lg-flex">
               <i class="bi bi-heart" id="heartBtn"></i>
+            </button>
+          </div>
+          <div class="d-flex justify-content-end w-100 d-lg-none">
+            <button class="player-btn display-medium">
+              <svg
+                data-encore-id="icon"
+                role="presentation"
+                aria-hidden="true"
+                class="Svg-sc-ytk21e-0 kPpCsU"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15h-6.5A1.75 1.75 0 0 1 6 13.25V2.75zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25h-6.5zm-6 0a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 0 1 0 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"
+                ></path>
+                <path
+                  d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                ></path>
+              </svg>
+            </button>
+            <button class="player-btn mx-2 mt-1 fs-6 heart-medium">
+              <i class="bi bi-heart" id="heartBtn"></i>
+            </button>
+            <button class="player-btn play-medium">
+              <svg
+                role="img"
+                height="24"
+                width="24"
+                viewBox="0 0 24 24"
+                class="Svg-sc-1bi12j5-0 EQkJl"
+              >
+                <path
+                  d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
+                />
+              </svg>
             </button>
           </div>
         </div>
 
-        <div class="col d-flex flex-column justify-content-center">
+        <div
+          class="col d-flex flex-column justify-content-center d-none d-lg-flex"
+        >
           <div class="d-flex justify-content-center">
             <button class="player-btn">
-              <i class="bi bi-shuffle" id="shuffleBtn"></i>
+              <i class="bi bi-shuffle d-none d-lg-block" id="shuffleBtn"></i>
             </button>
 
             <button class="player-btn">
-              <i class="bi bi-skip-backward-fill" id="backBtn"></i>
+              <i
+                class="bi bi-skip-backward-fill d-none d-lg-block"
+                id="backBtn"
+              ></i>
             </button>
 
             <button class="player-btn" id="playPauseBtn">
@@ -222,39 +316,96 @@
             </button>
 
             <button class="player-btn" id="skipBtn">
-              <i class="bi bi-skip-forward-fill"></i>
+              <i class="bi bi-skip-forward-fill d-none d-lg-block"></i>
             </button>
 
             <button class="player-btn">
-              <i class="bi bi-repeat" id="repeatBtn"></i>
+              <i class="bi bi-repeat d-none d-lg-block" id="repeatBtn"></i>
             </button>
           </div>
-          <div class="d-flex align-items-baseline">
+          <div class="d-flex align-items-baseline d-none d-lg-flex">
             <p class="player-text">0:50</p>
             <div class="bg-light rounded-1 mx-2 player-bar"></div>
             <p class="player-text">3.05</p>
           </div>
         </div>
 
-        <div class="col d-flex align-items-center justify-content-end">
+        <div
+          class="col d-flex align-items-center justify-content-end d-none d-lg-flex"
+        >
           <div class="d-flex align-self-center">
-            <button class="player-btn">
-              <i class="bi bi-pen player-icons"></i>
+            <button class="player-btn mic-btn d-none d-lg-flex">
+              <svg
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                class="Svg-sc-ytk21e-0 kPpCsU mic-icon"
+              >
+                <path
+                  d="M13.426 2.574a2.831 2.831 0 0 0-4.797 1.55l3.247 3.247a2.831 2.831 0 0 0 1.55-4.797zM10.5 8.118l-2.619-2.62A63303.13 63303.13 0 0 0 4.74 9.075L2.065 12.12a1.287 1.287 0 0 0 1.816 1.816l3.06-2.688 3.56-3.129zM7.12 4.094a4.331 4.331 0 1 1 4.786 4.786l-3.974 3.493-3.06 2.689a2.787 2.787 0 0 1-3.933-3.933l2.676-3.045 3.505-3.99z"
+                ></path>
+              </svg>
             </button>
-            <button class="player-btn">
-              <i class="bi bi-menu-button-wide-fill player-icons"></i>
+            <button class="player-btn menu-btn d-none d-lg-flex">
+              <svg
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                class="Svg-sc-ytk21e-0 kPpCsU menu-icon"
+              >
+                <path
+                  d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"
+                ></path>
+              </svg>
             </button>
-            <button class="player-btn">
-              <i class="bi bi-pc-display player-icons"></i>
+            <button class="player-btn display-btn d-flex">
+              <svg
+                data-encore-id="icon"
+                role="presentation"
+                aria-hidden="true"
+                class="Svg-sc-ytk21e-0 kPpCsU"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15h-6.5A1.75 1.75 0 0 1 6 13.25V2.75zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25h-6.5zm-6 0a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 0 1 0 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"
+                ></path>
+                <path
+                  d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                ></path>
+              </svg>
             </button>
 
-            <button class="player-btn">
-              <i class="bi bi-volume-down player-volume"></i>
+            <button class="player-btn volume-btn d-none d-lg-flex">
+              <svg
+                data-encore-id="icon"
+                role="presentation"
+                aria-label="Volume medio"
+                aria-hidden="true"
+                id="volume-icon"
+                viewBox="0 0 16 16"
+                class="Svg-sc-ytk21e-0 dAOlPY volume-icon"
+              >
+                <path
+                  d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 0 0 0-8.474v1.65a2.999 2.999 0 0 1 0 5.175v1.649z"
+                ></path>
+              </svg>
             </button>
 
-            <div class="bg-light rounded-2 align-self-center volume-bar"></div>
-            <button class="player-btn">
-              <i class="bi bi-arrows-fullscreen fs-6 mx-2"></i>
+            <div
+              class="slidecontainer rounded-2 align-self-center volume-bar d-none d-lg-flex w-100"
+            >
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+                id="volumeControl"
+              />
+            </div>
+            <button class="player-btn expand-btn d-none d-lg-flex">
+              <i class="bi bi-arrows-angle-expand"></i>
             </button>
           </div>
         </div>
