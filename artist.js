@@ -49,7 +49,7 @@ window.onload = () => {
       console.log(h1);
 
       const p = document.querySelector(".coverFan");
-      p.innerText = "fan: " + playlist.nb_fan;
+      p.innerText = playlist.nb_fan + " ascoltatori";
       p.className = "ms-2";
       console.log(p);
 
@@ -78,14 +78,18 @@ window.onload = () => {
 
             // row della sezione playlist
             const divRow = document.createElement("div");
-            (divRow.className = "row"),
+            divRow.classList.add(
+              "row",
               "rowDiv",
               "d-flex",
-              "align-items-center";
+              "align-items-center",
+              "track-div",
+              "py-3"
+            );
 
             // numerino della canzone
             const count = document.createElement("div");
-            (count.className = "col-auto"), "colRow", "me-3";
+            count.classList.add("col-auto", "colRow", "me-3");
             count.innerText = i + 1;
 
             //div immagine dell'album della canzone
@@ -96,7 +100,7 @@ window.onload = () => {
 
             // titolo della canzone
             const title = document.createElement("div");
-            (title.className = "col-5"), "title";
+            title.classList.add("col-5", "title");
             title.innerHTML = `
           <div class="d-flex">
             <div class="d-flex flex-column">
@@ -121,6 +125,11 @@ window.onload = () => {
             }
 
             const divF = document.querySelector(".divF");
+
+            // Parte della img piccola
+            // const divImgSmall = document.createElement("div");
+            // divImgSmall.className = "div-img-small";
+            // divImgSmall.style.backgroundImage = `url("${start[i].album.cover_small}")`;
 
             // Tutti gli append
             divRow.appendChild(count);
