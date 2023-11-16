@@ -39,9 +39,9 @@ window.onload = () => {
       console.log(playlist);
 
       const div = document.querySelector(".divImgArtist");
+      div.style.backgroundImage = `url("${playlist.picture_xl}")`;
 
-      const img = document.querySelector(".ImgArtistBig");
-      img.src = playlist.picture;
+      console.log(div);
 
       const h1 = document.querySelector(".covertitle");
       h1.innerText = playlist.name;
@@ -54,7 +54,7 @@ window.onload = () => {
       console.log(p);
 
       const container = document.querySelector(".myrow");
-      // for (let i = 0; i < start.length; i++) {
+      for (let i = 0; i < start.length; i++) {}
       //   const div = document.createElement("div");
       //   div.classList.add("row", "align-items-center", "mydiv");
 
