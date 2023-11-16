@@ -177,7 +177,7 @@ window.onload = () => {
       randomPlay.addEventListener("click", function () {
         if (!isPlaying) {
           icon.className = "bi-pause-circle-fill text-white fs-3";
-          playPauseGreen.className = "bi bi-pause-fill fs-2 green-play";
+          playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
           music.play();
           isPlaying = true;
         } else {
@@ -207,6 +207,15 @@ window.onload = () => {
       heartBtn.className = "bi bi-heart-fill text-success";
     } else {
       heartBtn.className = "bi bi-heart";
+    }
+  });
+  //heart header
+  const heartHeader = document.getElementById("heartHeader");
+  heartHeader.addEventListener("click", function () {
+    if (heartHeader.className === "bi bi-heart") {
+      heartHeader.className = "bi bi-heart-fill text-success";
+    } else {
+      heartHeader.className = "bi bi-heart";
     }
   });
   // shuffle
