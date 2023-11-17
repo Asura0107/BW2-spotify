@@ -119,7 +119,7 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.green-play {
+.green-play, .selected {
   color: #1ed760;
 }
 .table-titles {
