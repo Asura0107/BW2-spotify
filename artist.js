@@ -53,6 +53,31 @@ window.onload = () => {
       p.className = "ms-2";
       console.log(p);
 
+      //  IMMAGININA ARTISTA E HAI MESSO MI PIACE
+      const divImgLike = document.querySelector(".divImgLike");
+
+      // immaginina tonda con cuore in basso a dx
+      const divRoundImg = document.createElement("div");
+      divRoundImg.classList.add("col-auto", "divSize");
+
+      const imgRound = document.createElement("img");
+      imgRound.classList.add("rounded-circle", "me-3");
+      imgRound.src = playlist.picture_small;
+
+      divRoundImg.appendChild(imgRound);
+
+      // testo "hai messo mi piace a artista"
+      const divTextArtist = document.createElement("div");
+      divTextArtist.classList.add("col-auto");
+      divTextArtist.innerHTML = `<div class="d-flex ">
+<div class="d-flex flex-column ">
+<h6 class="my-1 text-white">Brani a cui hai messo mi piace</h6>
+<p>di ${playlist.name}</p>
+</div>`;
+
+      divImgLike.appendChild(divRoundImg);
+      divImgLike.appendChild(divTextArtist);
+
       // const title = document.querySelector(".covertitle");
       // title.innerText = playlist.title;
       // const start = playlist.id;
@@ -73,6 +98,7 @@ window.onload = () => {
           console.log(playlist);
           const start = playlist.data;
           console.log(start);
+
           for (let i = 0; i < start.length; i++) {
             console.log(start);
 
@@ -94,7 +120,7 @@ window.onload = () => {
 
             //div immagine dell'album della canzone
             const divImgAlbum = document.createElement("div");
-            (divImgAlbum.className = "col-auto"), "divSize";
+            divImgAlbum.classList.add("col-auto", "divSize");
             divImgAlbum.style.backgroundImage = `url("${start[i].album.cover_small}")`;
             console.log(divImgAlbum);
 
@@ -102,11 +128,11 @@ window.onload = () => {
             const title = document.createElement("div");
             title.classList.add("col-5", "title");
             title.innerHTML = `
-          <div class="d-flex">
+            <div class="d-flex">
             <div class="d-flex flex-column">
               <h6>${start[i].title_short}</h6>
             </div>
-          </div>`;
+            </div>`;
 
             // rank
             const rank = document.createElement("div");
@@ -138,22 +164,6 @@ window.onload = () => {
             divRow.appendChild(rank);
             divRow.appendChild(time);
             divF.appendChild(divRow);
-
-            //  IMMAGININA ARTISTA E HAI MESSO MI PIACE
-            const divImgLike = document.querySelector("divImgLike");
-
-            // immaginina tonda con cuore in basso a dx
-            const divRoundImg = document.createElement("div");
-            divRoundImg.classList.add("col-auto");
-            divRoundImg.style.backgroundImage = `url("${start[i].album.cover_small}")`;
-
-            // testo "hai messo mi piace a artista"
-            const divTextArtist = document.createElement("div");
-            divTextArtist.innerHTML = `<div class="d-flex">
-<div class="d-flex flex-column">
-  <h6>${start[i].title_short}</h6>
-</div>
-</div>`;
 
             //PLAYER
 
@@ -207,6 +217,7 @@ window.onload = () => {
             });
           }
         });
+
       //PLAY RANDOM SONG - VERDE
       fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
         method: "GET",
