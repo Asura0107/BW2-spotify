@@ -85,6 +85,9 @@ svg {
   overflow-y: auto;
   background-color: #171717;
 }
+.titlecardsearch {
+  cursor: pointer;
+}
 .arrow-left,
 .arrow-right {
   background-color: #212121;
@@ -120,7 +123,8 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.green-play, .selected {
+.green-play,
+.selected {
   color: #1ed760;
 }
 .table-titles {
@@ -141,7 +145,8 @@ svg {
 .track-txt h6 {
   margin-top: 1em;
 }
-.track-txt, .player-text{
+.track-txt,
+.player-text {
   white-space: nowrap;
   overflow: hidden;
   padding-right: 1em;
@@ -170,11 +175,11 @@ svg {
 .coverimg {
   box-shadow: 7px 4px 20px 4px rgba(0, 0, 0, 0.541);
 }
-.row-container{
+.row-container {
   margin-bottom: 100px;
 }
-@media screen and (max-width:991px){
-  .row-container{
+@media screen and (max-width: 991px) {
+  .row-container {
     margin-bottom: 150px;
   }
 }
@@ -278,7 +283,7 @@ input[type="range"] {
     margin-inline: auto;
     border-radius: 10px;
   }
-  #bottomPlayer{
+  #bottomPlayer {
     background-color: #313030;
   }
   .img-container {

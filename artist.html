@@ -108,6 +108,73 @@
             </div>
 
             <!-- INIZIO FORM -->
+            <!-- <div class="formdiv hide">
+              <form class="searchform">
+                 <label for="input"></label><br /> -->
+
+            <!-- <div class="input-group mb-3 div-input">
+                  <button class="btn btn-outline-secondary send-button">
+                    <i class="bi bi-search"></i>
+                  </button>
+                  <input
+                    type="text"
+                    placeholder="Search for your favorite music"
+                    class="form-control searchinput"
+                    required
+                  />
+                </div>
+              </form>
+            </div> -->
+
+            <!-- FINE FORM -->
+
+            <!-- INIZIO USER NAME -->
+
+            <div class="user rounded-5 p-1 justify-content-center d-flex">
+              <img
+                src="./assets/imgs/search/image-37.jpeg"
+                alt="user image"
+                class="rounded-circle pe-1"
+              />
+              <p class="ms-2">
+                Nome Utente <i class="bi bi-caret-down-fill"></i>
+              </p>
+            </div>
+          </div>
+          <!--FINE USER NAME -->
+
+          <!-- IMG BACKGROUND -->
+          <img src="" alt="" class="imgArtistBig" width="100%" />
+          <div class="hideuser">
+            <div class="coverdiv d-flex align-items-end marginTitle">
+              <div>
+                <img src="" alt="" class="coverimg" />
+              </div>
+
+              <div class="divTextArtist">
+                <h1 class="covertitle mg-5"></h1>
+                <p class="coverFan"></p>
+              </div>
+            </div>
+          </div>
+          <!-- FINE IMG BACKGROUND -->
+        </div>
+        <div class="divColorHide hide">
+          <div class="p-2 d-none d-lg-flex justify-content-between icons-bar">
+            <div class="d-flex nav-arrows">
+              <div class="arrow-left me-2">
+                <span class="text-light"
+                  ><i class="bi bi-chevron-left"></i
+                ></span>
+              </div>
+              <div class="arrow-right me-2">
+                <span class="text-light"
+                  ><i class="bi bi-chevron-right"></i
+                ></span>
+              </div>
+            </div>
+
+            <!-- INIZIO FORM -->
             <div class="formdiv hide">
               <form class="searchform">
                 <!-- <label for="input"></label><br /> -->
@@ -129,6 +196,7 @@
             <!-- FINE FORM -->
 
             <!-- INIZIO USER NAME -->
+
             <div class="user rounded-5 p-1 justify-content-center d-flex">
               <img
                 src="./assets/imgs/search/image-37.jpeg"
@@ -140,61 +208,51 @@
               </p>
             </div>
           </div>
-          <!--FINE USER NAME -->
-
-          <!-- IMG BACKGROUND -->
-          <img src="" alt="" class="imgArtistBig" width="100%" />
-          <div class="coverdiv d-flex align-items-end marginTitle">
-            <div>
-              <img src="" alt="" class="coverimg" />
-            </div>
-
-            <div class="divTextArtist">
-              <h1 class="covertitle mg-5"></h1>
-              <p class="coverFan"></p>
-            </div>
-          </div>
-          <!-- FINE IMG BACKGROUND -->
         </div>
 
         <div class="container-md containerpagefirst">
-          <div class="row myrow p-0">
-            <!-- ICONE di PLAY, HEART, DOWNLOAD -->
-            <div class="col buttons-icons mt-3 mb-3 d-flex">
-              <button class="player-btn play-random" id="randomPlay">
-                <i
-                  style="color: #1ed760"
-                  class="bi bi-play-circle-fill fs-2 green-play"
-                  id="playPauseGreen"
-                ></i>
-              </button>
-              <button class="player-btn my-0 mx-2">
-                <h6 class="text-white btn-follow px-3 py-1 m-0">FOLLOWING</h6>
-              </button>
-              <button class="player-btn">
-                <i class="bi bi-three-dots"></i>
-              </button>
-            </div>
+          <div class="pagefirst">
+            <div class="row myrow p-0">
+              <!-- ICONE di PLAY, HEART, DOWNLOAD -->
+              <div class="col buttons-icons mt-3 mb-3 d-flex">
+                <button class="player-btn play-random" id="randomPlay">
+                  <i
+                    style="color: #1ed760"
+                    class="bi bi-play-circle-fill fs-2 green-play"
+                    id="playPauseGreen"
+                  ></i>
+                </button>
+                <button class="player-btn my-0 mx-2">
+                  <h6 class="text-white btn-follow px-3 py-1 m-0">FOLLOWING</h6>
+                </button>
+                <button class="player-btn">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+              </div>
 
-            <div class="row table-titles">
-              <div class="row">
-                <div class="col-7 table-titles text-white fs-5 fw-bold">
-                  <p>Popolari</p>
+              <div class="row table-titles">
+                <div class="row">
+                  <div class="col-7 table-titles text-white fs-5 fw-bold">
+                    <p>Popolari</p>
+                  </div>
+
+                  <div class="col-3 text-white fs-5 fw-bold">
+                    <p>Brani che ti piacciono</p>
+                  </div>
                 </div>
-
-                <div class="col-3 text-white fs-5 fw-bold">
-                  <p>Brani che ti piacciono</p>
+                <div class="row">
+                  <div class="col-7 resultcard">
+                    <div class="divF rowcard"></div>
+                  </div>
+                  <!-- AGGIUNGI QUI L?IMMMAGININA TONDA  -->
+                  <div class="col-3 divImgLike d-flex"></div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-7 hide resultcard">
-                  <div class="divF rowcard"></div>
-                </div>
-                <!-- AGGIUNGI QUI L?IMMMAGININA TONDA  -->
-                <div class="col-3 divImgLike d-flex"></div>
-              </div>
+              <!-- <hr /> -->
             </div>
-            <!-- <hr /> -->
+          </div>
+          <div class="hide searchResultCard">
+            <div class="row RowsearchResultCard"></div>
           </div>
         </div>
       </div>

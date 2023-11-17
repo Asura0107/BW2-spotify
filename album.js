@@ -83,7 +83,12 @@ window.onload = () => {
       const container = document.querySelector(".row-container");
       for (let i = 0; i < start.length; i++) {
         const div = document.createElement("div");
-        div.classList.add("row", "align-items-center", "track-div");
+        div.classList.add(
+          "row",
+          "align-items-center",
+          "track-div",
+          "titlecardsearch"
+        );
 
         const count = document.createElement("div");
         count.classList.add("col-1", "count", "d-none", "d-lg-flex", "pe-0");

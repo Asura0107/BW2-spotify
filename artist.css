@@ -94,6 +94,9 @@ svg {
   overflow-y: auto;
   background-color: #171717;
 }
+.titlecardsearch {
+  cursor: pointer;
+}
 .arrow-left,
 .arrow-right {
   background-color: #212121;
@@ -190,8 +193,11 @@ svg {
   margin-top: 75px;
   margin-left: 20px;
 }
+.divColorHide {
+  background-color: #171717;
+}
 
-*/ .hide {
+.hide {
   display: none;
 }
 a {
