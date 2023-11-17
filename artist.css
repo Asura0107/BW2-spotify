@@ -132,7 +132,8 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.green-play, .selected {
+.green-play,
+.selected {
   color: #1ed760;
 }
 .table-titles {
@@ -202,6 +203,11 @@ svg {
   margin-top: 75px;
   margin-left: 20px;
 }
+
+.newMargin {
+  margin-left: 20px;
+}
+
 .divColorHide {
   background-color: #171717;
 }
@@ -314,5 +320,8 @@ input[type="range"] {
   .player-img {
     border-radius: 50%;
   }
+  .marginTitle {
+    margin-top: 184px;
+    margin-left: 20px;
+  }
 }
-

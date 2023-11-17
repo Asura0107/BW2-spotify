@@ -46,13 +46,53 @@ window.onload = () => {
       const div = document.querySelector(".divImgArtist");
       div.style.backgroundImage = `url("${playlist.picture_xl}")`;
 
+      //H1
       const h1 = document.querySelector(".covertitle");
       h1.innerText = playlist.name;
       h1.className = "ms-3 font-h1 fw-bold";
 
       const p = document.querySelector(".coverFan");
       p.innerText = playlist.nb_fan + " ascoltatori";
-      p.className = "ms-3";
+      p.classList.add("ms-3", "d-none", "d-lg-flex");
+
+      //RESONSIVE NUMERO ASCOLTATORI
+      const newAscoltatori = document.querySelector(".newAscoltatori");
+
+      const newP = document.createElement("p");
+      newP.innerText = playlist.nb_fan + " ascoltatori";
+      newP.classList.add("d-flex", "d-lg-none", "mb-0", "newMargin");
+
+      newAscoltatori.appendChild(newP);
+      //RESPONSIVE "BRANI che ti piacciono"
+
+      const newBrani = document.querySelector(".newBrani");
+      //RESPONSIVE immaginina
+
+      const newDivRoundImg = document.createElement("div");
+      newDivRoundImg.classList.add(
+        "col-auto",
+        "divSize",
+        "position-div",
+        "newMargin"
+      );
+
+      const newImgRound = document.createElement("img");
+      newImgRound.classList.add("rounded-circle", "me-3", "round-img-position");
+      newImgRound.src = playlist.picture_small;
+
+      newDivRoundImg.appendChild(newImgRound);
+      //RESPONSIVE testo immaginina
+      const newdDivTextArtist = document.createElement("div");
+      newdDivTextArtist.classList.add("col-auto");
+      newdDivTextArtist.innerHTML = `<div class="d-flex ">
+      <div class="d-flex flex-column ">
+      <a class="a-round">
+      <h6 class="my-1 text-white class-roud">Brani che ti piacciono</h6>
+      <p class="text-grey">Brani di ${playlist.name}</p></a>
+      </div>`;
+
+      newBrani.appendChild(newDivRoundImg);
+      newBrani.appendChild(newdDivTextArtist);
 
       //  IMMAGININA ARTISTA E HAI MESSO MI PIACE
       const divImgLike = document.querySelector(".divImgLike");
@@ -95,13 +135,17 @@ window.onload = () => {
       // title.innerText = playlist.title;
       // const start = playlist.id;
 
-      fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${playlist.id}/top?limit=10`, {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": "9f2e653d6emsh429ab7e0a4b2267p1e793fjsnef3468047633",
-          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-        },
-      })
+      fetch(
+        `https://striveschool-api.herokuapp.com/api/deezer/artist/${playlist.id}/top?limit=10`,
+        {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "9f2e653d6emsh429ab7e0a4b2267p1e793fjsnef3468047633",
+            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((playlist) => {
           console.log(playlist);
@@ -124,7 +168,7 @@ window.onload = () => {
 
             // numerino della canzone
             const count = document.createElement("div");
-            count.classList.add("col-auto", "colRow", "me-3");
+            count.classList.add("col-auto", "colRow", "me-3", "newMargin");
             count.innerText = i + 1;
 
             //div immagine dell'album della canzone
@@ -151,7 +195,7 @@ window.onload = () => {
 
             // rank
             const rank = document.createElement("div");
-            rank.classList.add("col-auto", "rank");
+            rank.classList.add("col-auto", "rank", "d-none", "d-lg-flex");
             rank.innerText = start[i].rank;
 
             // durata canzone
@@ -199,8 +243,8 @@ window.onload = () => {
 
               playerArtist.innerText = start[i].artist.name;
               playerArtist.className = "text-white player-text";
-              playerTitle.innerText = start[i].title;
-              playerTitle.className = "text-white pt-2 myFontH6";
+              playerTitle.innerText = start[i].title_short;
+              playerTitle.className = "text-white pt-2 track-txt";
               playerText.appendChild(playerTitle);
               playerText.appendChild(playerArtist);
               unselectd();
@@ -210,19 +254,25 @@ window.onload = () => {
               }
               trackTime.innerText = `${minutes}:${seconds}`;
 
-              fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + start[i].id, {
-                method: "GET",
-                headers: {
-                  "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-                  "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-                },
-              })
+              fetch(
+                "https://deezerdevs-deezer.p.rapidapi.com/track/" + start[i].id,
+                {
+                  method: "GET",
+                  headers: {
+                    "X-RapidAPI-Key":
+                      "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+                  },
+                }
+              )
                 .then((response) => response.json())
                 .then((song) => {
                   console.log(song);
                   music.src = start[i].preview;
                   playPauseBtn.addEventListener("click", function () {
-                    if (icon.className === "bi-play-circle-fill text-white fs-3") {
+                    if (
+                      icon.className === "bi-play-circle-fill text-white fs-3"
+                    ) {
                       icon.className = "bi-pause-circle-fill text-white fs-3";
                       music.play();
                     } else {
@@ -236,13 +286,17 @@ window.onload = () => {
         });
 
       //PLAY RANDOM SONG - VERDE
-      fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${playlist.id}/top?limit=10`, {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-        },
-      })
+      fetch(
+        `https://striveschool-api.herokuapp.com/api/deezer/artist/${playlist.id}/top?limit=10`,
+        {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((playlist) => {
           const randomPlay = document.getElementById("randomPlay");
@@ -261,7 +315,8 @@ window.onload = () => {
           randomPlay.addEventListener("click", function () {
             if (!isPlaying) {
               icon.className = "bi-pause-circle-fill text-white fs-3";
-              playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
+              playPauseGreen.className =
+                "bi bi-pause-circle-fill fs-2 green-play";
               music.play();
               isPlaying = true;
               //Player
@@ -275,18 +330,21 @@ window.onload = () => {
               playerText.appendChild(playerArtist);
             } else {
               icon.className = "bi-play-circle-fill text-white fs-3";
-              playPauseGreen.className = "bi bi-play-circle-fill fs-2 green-play";
+              playPauseGreen.className =
+                "bi bi-play-circle-fill fs-2 green-play";
               music.pause();
               isPlaying = false;
             }
             playPauseBtn.addEventListener("click", function () {
               if (icon.className === "bi-play-circle-fill text-white fs-3") {
                 icon.className = "bi-pause-circle-fill text-white fs-3";
-                playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
+                playPauseGreen.className =
+                  "bi bi-pause-circle-fill fs-2 green-play";
                 music.play();
               } else {
                 icon.className = "bi-play-circle-fill text-white fs-3";
-                playPauseGreen.className = "bi bi-play-circle-fill fs-2 green-play";
+                playPauseGreen.className =
+                  "bi bi-play-circle-fill fs-2 green-play";
                 music.pause();
               }
             });
