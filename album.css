@@ -182,6 +182,9 @@ svg {
   .row-container {
     margin-bottom: 150px;
   }
+  .track-txt{
+    margin-left: 1em;
+  }
 }
 /* SEARCH */
 .hide {

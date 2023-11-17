@@ -132,7 +132,7 @@ svg {
 .playlist-img img {
   height: 4.5rem;
 }
-.green-play {
+.green-play, .selected {
   color: #1ed760;
 }
 .table-titles {
@@ -162,7 +162,9 @@ svg {
   background-color: #666666;
 }
 .container-md {
-  background: linear-gradient(0deg, #181818 70%, #66666642 100%);
+  max-width: 100%;
+  padding-inline: 1em;
+  background: linear-gradient(0deg, #121212 77%, #3b3b3b 100%);
 }
 .cover-container {
   padding: 2em;
@@ -246,7 +248,8 @@ a {
   background-color: #181818;
 }
 .img-container {
-  width: 15%;
+  width: 60px;
+  height: 60px;
 }
 .img-container img {
   width: 100%;
@@ -254,8 +257,12 @@ a {
 .player-btn {
   background-color: transparent;
   border: none;
+  color: #bebcbc;
 }
-.player-btn i {
+.player-btn-mobile {
+  font-size: 1.5em;
+  background-color: transparent;
+  border: none;
   color: #bebcbc;
 }
 .player-text {
@@ -263,7 +270,8 @@ a {
   color: #bebcbc;
 }
 .player-bar {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 3px;
 }
 .player-icons {
@@ -272,9 +280,32 @@ a {
 .player-volume {
   font-size: 16px;
 }
-.volume-bar {
-  width: 70px;
+input[type="range"] {
+  accent-color: white;
   height: 3px;
+  width: 80px;
+}
+.mic-icon {
+  fill: currentColor;
 }
 
-/* COPIA DI CSS NUOVA */
+@media screen and (max-width: 991px) {
+  .music-player {
+    height: 60px;
+    position: fixed;
+    bottom: 10vh;
+    width: 95%;
+    margin-inline: auto;
+    border-radius: 10px;
+  }
+  #bottomPlayer {
+    background-color: #313030;
+  }
+  .img-container {
+    width: 80px;
+  }
+  .player-img {
+    border-radius: 50%;
+  }
+}
+

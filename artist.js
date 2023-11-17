@@ -1,18 +1,22 @@
 const music = new Audio();
+const unselectd = () => {
+  const titleselected = document.querySelector(".selected"); // torna il NODO dell'elemento con la classe, oppure null se non ne trova
 
+  if (titleselected) {
+    titleselected.classList.remove("selected"); // rimuovo la classe all'elemento trovato
+  }
+};
 window.onload = () => {
   //PLAYLIST-LIST
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=podcasts", {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
       const list = document.getElementById("playlistList");
       for (let i = 0; i < data.data.length; i++) {
         const randomIndex = Math.floor(Math.random() * data.data.length);
@@ -33,27 +37,22 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((playlist) => {
       console.log(playlist);
-
       const div = document.querySelector(".divImgArtist");
       div.style.backgroundImage = `url("${playlist.picture_xl}")`;
-
-      console.log(div);
 
       const h1 = document.querySelector(".covertitle");
       h1.innerText = playlist.name;
       h1.className = "ms-3 font-h1 fw-bold";
-      console.log(h1);
 
       const p = document.querySelector(".coverFan");
       p.innerText = playlist.nb_fan + " ascoltatori";
       p.className = "ms-3";
-      console.log(p);
 
       //  IMMAGININA ARTISTA E HAI MESSO MI PIACE
       const divImgLike = document.querySelector(".divImgLike");
@@ -96,17 +95,13 @@ window.onload = () => {
       // title.innerText = playlist.title;
       // const start = playlist.id;
 
-      fetch(
-        `https://striveschool-api.herokuapp.com/api/deezer/artist/${playlist.id}/top?limit=10`,
-        {
-          method: "GET",
-          headers: {
-            "X-RapidAPI-Key":
-              "9f2e653d6emsh429ab7e0a4b2267p1e793fjsnef3468047633",
-            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-          }
-        }
-      )
+      fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${playlist.id}/top?limit=10`, {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key": "9f2e653d6emsh429ab7e0a4b2267p1e793fjsnef3468047633",
+          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+        },
+      })
         .then((response) => response.json())
         .then((playlist) => {
           console.log(playlist);
@@ -114,8 +109,6 @@ window.onload = () => {
           console.log(start);
 
           for (let i = 0; i < start.length; i++) {
-            console.log(start);
-
             // LISTA DI CANZONI
             // row della sezione playlist
             const divRow = document.createElement("div");
@@ -125,7 +118,8 @@ window.onload = () => {
               "d-flex",
               "track-div",
               "py-3",
-              "titlecardsearch"
+              "titlecardsearch",
+              "align-items-center"
             );
 
             // numerino della canzone
@@ -153,6 +147,7 @@ window.onload = () => {
               <h6>${start[i].title_short}</h6>
             </div>
             </div>`;
+            const songtitle = start[i].title_short;
 
             // rank
             const rank = document.createElement("div");
@@ -161,7 +156,7 @@ window.onload = () => {
 
             // durata canzone
             const time = document.createElement("div");
-            time.classList.add("col-auto", "time");
+            time.classList.add("col-auto", "time", "d-none", "d-lg-flex");
             const minutes = Math.floor(start[i].duration / 60);
             const seconds = start[i].duration % 60;
             if (seconds < 9) {
@@ -190,42 +185,44 @@ window.onload = () => {
             const playPauseBtn = document.getElementById("playPauseBtn");
             const icon = document.getElementById("iconPlay");
             const playerText = document.getElementById("playerText");
-            count.addEventListener("click", function () {
+            const playerTitle = document.createElement("h6");
+            const playerArtist = document.createElement("p");
+            const trackTime = document.getElementById("trackTime");
+
+            title.addEventListener("click", function () {
               playerText.innerHTML = "";
-              // clearPreviousTrackInfo();
               const img = document.querySelector(".player-img");
               img.src = start[i].album.cover_medium;
 
               const divSinger = document.createElement("div");
               divSinger.className = "bdf";
 
-              const playerTitle = document.createElement("h6");
-              const playerArtist = document.createElement("p");
               playerArtist.innerText = start[i].artist.name;
               playerArtist.className = "text-white player-text";
               playerTitle.innerText = start[i].title;
               playerTitle.className = "text-white pt-2 myFontH6";
               playerText.appendChild(playerTitle);
               playerText.appendChild(playerArtist);
-              fetch(
-                "https://deezerdevs-deezer.p.rapidapi.com/track/" + start[i].id,
-                {
-                  method: "GET",
-                  headers: {
-                    "X-RapidAPI-Key":
-                      "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-                  }
-                }
-              )
+              unselectd();
+
+              if (playerTitle.innerText === songtitle) {
+                title.classList.add("selected");
+              }
+              trackTime.innerText = `${minutes}:${seconds}`;
+
+              fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + start[i].id, {
+                method: "GET",
+                headers: {
+                  "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+                  "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+                },
+              })
                 .then((response) => response.json())
                 .then((song) => {
                   console.log(song);
                   music.src = start[i].preview;
                   playPauseBtn.addEventListener("click", function () {
-                    if (
-                      icon.className === "bi-play-circle-fill text-white fs-3"
-                    ) {
+                    if (icon.className === "bi-play-circle-fill text-white fs-3") {
                       icon.className = "bi-pause-circle-fill text-white fs-3";
                       music.play();
                     } else {
@@ -239,19 +236,18 @@ window.onload = () => {
         });
 
       //PLAY RANDOM SONG - VERDE
-      fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
+      fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${playlist.id}/top?limit=10`, {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-        }
+          "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+        },
       })
         .then((response) => response.json())
         .then((playlist) => {
           const randomPlay = document.getElementById("randomPlay");
           let isPlaying = false;
-          const tracks = playlist.tracks.data;
+          const tracks = playlist.data;
           const randomIndex = Math.floor(Math.random() * tracks.length);
           music.src = tracks[randomIndex].preview;
           const playPauseBtn = document.getElementById("playPauseBtn");
@@ -265,8 +261,7 @@ window.onload = () => {
           randomPlay.addEventListener("click", function () {
             if (!isPlaying) {
               icon.className = "bi-pause-circle-fill text-white fs-3";
-              playPauseGreen.className =
-                "bi bi-pause-circle-fill fs-2 green-play";
+              playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
               music.play();
               isPlaying = true;
               //Player
@@ -280,21 +275,18 @@ window.onload = () => {
               playerText.appendChild(playerArtist);
             } else {
               icon.className = "bi-play-circle-fill text-white fs-3";
-              playPauseGreen.className =
-                "bi bi-play-circle-fill fs-2 green-play";
+              playPauseGreen.className = "bi bi-play-circle-fill fs-2 green-play";
               music.pause();
               isPlaying = false;
             }
             playPauseBtn.addEventListener("click", function () {
               if (icon.className === "bi-play-circle-fill text-white fs-3") {
                 icon.className = "bi-pause-circle-fill text-white fs-3";
-                playPauseGreen.className =
-                  "bi bi-pause-circle-fill fs-2 green-play";
+                playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
                 music.play();
               } else {
                 icon.className = "bi-play-circle-fill text-white fs-3";
-                playPauseGreen.className =
-                  "bi bi-play-circle-fill fs-2 green-play";
+                playPauseGreen.className = "bi bi-play-circle-fill fs-2 green-play";
                 music.pause();
               }
             });
@@ -386,8 +378,8 @@ searchform.addEventListener("submit", (event) => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((play) => {
