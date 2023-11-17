@@ -19,8 +19,10 @@
 
   <body>
     <div class="row text-bg-dark">
-      <div class="d-none d-md-block col-auto sidebar">
+      <!-- SIDEBAR -->
+      <div class="d-none d-md-block col-auto sidebar sticky-top pe-0">
         <div class="navigation-menu p-3">
+          <i class="bi bi-three-dots d-none d-lg-flex"></i>
           <div class="home d-flex align-items-center">
             <a href="homepage.html" class="home d-flex align-items-center m-0">
               <svg
@@ -51,20 +53,21 @@
                 d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"
               ></path>
             </svg>
-            <p class="fw-bold m-1">Cerca</p>
+            <p class="fw-bold m-1" onclick="search()">Cerca</p>
           </div>
           <div class="library d-flex align-items-center">
             <svg
-              data-encore-id="icon"
+              xmlns="http://www.w3.org/2000/svg"
               role="img"
-              aria-hidden="true"
+              height="24"
+              width="24"
+              class="Svg-sc-1bi12j5-0 EQkJl library-icon"
               viewBox="0 0 24 24"
-              class="Svg-sc-ytk21e-0 iYxpxA library-icon"
             >
               <path
-                class="library-icon"
-                d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
-              ></path>
+                fill="currentColor"
+                d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"
+              />
             </svg>
             <p class="fw-bold m-1">La tua libreria</p>
           </div>
@@ -81,7 +84,7 @@
           </p>
         </div>
 
-        <div class="playlist-list pt-2">
+        <div class="playlist-list pt-2 d-sm-none d-md-none d-lg-block">
           <ul id="playlistList"></ul>
         </div>
       </div>
@@ -122,39 +125,139 @@
                 </div>
               </form>
             </div>
-          </div>
-          <div class="headpage">
-            <img src="" alt="" class="imgArtistBig" width="100%" />
-            <div class="coverdiv d-flex align-items-end">
-              <div>
-                <img src="" alt="" class="coverimg" />
-              </div>
 
-              <div class="divTextArtist">
-                <h1 class="covertitle mg-5"></h1>
-                <p class="coverFan"></p>
-              </div>
+            <!-- FINE FORM -->
+
+            <!-- INIZIO USER NAME -->
+            <div class="user rounded-5 p-1 justify-content-center d-flex">
+              <img
+                src="./assets/imgs/search/image-37.jpeg"
+                alt="user image"
+                class="rounded-circle pe-1"
+              />
+              <p class="ms-2">
+                Nome Utente <i class="bi bi-caret-down-fill"></i>
+              </p>
+            </div>
+          </div>
+          <!--FINE USER NAME -->
+
+          <!-- IMG BACKGROUND -->
+          <img src="" alt="" class="imgArtistBig" width="100%" />
+          <div class="coverdiv d-flex align-items-end marginTitle">
+            <div>
+              <img src="" alt="" class="coverimg" />
+            </div>
+
+            <div class="divTextArtist">
+              <h1 class="covertitle mg-5"></h1>
+              <p class="coverFan"></p>
             </div>
           </div>
         </div>
-        <div class="container-md">
-          <div class="pagefirst">
-            <div class="row myrow">
-              <div class="row my-4">
-                <div class="col-8">POPOLARI</div>
+        <!-- FINE IMG BACKGROUND -->
+      </div>
 
-                <div class="col-3">BRANI CHE TI PIACCIONO</div>
-                <div class="divF"></div>
+      <div class="container-md containerpagefirst">
+        <div class="row myrow">
+          <!-- ICONE di PLAY, HEART, DOWNLOAD -->
+          <div class="col buttons-icons mt-3 mb-3">
+            <button class="player-btn play-random" id="randomPlay">
+              <i
+                class="bi bi-play-circle-fill fs-2 green-play"
+                id="playPauseGreen"
+              ></i>
+            </button>
+            <button class="player-btn">
+              <i class="bi bi-heart" id="heartHeader"></i>
+            </button>
+            <button class="player-btn">
+              <i class="bi bi-arrow-down-circle"></i>
+            </button>
+            <button class="player-btn">
+              <i class="bi bi-three-dots"></i>
+            </button>
+          </div>
+
+          <div class="row table-titles">
+            <div class="row">
+              <div class="col-8 table-titles text-white fs-5 fw-bold">
+                <p>POPOLARI</p>
+              </div>
+
+              <div class="col-3 text-white fs-5 fw-bold">
+                <p>BRANI CHE TI PIACCIONO</p>
               </div>
             </div>
+            <div class="row">
+              <div class="col hide resultcard">
+                <div class="divF rowcard"></div>
+              </div>
+              <div class="col"></div>
+            </div>
           </div>
-          <div class="hide resultcard">
-            <div class="row rowcard"></div>
+          <!-- <hr /> -->
+        </div>
+        <div class="hide resultcard">
+          <div class="row rowcard"></div>
+        </div>
+      </div>
+    </div>
+    <!-- FINE MAIN -->
+
+    <!--FRIENDS-->
+    <div class="col-auto friends-section sticky-top d-none d-lg-block">
+      <div class="friends-user d-flex justify-content-between mt-2">
+        <p class="fw-bold me-5">Attività amici</p>
+        <div class="friends-icons">
+          <p>
+            <i class="bi bi-person-add text-secondary me-1"></i>
+            <i class="bi bi-x-lg text-secondary me-2"></i>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex friends-info">
+          <img
+            src="./assets/imgs/search/image-18.jpg"
+            alt="profile picture"
+            class="rounded-circle"
+          />
+          <div class="infos d-flex flex-column justify-content-center">
+            <h6 class="mb-1 ms-3">Friend Name</h6>
+            <p class="m-0 p-0 ms-3">Activities</p>
           </div>
         </div>
       </div>
-      <!-- FINE MAIN -->
+      <div class="row">
+        <div class="col d-flex friends-info">
+          <img
+            src="./assets/imgs/search/image-33.jpg"
+            alt="profile picture"
+            class="rounded-circle"
+          />
+          <div class="infos d-flex flex-column justify-content-center">
+            <h6 class="mb-1 ms-3">Friend Name</h6>
+            <p class="m-0 p-0 ms-3">Activities</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex friends-info">
+          <img
+            src="./assets/imgs/search/image-27.jpg"
+            alt="profile picture"
+            class="rounded-circle"
+          />
+          <div class="infos d-flex flex-column justify-content-center">
+            <h6 class="mb-1 ms-3">Friend Name</h6>
+            <p class="m-0 p-0 ms-3">Activities</p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- PLAYER -->
     <section class="container">
       <div class="row fixed-bottom pe-2 pt-2" id="bottomPlayer">
         <div class="col d-flex">

@@ -6,8 +6,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +31,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -138,8 +138,8 @@ window.onload = () => {
             headers: {
               "X-RapidAPI-Key":
                 "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-            }
+              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+            },
           })
             .then((response) => response.json())
             .then((song) => {
@@ -166,8 +166,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -302,8 +302,8 @@ searchform.addEventListener("submit", (event) => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
     .then((response) => response.json())
     .then((play) => {

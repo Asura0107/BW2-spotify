@@ -163,6 +163,8 @@ svg {
 .coverimg {
   box-shadow: 7px 4px 20px 4px rgba(0, 0, 0, 0.541);
 }
+
+/* SEARCH */
 .hide {
   display: none;
 }

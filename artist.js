@@ -51,7 +51,7 @@ window.onload = () => {
       console.log(h1);
 
       const p = document.querySelector(".coverFan");
-      p.innerText = "fan: " + playlist.nb_fan;
+      p.innerText = playlist.nb_fan + " ascoltatori";
       p.className = "ms-2";
       console.log(p);
 
@@ -80,14 +80,18 @@ window.onload = () => {
 
             // row della sezione playlist
             const divRow = document.createElement("div");
-            (divRow.className = "row"),
+            divRow.classList.add(
+              "row",
               "rowDiv",
               "d-flex",
-              "align-items-center";
+              "align-items-center",
+              "track-div",
+              "py-3"
+            );
 
             // numerino della canzone
             const count = document.createElement("div");
-            (count.className = "col-auto"), "colRow", "me-3";
+            count.classList.add("col-auto", "colRow", "me-3");
             count.innerText = i + 1;
 
             //div immagine dell'album della canzone
@@ -98,13 +102,13 @@ window.onload = () => {
 
             // titolo della canzone
             const title = document.createElement("div");
-            (title.className = "col-5"), "title";
+            title.classList.add("col-5", "title");
             title.innerHTML = `
-        <div class="d-flex">
-          <div class="d-flex flex-column">
-            <h6>${start[i].title_short}</h6>
-          </div>
-        </div>`;
+          <div class="d-flex">
+            <div class="d-flex flex-column">
+              <h6>${start[i].title_short}</h6>
+            </div>
+          </div>`;
 
             // rank
             const rank = document.createElement("div");
@@ -123,6 +127,11 @@ window.onload = () => {
             }
 
             const divF = document.querySelector(".divF");
+
+            // Parte della img piccola
+            // const divImgSmall = document.createElement("div");
+            // divImgSmall.className = "div-img-small";
+            // divImgSmall.style.backgroundImage = `url("${start[i].album.cover_small}")`;
 
             // Tutti gli append
             divRow.appendChild(count);
@@ -191,6 +200,113 @@ window.onload = () => {
             });
           }
         });
+      //PLAY RANDOM SONG - VERDE
+      fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key":
+            "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
+          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+        },
+      })
+        .then((response) => response.json())
+        .then((playlist) => {
+          const randomPlay = document.getElementById("randomPlay");
+          let isPlaying = false;
+          const tracks = playlist.tracks.data;
+          const randomIndex = Math.floor(Math.random() * tracks.length);
+          const music = new Audio(tracks[randomIndex].preview);
+          const playPauseBtn = document.getElementById("playPauseBtn");
+          const icon = document.getElementById("iconPlay");
+          const playPauseGreen = document.getElementById("playPauseGreen");
+
+          const img = document.querySelector(".player-img");
+          const playerTitle = document.createElement("h6");
+          const playerArtist = document.createElement("p");
+
+          randomPlay.addEventListener("click", function () {
+            if (!isPlaying) {
+              icon.className = "bi-pause-circle-fill text-white fs-3";
+              playPauseGreen.className =
+                "bi bi-pause-circle-fill fs-2 green-play";
+              music.play();
+              isPlaying = true;
+              //Player
+              img.src = tracks[randomIndex].album.cover_medium;
+              img.alt = "cover album";
+              playerArtist.innerText = tracks[randomIndex].artist.name;
+              playerArtist.className = "text-white player-text";
+              playerTitle.innerText = tracks[randomIndex].title;
+              playerTitle.className = "text-white pt-2 track-txt";
+              playerText.appendChild(playerTitle);
+              playerText.appendChild(playerArtist);
+            } else {
+              icon.className = "bi-play-circle-fill text-white fs-3";
+              playPauseGreen.className =
+                "bi bi-play-circle-fill fs-2 green-play";
+              music.pause();
+              isPlaying = false;
+            }
+            playPauseBtn.addEventListener("click", function () {
+              if (icon.className === "bi-play-circle-fill text-white fs-3") {
+                icon.className = "bi-pause-circle-fill text-white fs-3";
+                playPauseGreen.className =
+                  "bi bi-pause-circle-fill fs-2 green-play";
+                music.play();
+              } else {
+                icon.className = "bi-play-circle-fill text-white fs-3";
+                playPauseGreen.className =
+                  "bi bi-play-circle-fill fs-2 green-play";
+                music.pause();
+              }
+            });
+          });
+        });
+      //PLAYER
+      //heart
+      const heartBtn = document.getElementById("heartBtn");
+      heartBtn.addEventListener("click", function () {
+        if (heartBtn.className === "bi bi-heart") {
+          heartBtn.className = "bi bi-heart-fill text-success";
+        } else {
+          heartBtn.className = "bi bi-heart";
+        }
+      });
+      //heart header
+      const heartHeader = document.getElementById("heartHeader");
+      heartHeader.addEventListener("click", function () {
+        if (heartHeader.className === "bi bi-heart") {
+          heartHeader.className = "bi bi-heart-fill text-success";
+        } else {
+          heartHeader.className = "bi bi-heart";
+        }
+      });
+      // shuffle
+      const shuffleBtn = document.getElementById("shuffleBtn");
+      shuffleBtn.addEventListener("click", function () {
+        if (shuffleBtn.className === "bi bi-shuffle") {
+          shuffleBtn.className = "bi bi-shuffle text-success";
+        } else {
+          shuffleBtn.className = "bi bi-shuffle";
+        }
+      });
+      //back
+      const backBtn = document.getElementById("backBtn");
+      backBtn.addEventListener("click", function () {});
+      //skip
+      const skipBtn = document.getElementById("skipBtn");
+      skipBtn.addEventListener("click", function () {});
+      //repeat
+      const repeatBtn = document.getElementById("repeatBtn");
+      repeatBtn.addEventListener("click", function () {
+        if (repeatBtn.className === "bi bi-repeat") {
+          repeatBtn.className = "bi bi-repeat text-success";
+          music.loop = true;
+        } else {
+          repeatBtn.className = "bi bi-repeat";
+          music.loop = false;
+        }
+      });
     });
 };
 //CERCA
