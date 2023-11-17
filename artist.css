@@ -270,16 +270,5 @@ a {
   width: 70px;
   height: 3px;
 }
-.hide {
-  display: none;
-}
-a {
-  text-decoration: none;
-  color: white;
-}
-.titlecardsearch {
-  cursor: pointer;
-}
-.headerbrother {
-  background-color: #171717;
-}
+
+/* COPIA DI CSS NUOVA */

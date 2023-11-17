@@ -24,23 +24,24 @@
         <div class="navigation-menu p-3">
           <i class="bi bi-three-dots d-none d-lg-flex"></i>
           <div class="home d-flex align-items-center">
-            <a href="homepage.html" class="home d-flex align-items-center m-0">
-              <svg
-                data-encore-id="icon"
+            <a href="homepage.html" class="home d-flex align-items-center m-0"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
                 role="img"
-                aria-hidden="true"
-                class="Svg-sc-ytk21e-0 iYxpxA home-icon"
+                height="24"
+                width="24"
+                class="Svg-sc-1bi12j5-0 EQkJl home-icon"
                 viewBox="0 0 24 24"
               >
                 <path
-                  class="home-icon"
-                  d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
+                  fill="currentColor"
+                  d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z"
                 ></path>
               </svg>
-              <p class="fw-bold m-1">Home</p>
-            </a>
+              <p class="fw-bold m-1">Home</p></a
+            >
           </div>
-          <div class="search d-flex align-items-center" onclick="search()">
+          <div class="search d-flex align-items-center">
             <svg
               data-encore-id="icon"
               role="img"
@@ -90,24 +91,23 @@
       </div>
 
       <!-- MAIN -->
-      <div class="col main">
-        <div class="divImgArtist">
-          <div class="m-2 d-none d-lg-flex justify-content-between icons-bar">
-            <div class="icons-bar m-2">
-              <div class="d-flex">
-                <div class="arrow-left me-2">
-                  <span class="text-light" onclick="history.back()"
-                    ><i class="bi bi-chevron-left"></i
-                  ></span>
-                </div>
-
-                <div class="arrow-right me-2">
-                  <span class="text-light" onclick="history.forward()"
-                    ><i class="bi bi-chevron-right"></i
-                  ></span>
-                </div>
+      <div class="col main p-0">
+        <div class="divImgArtist header">
+          <div class="p-2 d-none d-lg-flex justify-content-between icons-bar">
+            <div class="d-flex nav-arrows">
+              <div class="arrow-left me-2">
+                <span class="text-light"
+                  ><i class="bi bi-chevron-left"></i
+                ></span>
+              </div>
+              <div class="arrow-right me-2">
+                <span class="text-light"
+                  ><i class="bi bi-chevron-right"></i
+                ></span>
               </div>
             </div>
+
+            <!-- INIZIO FORM -->
             <div class="formdiv hide">
               <form class="searchform">
                 <!-- <label for="input"></label><br /> -->
@@ -154,109 +154,100 @@
               <p class="coverFan"></p>
             </div>
           </div>
+          <!-- FINE IMG BACKGROUND -->
         </div>
-        <!-- FINE IMG BACKGROUND -->
-      </div>
 
-      <div class="container-md containerpagefirst">
-        <div class="row myrow p-0">
-          <!-- ICONE di PLAY, HEART, DOWNLOAD -->
-          <div class="col buttons-icons mt-3 mb-3 d-flex">
-            <button class="player-btn play-random" id="randomPlay">
-              <i
-                style="color: #1ed760"
-                class="bi bi-play-circle-fill fs-2 green-play"
-                id="playPauseGreen"
-              ></i>
-            </button>
-            <button class="player-btn my-0 mx-2">
-              <h6 class="text-white btn-follow px-3 py-1 m-0">FOLLOWING</h6>
-            </button>
-            <button class="player-btn">
-              <i class="bi bi-three-dots"></i>
-            </button>
-          </div>
+        <div class="container-md containerpagefirst">
+          <div class="row myrow p-0">
+            <!-- ICONE di PLAY, HEART, DOWNLOAD -->
+            <div class="col buttons-icons mt-3 mb-3 d-flex">
+              <button class="player-btn play-random" id="randomPlay">
+                <i
+                  style="color: #1ed760"
+                  class="bi bi-play-circle-fill fs-2 green-play"
+                  id="playPauseGreen"
+                ></i>
+              </button>
+              <button class="player-btn my-0 mx-2">
+                <h6 class="text-white btn-follow px-3 py-1 m-0">FOLLOWING</h6>
+              </button>
+              <button class="player-btn">
+                <i class="bi bi-three-dots"></i>
+              </button>
+            </div>
 
-          <div class="row table-titles">
-            <div class="row">
-              <div class="col-7 table-titles text-white fs-5 fw-bold">
-                <p>Popolari</p>
+            <div class="row table-titles">
+              <div class="row">
+                <div class="col-7 table-titles text-white fs-5 fw-bold">
+                  <p>Popolari</p>
+                </div>
+
+                <div class="col-3 text-white fs-5 fw-bold">
+                  <p>Brani che ti piacciono</p>
+                </div>
               </div>
-
-              <div class="col-3 text-white fs-5 fw-bold">
-                <p>Brani che ti piacciono</p>
+              <div class="row">
+                <div class="col-7 hide resultcard">
+                  <div class="divF rowcard"></div>
+                </div>
+                <!-- AGGIUNGI QUI L?IMMMAGININA TONDA  -->
+                <div class="col-3 divImgLike d-flex"></div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-7 hide resultcard">
-                <div class="divF rowcard"></div>
-              </div>
-              <!-- AGGIUNGI QUI L?IMMMAGININA TONDA  -->
-              <div class="col-3 divImgLike d-flex"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col hide resultcard">
-              <div class="divF rowcard"></div>
-            </div>
-            <div class="col"></div>
+            <!-- <hr /> -->
           </div>
         </div>
-        <!-- <hr /> -->
       </div>
-      <div class="hide resultcard">
-        <div class="row rowcard"></div>
-      </div>
-    </div>
-    <!-- FINE MAIN -->
+      <!-- FINE MAIN -->
 
-    <!--FRIENDS-->
-    <div class="col-auto friends-section sticky-top d-none d-lg-block">
-      <div class="friends-user d-flex justify-content-between mt-2">
-        <p class="fw-bold me-5">Attività amici</p>
-        <div class="friends-icons">
-          <p>
-            <i class="bi bi-person-add text-secondary me-1"></i>
-            <i class="bi bi-x-lg text-secondary me-2"></i>
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex friends-info">
-          <img
-            src="./assets/imgs/search/image-18.jpg"
-            alt="profile picture"
-            class="rounded-circle"
-          />
-          <div class="infos d-flex flex-column justify-content-center">
-            <h6 class="mb-1 ms-3">Friend Name</h6>
-            <p class="m-0 p-0 ms-3">Activities</p>
+      <!--FRIENDS-->
+      <div class="col-auto friends-section sticky-top d-none d-lg-block">
+        <div class="friends-user d-flex justify-content-between mt-2">
+          <p class="fw-bold me-5">Attività amici</p>
+          <div class="friends-icons">
+            <p>
+              <i class="bi bi-person-add text-secondary me-1"></i>
+              <i class="bi bi-x-lg text-secondary me-2"></i>
+            </p>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex friends-info">
-          <img
-            src="./assets/imgs/search/image-33.jpg"
-            alt="profile picture"
-            class="rounded-circle"
-          />
-          <div class="infos d-flex flex-column justify-content-center">
-            <h6 class="mb-1 ms-3">Friend Name</h6>
-            <p class="m-0 p-0 ms-3">Activities</p>
+        <div class="row">
+          <div class="col d-flex friends-info">
+            <img
+              src="./assets/imgs/search/image-18.jpg"
+              alt="profile picture"
+              class="rounded-circle"
+            />
+            <div class="infos d-flex flex-column justify-content-center">
+              <h6 class="mb-1 ms-3">Friend Name</h6>
+              <p class="m-0 p-0 ms-3">Activities</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex friends-info">
-          <img
-            src="./assets/imgs/search/image-27.jpg"
-            alt="profile picture"
-            class="rounded-circle"
-          />
-          <div class="infos d-flex flex-column justify-content-center">
-            <h6 class="mb-1 ms-3">Friend Name</h6>
-            <p class="m-0 p-0 ms-3">Activities</p>
+        <div class="row">
+          <div class="col d-flex friends-info">
+            <img
+              src="./assets/imgs/search/image-33.jpg"
+              alt="profile picture"
+              class="rounded-circle"
+            />
+            <div class="infos d-flex flex-column justify-content-center">
+              <h6 class="mb-1 ms-3">Friend Name</h6>
+              <p class="m-0 p-0 ms-3">Activities</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col d-flex friends-info">
+            <img
+              src="./assets/imgs/search/image-27.jpg"
+              alt="profile picture"
+              class="rounded-circle"
+            />
+            <div class="infos d-flex flex-column justify-content-center">
+              <h6 class="mb-1 ms-3">Friend Name</h6>
+              <p class="m-0 p-0 ms-3">Activities</p>
+            </div>
           </div>
         </div>
       </div>
