@@ -1,11 +1,13 @@
+const music = new Audio();
+
 window.onload = () => {
   //PLAYLIST-LIST
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=podcasts", {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +33,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -101,8 +103,8 @@ window.onload = () => {
           headers: {
             "X-RapidAPI-Key":
               "9f2e653d6emsh429ab7e0a4b2267p1e793fjsnef3468047633",
-            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-          },
+            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+          }
         }
       )
         .then((response) => response.json())
@@ -211,14 +213,14 @@ window.onload = () => {
                   headers: {
                     "X-RapidAPI-Key":
                       "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-                  },
+                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+                  }
                 }
               )
                 .then((response) => response.json())
                 .then((song) => {
                   console.log(song);
-                  const music = new Audio(start[i].preview);
+                  music.src = start[i].preview;
                   playPauseBtn.addEventListener("click", function () {
                     if (
                       icon.className === "bi-play-circle-fill text-white fs-3"
@@ -241,8 +243,8 @@ window.onload = () => {
         headers: {
           "X-RapidAPI-Key":
             "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-        },
+          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+        }
       })
         .then((response) => response.json())
         .then((playlist) => {
@@ -250,7 +252,7 @@ window.onload = () => {
           let isPlaying = false;
           const tracks = playlist.tracks.data;
           const randomIndex = Math.floor(Math.random() * tracks.length);
-          const music = new Audio(tracks[randomIndex].preview);
+          music.src = tracks[randomIndex].preview;
           const playPauseBtn = document.getElementById("playPauseBtn");
           const icon = document.getElementById("iconPlay");
           const playPauseGreen = document.getElementById("playPauseGreen");
