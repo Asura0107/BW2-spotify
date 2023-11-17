@@ -47,13 +47,50 @@ window.onload = () => {
 
       const h1 = document.querySelector(".covertitle");
       h1.innerText = playlist.name;
-      h1.className = "ms-2";
+      h1.className = "ms-3 font-h1 fw-bold";
       console.log(h1);
 
       const p = document.querySelector(".coverFan");
       p.innerText = playlist.nb_fan + " ascoltatori";
-      p.className = "ms-2";
+      p.className = "ms-3";
       console.log(p);
+
+      //  IMMAGININA ARTISTA E HAI MESSO MI PIACE
+      const divImgLike = document.querySelector(".divImgLike");
+
+      // immaginina tonda con cuore in basso a dx
+      const divRoundImg = document.createElement("div");
+      divRoundImg.classList.add("col-auto", "divSize", "position-div");
+
+      const imgRound = document.createElement("img");
+      imgRound.classList.add("rounded-circle", "me-3", "round-img-position");
+      imgRound.src = playlist.picture_small;
+
+      divRoundImg.appendChild(imgRound);
+
+      // cuore in basso a dx di img tonda
+      // const heartRound = document.createElement("span");
+      // heartRound.classList.add("position-heartRound");
+      // heartRound.innerHTML = `<i class="bi bi-chat-heart-fill"></i>`;
+      // heartRound.classList.add(
+      //   "text-success",
+      //   "positionHeart",
+      //   "heart-r-position"
+      // ); //crea classi position
+      // imgRound.appendChild(heartRound);
+
+      // testo "hai messo mi piace a artista"
+      const divTextArtist = document.createElement("div");
+      divTextArtist.classList.add("col-auto");
+      divTextArtist.innerHTML = `<div class="d-flex ">
+      <div class="d-flex flex-column ">
+      <a class="a-round">
+      <h6 class="my-1 text-white class-roud">Brani a cui hai messo Mi piace</h6>
+      <p class="text-grey">di ${playlist.name}</p></a>
+      </div>`;
+
+      divImgLike.appendChild(divRoundImg);
+      divImgLike.appendChild(divTextArtist);
 
       // const title = document.querySelector(".covertitle");
       // title.innerText = playlist.title;
@@ -75,16 +112,17 @@ window.onload = () => {
           console.log(playlist);
           const start = playlist.data;
           console.log(start);
+
           for (let i = 0; i < start.length; i++) {
             console.log(start);
 
+            // LISTA DI CANZONI
             // row della sezione playlist
             const divRow = document.createElement("div");
             divRow.classList.add(
               "row",
               "rowDiv",
               "d-flex",
-              "align-items-center",
               "track-div",
               "py-3"
             );
@@ -95,20 +133,25 @@ window.onload = () => {
             count.innerText = i + 1;
 
             //div immagine dell'album della canzone
+
             const divImgAlbum = document.createElement("div");
-            (divImgAlbum.className = "col-auto"), "divSize";
-            divImgAlbum.style.backgroundImage = `url("${start[i].album.cover_small}")`;
-            console.log(divImgAlbum);
+            divImgAlbum.classList.add("col-auto", "divSize");
+
+            const imgAlbum = document.createElement("img");
+            imgAlbum.classList.add("me-3");
+            imgAlbum.src = start[i].album.cover_small;
+
+            divImgAlbum.appendChild(imgAlbum);
 
             // titolo della canzone
             const title = document.createElement("div");
             title.classList.add("col-5", "title");
             title.innerHTML = `
-          <div class="d-flex">
+            <div class="d-flex">
             <div class="d-flex flex-column">
               <h6>${start[i].title_short}</h6>
             </div>
-          </div>`;
+            </div>`;
 
             // rank
             const rank = document.createElement("div");
@@ -141,14 +184,7 @@ window.onload = () => {
             divRow.appendChild(time);
             divF.appendChild(divRow);
 
-            // div.appendChild(count);
-            // div.appendChild(title);
-            // div.appendChild(rank);
-            // div.appendChild(time);
-
-            // container.appendChild(div);
-
-            //player
+            //PLAYER
 
             const playPauseBtn = document.getElementById("playPauseBtn");
             const icon = document.getElementById("iconPlay");
@@ -200,6 +236,7 @@ window.onload = () => {
             });
           }
         });
+
       //PLAY RANDOM SONG - VERDE
       fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
         method: "GET",
