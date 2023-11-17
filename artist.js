@@ -76,13 +76,13 @@ window.onload = () => {
           for (let i = 0; i < start.length; i++) {
             console.log(start);
 
+            // LISTA DI CANZONI
             // row della sezione playlist
             const divRow = document.createElement("div");
             divRow.classList.add(
               "row",
               "rowDiv",
               "d-flex",
-              "align-items-center",
               "track-div",
               "py-3"
             );
@@ -139,14 +139,23 @@ window.onload = () => {
             divRow.appendChild(time);
             divF.appendChild(divRow);
 
-            // div.appendChild(count);
-            // div.appendChild(title);
-            // div.appendChild(rank);
-            // div.appendChild(time);
+            //  IMMAGININA ARTISTA E HAI MESSO MI PIACE
+            const divImgLike = document.querySelector("divImgLike");
 
-            // container.appendChild(div);
+            // immaginina tonda con cuore in basso a dx
+            const divRoundImg = document.createElement("div");
+            divRoundImg.classList.add("col-auto");
+            divRoundImg.style.backgroundImage = `url("${start[i].album.cover_small}")`;
 
-            //player
+            // testo "hai messo mi piace a artista"
+            const divTextArtist = document.createElement("div");
+            divTextArtist.innerHTML = `<div class="d-flex">
+<div class="d-flex flex-column">
+  <h6>${start[i].title_short}</h6>
+</div>
+</div>`;
+
+            //PLAYER
 
             const playPauseBtn = document.getElementById("playPauseBtn");
             const icon = document.getElementById("iconPlay");

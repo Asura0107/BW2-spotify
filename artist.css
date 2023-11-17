@@ -80,6 +80,15 @@ svg {
   background: grey;
 }
 /*MAIN*/
+.btn-follow {
+  background-color: transparent;
+  border: solid 1px grey;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.btn-follow:hover {
+  border: solid 1px white;
+}
 
 .main {
   overflow-y: auto;
