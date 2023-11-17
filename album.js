@@ -1,5 +1,11 @@
 const music = new Audio();
+const unselectd = () => {
+  const titleselected = document.querySelector(".selected"); // torna il NODO dell'elemento con la classe, oppure null se non ne trova
 
+  if (titleselected) {
+    titleselected.classList.remove("selected"); // rimuovo la classe all'elemento trovato
+  }
+};
 window.onload = () => {
   //PLAYLIST-LIST
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=podcasts", {
@@ -80,11 +86,11 @@ window.onload = () => {
         div.classList.add("row", "align-items-center", "track-div");
 
         const count = document.createElement("div");
-        count.classList.add("col-auto", "count", "d-none", "d-lg-flex");
+        count.classList.add("col-1", "count", "d-none", "d-lg-flex", "pe-0");
         count.innerText = i + 1;
         const single = start[i];
         const title = document.createElement("div");
-        title.classList.add("col-7", "title", "mb-3", "ms-3");
+        title.classList.add("col-6", "title", "mb-3", "ps-lg-0");
         title.innerHTML = `
           <div class="d-flex">
             <div class="d-flex flex-column track-txt">
@@ -92,13 +98,20 @@ window.onload = () => {
               <p>${single.artist.name}</p>
             </div>
           </div>`;
+        const songtitle = single.title_short;
 
         const rank = document.createElement("div");
         rank.classList.add("col-3", "rank", "d-none", "d-lg-flex");
         rank.innerText = single.rank;
 
         const time = document.createElement("div");
-        time.classList.add("col-auto", "time", "d-none", "d-lg-flex");
+        time.classList.add(
+          "col-auto",
+          "time",
+          "d-none",
+          "d-lg-flex",
+          "justify-content-evenly"
+        );
         const minutes = Math.floor(single.duration / 60);
         const seconds = single.duration % 60;
         if (seconds < 9) {
@@ -120,16 +133,8 @@ window.onload = () => {
         const playerTitle = document.createElement("h6");
         const playerArtist = document.createElement("p");
         const trackTime = document.getElementById("trackTime");
-        const unselectd = () => {
-          const titleselected = document.querySelector(".selected"); // torna il NODO dell'elemento con la classe, oppure null se non ne trova
 
-          if (titleselected) {
-            titleselected.classList.remove("selected"); // rimuovo la classe all'elemento trovato
-          }
-        };
         title.addEventListener("click", function (e) {
-          unselectd();
-          e.currentTarget.classList.add("selected");
           playerText.innerHTML = "";
           const img = document.querySelector(".player-img");
           img.src = single.album.cover_medium;
@@ -140,6 +145,11 @@ window.onload = () => {
           playerTitle.className = "text-white pt-2 track-txt";
           playerText.appendChild(playerTitle);
           playerText.appendChild(playerArtist);
+          unselectd();
+
+          if (playerTitle.innerText === songtitle) {
+            title.classList.add("selected");
+          }
           trackTime.innerText = `${minutes}:${seconds}`;
           fetch("https://deezerdevs-deezer.p.rapidapi.com/track/" + single.id, {
             method: "GET",
