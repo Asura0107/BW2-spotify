@@ -137,6 +137,9 @@ svg {
 .svg-greetings{
   font-size: 1.5em;
 }
+.row-card{
+  margin-bottom: 100px;
+}
 @media screen and (max-width: 992px) {
   .playlist-container {
     background-color: #131313;
@@ -275,6 +278,9 @@ a {
     width: 95%;
     margin-inline: auto;
     border-radius: 10px;
+  }
+  #bottomPlayer{
+    background-color: #313030;
   }
   .img-container {
     width: 80px;
