@@ -45,12 +45,12 @@ window.onload = () => {
 
       const h1 = document.querySelector(".covertitle");
       h1.innerText = playlist.name;
-      h1.className = "ms-2";
+      h1.className = "ms-3 font-h1 fw-bold";
       console.log(h1);
 
       const p = document.querySelector(".coverFan");
       p.innerText = playlist.nb_fan + " ascoltatori";
-      p.className = "ms-2";
+      p.className = "ms-3";
       console.log(p);
 
       //  IMMAGININA ARTISTA E HAI MESSO MI PIACE
@@ -58,22 +58,34 @@ window.onload = () => {
 
       // immaginina tonda con cuore in basso a dx
       const divRoundImg = document.createElement("div");
-      divRoundImg.classList.add("col-auto", "divSize");
+      divRoundImg.classList.add("col-auto", "divSize", "position-div");
 
       const imgRound = document.createElement("img");
-      imgRound.classList.add("rounded-circle", "me-3");
+      imgRound.classList.add("rounded-circle", "me-3", "round-img-position");
       imgRound.src = playlist.picture_small;
 
       divRoundImg.appendChild(imgRound);
+
+      // cuore in basso a dx di img tonda
+      // const heartRound = document.createElement("span");
+      // heartRound.classList.add("position-heartRound");
+      // heartRound.innerHTML = `<i class="bi bi-chat-heart-fill"></i>`;
+      // heartRound.classList.add(
+      //   "text-success",
+      //   "positionHeart",
+      //   "heart-r-position"
+      // ); //crea classi position
+      // imgRound.appendChild(heartRound);
 
       // testo "hai messo mi piace a artista"
       const divTextArtist = document.createElement("div");
       divTextArtist.classList.add("col-auto");
       divTextArtist.innerHTML = `<div class="d-flex ">
-<div class="d-flex flex-column ">
-<h6 class="my-1 text-white">Brani a cui hai messo mi piace</h6>
-<p>di ${playlist.name}</p>
-</div>`;
+      <div class="d-flex flex-column ">
+      <a class="a-round">
+      <h6 class="my-1 text-white class-roud">Brani a cui hai messo Mi piace</h6>
+      <p class="text-grey">di ${playlist.name}</p></a>
+      </div>`;
 
       divImgLike.appendChild(divRoundImg);
       divImgLike.appendChild(divTextArtist);
@@ -119,10 +131,15 @@ window.onload = () => {
             count.innerText = i + 1;
 
             //div immagine dell'album della canzone
+
             const divImgAlbum = document.createElement("div");
             divImgAlbum.classList.add("col-auto", "divSize");
-            divImgAlbum.style.backgroundImage = `url("${start[i].album.cover_small}")`;
-            console.log(divImgAlbum);
+
+            const imgAlbum = document.createElement("img");
+            imgAlbum.classList.add("me-3");
+            imgAlbum.src = start[i].album.cover_small;
+
+            divImgAlbum.appendChild(imgAlbum);
 
             // titolo della canzone
             const title = document.createElement("div");
