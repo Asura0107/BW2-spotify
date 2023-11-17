@@ -240,6 +240,10 @@ svg {
   font-size: 11px;
   color: #bebcbc;
 }
+.player-time{
+  font-size: 11px;
+  color: #bebcbc;
+}
 .player-bar {
   width: 100%;
   max-width: 600px;

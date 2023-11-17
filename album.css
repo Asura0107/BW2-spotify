@@ -33,6 +33,11 @@ svg {
   height: 1em;
   fill: currentColor;
 }
+
+.player-time{
+  font-size: 11px;
+  color: #bebcbc;
+}
 .playlist-list {
   height: 350px;
   overflow: auto;
