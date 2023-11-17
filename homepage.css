@@ -85,6 +85,12 @@ svg {
   background: linear-gradient(17deg, #000000 30%, #54505000 72%);
   position: relative;
 }
+.img-album-container{
+  max-width: 230px;
+}
+.img-album-container img{
+  width: 100%;
+}
 .hide-btn {
   font-size: 0.6em;
   opacity: 0.6;
@@ -127,6 +133,9 @@ svg {
   border-radius: 3px;
   background-color: #2a2a2a;
   width: 32%;
+}
+.svg-greetings{
+  font-size: 1.5em;
 }
 @media screen and (max-width: 992px) {
   .playlist-container {
