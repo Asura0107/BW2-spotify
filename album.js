@@ -1,4 +1,18 @@
 const music = new Audio();
+const backBtnskill = function () {
+  const backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", () => {
+    music.currentTime -= 2;
+    console.log(music.currentTime);
+  });
+};
+const skipBtnskill = function () {
+  const skipBtn = document.getElementById("skipBtn");
+  skipBtn.addEventListener("click", () => {
+    music.currentTime += 2;
+    console.log(music.currentTime);
+  });
+};
 const unselectd = () => {
   const titleselected = document.querySelector(".selected"); // torna il NODO dell'elemento con la classe, oppure null se non ne trova
 
@@ -168,6 +182,8 @@ window.onload = () => {
             .then((song) => {
               console.log(song);
               music.src = single.preview;
+              backBtnskill();
+              skipBtnskill();
               // let titleh6 = document.getElementById(`${single.title_short}`);
               playPauseBtn.addEventListener("click", function () {
                 if (icon.className === "bi-play-circle-fill text-white fs-3") {
@@ -212,6 +228,8 @@ window.onload = () => {
           icon.className = "bi-pause-circle-fill text-white fs-3";
           playPauseGreen.className = "bi bi-pause-circle-fill fs-2 green-play";
           music.src = tracks[randomIndex].preview;
+          backBtnskill();
+          skipBtnskill();
           music.play();
           isPlaying = true;
           //Player
@@ -378,6 +396,8 @@ searchform.addEventListener("submit", (event) => {
         title.addEventListener("click", function () {
           playerText.innerHTML = "";
           music.src = song.preview;
+          backBtnskill();
+          skipBtnskill();
           // const music2 = new Audio(song.preview);
 
           // clearPreviousTrackInfo();

@@ -1,4 +1,18 @@
 const music = new Audio();
+const backBtnskill = function () {
+  const backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", () => {
+    music.currentTime -= 2;
+    console.log(music.currentTime);
+  });
+};
+const skipBtnskill = function () {
+  const skipBtn = document.getElementById("skipBtn");
+  skipBtn.addEventListener("click", () => {
+    music.currentTime += 2;
+    console.log(music.currentTime);
+  });
+};
 const unselectd = () => {
   const titleselected = document.querySelector(".selected"); // torna il NODO dell'elemento con la classe, oppure null se non ne trova
 
@@ -12,8 +26,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((data) => {
@@ -37,8 +51,8 @@ window.onload = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((playlist) => {
@@ -142,8 +156,8 @@ window.onload = () => {
           headers: {
             "X-RapidAPI-Key":
               "9f2e653d6emsh429ab7e0a4b2267p1e793fjsnef3468047633",
-            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-          },
+            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+          }
         }
       )
         .then((response) => response.json())
@@ -261,14 +275,16 @@ window.onload = () => {
                   headers: {
                     "X-RapidAPI-Key":
                       "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-                  },
+                    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+                  }
                 }
               )
                 .then((response) => response.json())
                 .then((song) => {
                   console.log(song);
                   music.src = start[i].preview;
+                  backBtnskill();
+                  skipBtnskill();
                   playPauseBtn.addEventListener("click", function () {
                     if (
                       icon.className === "bi-play-circle-fill text-white fs-3"
@@ -293,8 +309,8 @@ window.onload = () => {
           headers: {
             "X-RapidAPI-Key":
               "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-          },
+            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+          }
         }
       )
         .then((response) => response.json())
@@ -304,6 +320,8 @@ window.onload = () => {
           const tracks = playlist.data;
           const randomIndex = Math.floor(Math.random() * tracks.length);
           music.src = tracks[randomIndex].preview;
+          backBtnskill();
+          skipBtnskill();
           const playPauseBtn = document.getElementById("playPauseBtn");
           const icon = document.getElementById("iconPlay");
           const playPauseGreen = document.getElementById("playPauseGreen");
@@ -436,8 +454,8 @@ searchform.addEventListener("submit", (event) => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "896303ca42msh72d44ba7c276bc9p18b3ebjsna034926b180e",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
   })
     .then((response) => response.json())
     .then((play) => {
@@ -489,6 +507,8 @@ searchform.addEventListener("submit", (event) => {
         title.addEventListener("click", function () {
           playerText.innerHTML = "";
           music.src = song.preview;
+          backBtnskill();
+          skipBtnskill();
           // const music2 = new Audio(song.preview);
 
           // clearPreviousTrackInfo();
